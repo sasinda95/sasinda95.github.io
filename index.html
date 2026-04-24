@@ -6,37 +6,6 @@
 <title>Sasinda C. Prabhashana | PhD Researcher</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!--
-=======================================================
-  SASINDA C. PRABHASHANA — PERSONAL ACADEMIC WEBSITE
-  -------------------------------------------------------
-  HOW TO EDIT THIS SITE
-  -------------------------------------------------------
-
-  This file is organised into clearly labelled DATA SECTIONS
-  at the top of the <script> block (search for "YOUR DATA BELOW").
-  Edit the JavaScript objects/arrays there — the page builds itself.
-
-  SECTIONS YOU CAN EDIT:
-  1. PROFILE        — name, title, bio, photo URL, contact links
-  2. SOCIAL_LINKS   — LinkedIn, ORCID, Google Scholar, ResearchGate, GitHub
-  3. EDUCATION      — degrees (newest first)
-  4. NEWS           — recent news items (newest first)
-  5. EXPERIENCE     — work/research history (newest first)
-  6. PUBLICATIONS   — journals, conferences, patents (newest first per type)
-  7. AWARDS         — honours and prizes (newest first)
-  8. PROFESSIONAL   — reviewer roles, affiliations, certifications, talks, volunteering
-
-  DATE ORDER: Always put the NEWEST entry FIRST in every array.
-  The site will display them top-to-bottom (newest → oldest).
-
-  TO ADD A PHOTO: Replace PROFILE.photo with your image URL or
-  a local path e.g. "photo.jpg" if hosted in the same folder.
-
-  TO SHOW/HIDE PUBLICATIONS TAB: set SETTINGS.showPublications to true or false.
-=======================================================
--->
-
 <style>
   :root {
     --navy: #0a1628;
@@ -312,7 +281,7 @@
 
 <script>
 /* ============================================================
-   ✏️  YOUR DATA BELOW — EDIT FREELY
+   YOUR DATA BELOW -- EDIT FREELY
    Newest entries go FIRST in every array.
    ============================================================ */
 
@@ -329,9 +298,9 @@ const PROFILE = {
   greeting_en: "// Hello, World!",
   greeting_fr: "// Bonjour, le monde !",
   bio: [
-    `I'm a <strong>PhD student</strong> at Memorial University of Newfoundland, Canada, working at the intersection of <strong>Quantum Computing, Artificial Intelligence, and Next-Generation Communication Systems</strong>. I come from the beautiful island of <strong>Sri Lanka</strong> — a place of warmth, resilience, and remarkable people - and I carry that spirit into everything I do. I graduated as the <strong>Field Top and Gold Medalist</strong> in Electrical &amp; Electronic Engineering, and I've been chasing hard problems ever since.`,
+    `I'm a <strong>PhD student</strong> at Memorial University of Newfoundland, Canada, working at the intersection of <strong>Quantum Computing, Artificial Intelligence, and Next-Generation Communication Systems</strong>. I come from the beautiful island of <strong>Sri Lanka</strong> — a place of warmth, resilience, and remarkable people — and I carry that spirit into everything I do. I graduated as the <strong>Field Top and Gold Medalist</strong> in Electrical &amp; Electronic Engineering, and I've been chasing hard problems ever since.`,
     `Currently under the prestigious <strong>Canada Excellence Research Chair (CERC) Next Generation Communication Technologies Program</strong>, led and supervised by <strong>Prof. Trung Q. Duong</strong>, my research explores how quantum algorithms and AI/ML models can revolutionize <strong>6G networks, satellite-terrestrial integration, and intelligent resource management</strong>. I'm particularly fascinated by the idea that quantum-enhanced learning could redefine the limits of wireless communication.`,
-    `Beyond research, I've taught at universities in Sri Lanka and worked in industry - experiences that shaped how I think about <strong>real-world impact, cross-disciplinary curiosity, and the power of genuine collaboration</strong>.`
+    `Beyond research, I've taught at universities in Sri Lanka and worked in industry — experiences that shaped how I think about <strong>real-world impact, cross-disciplinary curiosity, and the power of genuine collaboration</strong>.`
   ],
   bio_quote: `"Great things are not done by impulse, but by a series of small things brought together." — Vincent van Gogh`,
   research_tags: ["Quantum Machine Learning","6G Networks","Deep Reinforcement Learning","Digital Twin","Satellite Communications","UAV Networks","Agentic AI","Non-Terrestrial Networks"],
@@ -350,13 +319,13 @@ const SOCIAL_LINKS = [
   { label:"GitHub",         url:"https://github.com/sasindaprabhashana",                   icon:"gh" }
 ];
 
-/* ── EDUCATION  (newest first) ─────────────────────────── */
+/* -- EDUCATION  (newest first) -- */
 const EDUCATION = [
   {
     degree: "PhD in Electrical Engineering",
     school: "Memorial University of Newfoundland, Canada",
     period: "Jan. 2024 – Present",
-    details: ["Fast-tracked from the MEng program to the PhD program.", "Under CERC-NGCT Program"],
+    details: ["Transferred from MEng program", "Canada Excellence Research Chair (CERC) Program", "Research: Quantum AI for Next-Gen Communications"],
     badge: null
   },
   {
@@ -375,13 +344,17 @@ const EDUCATION = [
   }
 ];
 
-/* ── NEWS  (newest first) ──────────────────────────────── */
+/* -- NEWS  (newest first) -- */
 const NEWS = [
   { date:"2026",    gold:true,  text:"<strong>1st Place</strong> — Canadian Medical Datathon 2026. Local winner for Newfoundland & Labrador." },
   { date:"2025",    gold:true,  text:"<strong>Presidential Award for Inventions</strong> — Awarded by the President of Sri Lanka." },
+  { date:"2025",    gold:false, text:"<strong>Best Paper Award</strong> — IEEE ICC Workshop on Digital Twin Networks, Montreal, Canada." },
+  { date:"2025",    gold:false, text:"<strong>IEEE NL Graduate Scholarship</strong> — Best graduate student at MUN per year." },
+  { date:"Dec 2025",gold:false, text:"Conference paper at <strong>IEEE GLOBECOM 2025</strong>, Taipei, Taiwan." },
+  { date:"Oct 2025",gold:false, text:"Talk at 20th <strong>RIA/URSI Research Colloquium</strong>, Dublin, Ireland." }
 ];
 
-/* ── EXPERIENCE  (newest first) ────────────────────────── */
+/* -- EXPERIENCE  (newest first) -- */
 const EXPERIENCE = {
   academic: [
     {
@@ -443,11 +416,37 @@ const EXPERIENCE = {
   ]
 };
 
-/* ── PUBLICATIONS  (newest first within each type) ─────── */
+/* -- PUBLICATIONS  (newest first within each type) -- */
 const PUBLICATIONS = {
+  journals: [
+    { num:11, title:"Digital Twin-Driven Token-Based Satellite Edge Computing in 6G ISTNs: A Quantum DRL with Agentic AI Approach", authors:"Sasinda C. Prabhashana, Chao-Kai Wen, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
+    { num:10, title:"Collective Quantum-Enabled Learning for Heterogeneous Future Communications and Networking: Learning Models and Pipelines", authors:"Bhaskara Narottama, Sasinda C. Prabhashana, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Open Journal of the Communication Society", status:"submitted" },
+    { num:9,  title:"LLM-aided Covert Communication in ISAC", authors:"Quang Nhat Le, Sasinda C. Prabhashana, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
+    { num:8,  title:"Agentic AI and LLM-aided Quantum MADRL for Pinching-Antenna-assisted V2X Networks", authors:"Yuxiang Zheng, Sasinda C. Prabhashana, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
+    { num:7,  title:"Quantum-Enhanced Agentic AI for Distributed Resource Management in 6G Low-Altitude Wireless Networks", authors:"Sasinda C. Prabhashana, Dac-Binh Ha, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Communications Magazine", status:"submitted" },
+    { num:6,  title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", authors:"Sasinda C. Prabhashana, Berk Canberk, Hans-Jurgen Zepernick, Dac-Binh Ha, Simon L. Cotton, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Transactions on Vehicular Technology", status:"submitted" },
+    { num:5,  title:"Quantum Deep Reinforcement Learning for Direct Handset-to-Satellite Access in 6G Non-Terrestrial Networks with LEO Stations", authors:"Sasinda C. Prabhashana, Berk Canberk, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Vehicular Technology Magazine", status:"submitted" },
+    { num:4,  title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Minh-Hien T. Nguyen, Vishal Sharma, Thang X. Vu, Berk Canberk, Hyundong Shin, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
+    { num:3,  title:"Quantum Deep Reinforcement Learning for URLLC Satellite-Air-Ground Integrated Networks with Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Haejoon Jung, Berk Canberk, Simon L. Cotton, Trung Q. Duong", venue:"IEEE Internet of Things Journal", status:"accepted" },
+    { num:2,  title:"Machine Learning-based Resource Allocation in 6G Integrated Space and Terrestrial Networks-aided Intelligent Autonomous Transportation", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Transactions on Intelligent Transportation Systems", status:"accepted" },
+    { num:1,  title:"A New Generation of Fast and Low-Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, Sasinda C. Prabhashana, S. P. P. Medaranga, P. R. P. Hoole, X. Fernando", venue:"Electronics, vol. 12, no. 7, p. 1733, Apr. 2023", status:"" }
+  ],
+  conferences: [
+    { num:6, title:"Multimodal LLM Inference in DT–Enabled 6G ISTNs: A Quantum Deep Reinforcement Learning Approach", authors:"Sasinda C. Prabhashana, Trung Q. Duong", venue:"Global Information and Telecommunication Workshop, Tokyo, Japan, Dec. 2025", status:"" },
+    { num:5, title:"Quantum Learning Framework for Digital Twin Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", authors:"Sasinda C. Prabhashana, Trung Q. Duong", venue:"20th RIA/URSI Research Colloquium, Dublin, Ireland, Oct. 2025", status:"" },
+    { num:4, title:"Quantum DRL for Green UAV Positioning in 6G-Enabled SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE GLOBECOM 2025, Taipei, Taiwan, Dec. 2025", status:"" },
+    { num:3, title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Trung Q. Duong", venue:"IEEE ICC 2025 Workshops, Montreal, Canada, June 2025", status:"best" },
+    { num:2, title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE ICC 2025, Montreal, Canada, June 2025", status:"" },
+    { num:1, title:"A Comparison of Electromagnetic Radiation from Commonly Used Communication Devices in an Indoor Environment", authors:"Darukeesan Pakiyarajah, Sasinda C. Prabhashana, Thiruvaran Tharmarajah", venue:"Technological Advances in Science, Medicine and Engineering Conference, Toronto, Canada", status:"" }
+  ],
+  patents: [
+    { num:3, title:"System and Method for Automobile Emission Measurement", authors:"W. H. S. C. Prabhashana, S. M. U. Meegaswatta, M. K. Ahilan, R. Valluvan", venue:"WIPO PCT WO 2022/185119 A1 — Sept. 2022 · First International Patent in University of Jaffna history", status:"" },
+    { num:2, title:"IoT-Based Portable Emission Measurement System", authors:"W. H. S. C. Prabhashana, S. M. U. Meegaswatta, M. K. Ahilan, R. Valluvan", venue:"NIPO LK21650", status:"" },
+    { num:1, title:"New Generation of Fast and Low Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, W. H. S. C. Prabhashana, N. Ajithkumar, P. R. P. Hoole", venue:"Patent Pending", status:"" }
+  ]
+};
 
-
-/* ── AWARDS  (newest first) ────────────────────────────── */
+/* -- AWARDS  (newest first) -- */
 const AWARDS = [
   { year:"2026", icon:"🏆", title:"Winner — Canadian Medical Datathon 2026", org:"1st Place · Newfoundland & Labrador Local Winner", desc:"Top performance in national medical datathon representing Newfoundland and Labrador." },
   { year:"2025", icon:"🥇", title:"Presidential Award for Inventions (Years 2021 & 2022)", org:"Office of the President of Sri Lanka", desc:"Awarded for outstanding inventions and innovations." },
@@ -467,7 +466,7 @@ const AWARDS = [
   { year:"2011", icon:"🧪", title:"Australian National Chemistry Exam — Distinction Pass", org:"Royal Australian Chemical Institute", desc:"Distinction pass in the national chemistry examination." }
 ];
 
-/* ── PROFESSIONAL ACTIVITIES ───────────────────────────── */
+/* -- PROFESSIONAL ACTIVITIES -- */
 const PROFESSIONAL = {
   journal_reviewer: [
     { name:"IEEE Transactions on Mobile Computing (TMC)", year:"2026" },
@@ -530,8 +529,8 @@ const PROFESSIONAL = {
 };
 
 /* ============================================================
-   END OF YOUR DATA — DO NOT EDIT BELOW THIS LINE UNLESS YOU
-   KNOW WHAT YOU ARE DOING.
+   END OF YOUR DATA.
+   Do not edit below this line unless you know what you are doing.
    ============================================================ */
 
 // Social icon SVGs
@@ -544,7 +543,7 @@ const SOCIAL_ICONS = {
   web: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
 };
 
-/* ─── BUILD NAV ─── */
+/* -- BUILD NAV -- */
 function buildNav() {
   const tabs = [
     { id:"about",        label:"About Me" },
@@ -574,7 +573,7 @@ function showPage(id, tab) {
   if (tab) tab.classList.add("active");
 }
 
-/* ─── ABOUT PAGE ─── */
+/* -- ABOUT PAGE -- */
 function buildAbout() {
   const greetingLine = `<div class="intro-greeting">${PROFILE.greeting_en} &nbsp;·&nbsp; ${PROFILE.greeting_fr}</div>`;
   const bioHtml = PROFILE.bio.map(p => `<p class="intro-bio">${p}</p>`).join("");
@@ -647,7 +646,7 @@ function buildAbout() {
   </div>`;
 }
 
-/* ─── EXPERIENCE PAGE ─── */
+/* -- EXPERIENCE PAGE -- */
 function buildExperience() {
   const makeTimeline = (items, dotClass) => items.map(e => `
     <div class="timeline-item">
@@ -672,7 +671,7 @@ function buildExperience() {
   </div>`;
 }
 
-/* ─── PUBLICATIONS PAGE ─── */
+/* -- PUBLICATIONS PAGE -- */
 function buildPublications() {
   const totalJ = PUBLICATIONS.journals.length;
   const totalC = PUBLICATIONS.conferences.length;
@@ -724,7 +723,7 @@ function buildPublications() {
   </div>`;
 }
 
-/* ─── AWARDS PAGE ─── */
+/* -- AWARDS PAGE -- */
 function buildAwards() {
   const cards = AWARDS.map(a => `
     <div class="award-card">
@@ -742,7 +741,7 @@ function buildAwards() {
   </div>`;
 }
 
-/* ─── PROFESSIONAL PAGE ─── */
+/* -- PROFESSIONAL PAGE -- */
 function buildProfessional() {
   const makeList = (items) => items.map(i=>`
     <div class="pro-item"><div class="pro-item-name">${i.name}</div><div class="pro-item-year">${i.year}</div></div>`).join("");
@@ -784,7 +783,7 @@ function buildProfessional() {
   </div>`;
 }
 
-/* ─── TALKS PAGE ─── */
+/* -- TALKS PAGE -- */
 function buildTalks() {
   const talks = PROFESSIONAL.talks.map((t,i) => `
     <div class="talk-card-full">
@@ -803,7 +802,7 @@ function buildTalks() {
   </div>`;
 }
 
-/* ─── CV PAGE ─── */
+/* -- CV PAGE -- */
 function buildCV() {
   const refCards = PROFESSIONAL.references.map(r => `
     <div class="ref-card">
@@ -844,15 +843,21 @@ function buildCV() {
   </div>`;
 }
 
-/* ─── INIT ─── */
-buildNav();
-buildAbout();
-buildExperience();
-buildPublications();
-buildAwards();
-buildProfessional();
-buildTalks();
-buildCV();
+/* -- INIT -- */
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    buildNav();
+    buildAbout();
+    buildExperience();
+    buildPublications();
+    buildAwards();
+    buildProfessional();
+    buildTalks();
+    buildCV();
+  } catch(e) {
+    document.body.innerHTML += '<div style="color:red;padding:2rem;font-family:monospace;">JS Error: ' + e.message + '<br>' + e.stack + '</div>';
+  }
+});
 </script>
 </body>
 </html>
