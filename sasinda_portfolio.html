@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sasinda C. Prabhashana | PhD Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!--
+=======================================================
+  SASINDA C. PRABHASHANA — PERSONAL ACADEMIC WEBSITE
+  -------------------------------------------------------
+  HOW TO EDIT THIS SITE
+  -------------------------------------------------------
+
+  This file is organised into clearly labelled DATA SECTIONS
+  at the top of the <script> block (search for "YOUR DATA BELOW").
+  Edit the JavaScript objects/arrays there — the page builds itself.
+
+  SECTIONS YOU CAN EDIT:
+  1. PROFILE        — name, title, bio, photo URL, contact links
+  2. SOCIAL_LINKS   — LinkedIn, ORCID, Google Scholar, ResearchGate, GitHub
+  3. EDUCATION      — degrees (newest first)
+  4. NEWS           — recent news items (newest first)
+  5. EXPERIENCE     — work/research history (newest first)
+  6. PUBLICATIONS   — journals, conferences, patents (newest first per type)
+  7. AWARDS         — honours and prizes (newest first)
+  8. PROFESSIONAL   — reviewer roles, affiliations, certifications, talks, volunteering
+
+  DATE ORDER: Always put the NEWEST entry FIRST in every array.
+  The site will display them top-to-bottom (newest → oldest).
+
+  TO ADD A PHOTO: Replace PROFILE.photo with your image URL or
+  a local path e.g. "photo.jpg" if hosted in the same folder.
+
+  TO SHOW/HIDE PUBLICATIONS TAB: set SETTINGS.showPublications to true or false.
+=======================================================
+-->
+
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3058;
+    --teal: #00b4d8;
+    --teal-light: #48cae4;
+    --gold: #f4a732;
+    --gold-light: #ffd166;
+    --text-main: #e8eaf0;
+    --text-muted: #8b9ab5;
+    --text-soft: #c5cedd;
+    --border: rgba(0,180,216,0.15);
+    --card: rgba(17,34,64,0.7);
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--text-main); min-height:100vh; overflow-x:hidden; }
+  body::before {
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,180,216,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(244,167,50,0.05) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%2300b4d8' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* NAV */
+  nav { position:sticky; top:0; z-index:100; background:rgba(10,22,40,0.93); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 2rem; }
+  .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; }
+  .nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--teal); padding:1rem 1.5rem 1rem 0; white-space:nowrap; border-right:1px solid var(--border); margin-right:1rem; flex-shrink:0; }
+  .nav-tabs { display:flex; list-style:none; }
+  .nav-tab { padding:1rem 1.1rem; cursor:pointer; font-size:0.82rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid transparent; transition:all 0.25s; white-space:nowrap; flex-shrink:0; }
+  .nav-tab:hover { color:var(--teal-light); }
+  .nav-tab.active { color:var(--teal); border-bottom-color:var(--teal); background:rgba(0,180,216,0.05); }
+
+  /* PAGES */
+  .page { display:none; position:relative; z-index:1; }
+  .page.active { display:block; animation:fadeUp 0.4s ease; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .container { max-width:1200px; margin:0 auto; padding:3rem 2rem; }
+
+  /* ABOUT */
+  .about-hero { display:grid; grid-template-columns:280px 1fr; gap:3rem; margin-bottom:3.5rem; align-items:start; }
+  .photo-col { display:flex; flex-direction:column; align-items:center; gap:1.2rem; }
+  .photo-frame { position:relative; width:220px; height:220px; border-radius:50%; background:linear-gradient(135deg,var(--teal),var(--gold)); padding:3px; flex-shrink:0; }
+  .photo-inner { width:100%; height:100%; border-radius:50%; background:var(--navy-mid); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .photo-inner img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+  .photo-placeholder { font-size:5rem; opacity:0.3; }
+
+  .contact-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; width:100%; backdrop-filter:blur(10px); }
+  .contact-card h4 { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:0.9rem; font-weight:600; }
+  .contact-item { display:flex; align-items:flex-start; gap:0.6rem; margin-bottom:0.7rem; font-size:0.8rem; color:var(--text-soft); }
+  .contact-item:last-child { margin-bottom:0; }
+  .contact-icon { width:16px; text-align:center; color:var(--teal); flex-shrink:0; margin-top:1px; }
+  .contact-item a { color:var(--teal-light); text-decoration:none; }
+  .contact-item a:hover { color:var(--gold); }
+
+  .social-links { width:100%; }
+  .social-links h4 { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:0.75rem; font-weight:600; }
+  .social-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; }
+  .social-btn { display:flex; align-items:center; gap:0.45rem; padding:0.45rem 0.7rem; border-radius:7px; background:rgba(0,180,216,0.07); border:1px solid var(--border); color:var(--text-soft); text-decoration:none; font-size:0.75rem; font-weight:500; transition:all 0.2s; }
+  .social-btn:hover { background:rgba(0,180,216,0.15); border-color:var(--teal); color:var(--teal-light); }
+  .social-btn svg { flex-shrink:0; }
+
+  .lab-badge { background:linear-gradient(135deg,rgba(0,180,216,0.15),rgba(244,167,50,0.08)); border:1px solid rgba(0,180,216,0.3); border-radius:8px; padding:0.8rem 1rem; text-align:center; width:100%; }
+  .lab-badge .lab-name { font-size:0.78rem; font-weight:600; color:var(--gold); line-height:1.4; }
+  .lab-badge .lab-sub { font-size:0.7rem; color:var(--text-muted); margin-top:0.2rem; }
+
+  .intro-greeting { font-family:'DM Mono',monospace; font-size:0.85rem; color:var(--teal); letter-spacing:0.05em; margin-bottom:0.5rem; opacity:0.8; }
+  .intro-name { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; line-height:1.1; margin-bottom:0.5rem; background:linear-gradient(135deg,#fff 30%,var(--teal-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .intro-title { font-size:1rem; color:var(--gold); font-weight:500; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; }
+  .intro-title::before { content:''; width:30px; height:2px; background:var(--gold); }
+  .intro-bio { font-size:1rem; line-height:1.8; color:var(--text-soft); margin-bottom:1.2rem; }
+  .intro-bio strong { color:var(--text-main); font-weight:600; }
+  .research-tags { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1.5rem; }
+  .tag { background:rgba(0,180,216,0.1); border:1px solid rgba(0,180,216,0.25); color:var(--teal-light); padding:0.35rem 0.85rem; border-radius:100px; font-size:0.78rem; font-weight:500; transition:all 0.2s; }
+  .tag:hover { background:rgba(0,180,216,0.2); border-color:var(--teal); }
+  .stat-row { display:flex; gap:2rem; flex-wrap:wrap; }
+  .stat-item { text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--teal); line-height:1; }
+  .stat-label { font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.25rem; }
+
+  /* SECTION TITLE */
+  .section-title { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:600; color:var(--text-main); margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
+  .section-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
+
+  /* EDUCATION */
+  .edu-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; margin-bottom:3rem; }
+  .edu-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; backdrop-filter:blur(10px); position:relative; overflow:hidden; transition:border-color 0.3s,transform 0.3s; }
+  .edu-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,var(--teal),var(--gold)); }
+  .edu-card:hover { border-color:rgba(0,180,216,0.35); transform:translateY(-2px); }
+  .edu-degree { font-weight:600; font-size:0.95rem; margin-bottom:0.3rem; }
+  .edu-school { color:var(--teal); font-size:0.85rem; margin-bottom:0.25rem; font-weight:500; }
+  .edu-period { font-size:0.75rem; color:var(--text-muted); font-family:'DM Mono',monospace; margin-bottom:0.75rem; }
+  .edu-detail { font-size:0.8rem; color:var(--text-soft); line-height:1.5; }
+  .badge-gold { display:inline-block; background:rgba(244,167,50,0.15); border:1px solid rgba(244,167,50,0.3); color:var(--gold); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.72rem; font-weight:600; margin-top:0.4rem; }
+
+  /* NEWS */
+  .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
+  .news-item { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; display:flex; gap:1rem; align-items:flex-start; transition:border-color 0.3s; }
+  .news-item:hover { border-color:rgba(0,180,216,0.35); }
+  .news-dot { width:10px; height:10px; border-radius:50%; background:var(--teal); margin-top:5px; flex-shrink:0; box-shadow:0 0 8px var(--teal); }
+  .news-dot.gold { background:var(--gold); box-shadow:0 0 8px var(--gold); }
+  .news-date { font-size:0.72rem; color:var(--text-muted); font-family:'DM Mono',monospace; margin-bottom:0.25rem; }
+  .news-text { font-size:0.85rem; color:var(--text-soft); line-height:1.5; }
+
+  /* TIMELINE */
+  .timeline { position:relative; padding-left:2rem; }
+  .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:2px; background:linear-gradient(180deg,var(--teal),var(--gold),rgba(0,180,216,0.1)); }
+  .timeline-item { position:relative; margin-bottom:2.5rem; }
+  .timeline-dot { position:absolute; left:-2.4rem; top:6px; width:12px; height:12px; border-radius:50%; background:var(--teal); border:2px solid var(--navy); box-shadow:0 0 10px rgba(0,180,216,0.5); }
+  .timeline-dot.gold { background:var(--gold); box-shadow:0 0 10px rgba(244,167,50,0.5); }
+  .timeline-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem 1.8rem; backdrop-filter:blur(10px); transition:border-color 0.3s,transform 0.3s; }
+  .timeline-card:hover { border-color:rgba(0,180,216,0.35); transform:translateX(4px); }
+  .timeline-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:0.5rem; flex-wrap:wrap; }
+  .timeline-role { font-weight:600; font-size:1rem; }
+  .timeline-period { font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--teal); white-space:nowrap; background:rgba(0,180,216,0.1); padding:0.2rem 0.6rem; border-radius:4px; }
+  .timeline-org { font-size:0.85rem; color:var(--gold); margin-bottom:0.8rem; font-weight:500; }
+  .timeline-body { font-size:0.85rem; color:var(--text-soft); line-height:1.7; }
+  .timeline-body ul { list-style:none; padding:0; }
+  .timeline-body li { padding-left:1rem; position:relative; margin-bottom:0.35rem; }
+  .timeline-body li::before { content:'›'; position:absolute; left:0; color:var(--teal); }
+
+  /* PUBLICATIONS */
+  .pub-filter { display:flex; gap:0.5rem; margin-bottom:2rem; flex-wrap:wrap; }
+  .filter-btn { padding:0.4rem 1rem; border-radius:100px; border:1px solid var(--border); background:transparent; color:var(--text-muted); font-size:0.8rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.2s; }
+  .filter-btn.active,.filter-btn:hover { background:rgba(0,180,216,0.15); border-color:var(--teal); color:var(--teal); }
+  .pub-list { display:flex; flex-direction:column; gap:1rem; }
+  .pub-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; backdrop-filter:blur(10px); transition:border-color 0.3s; position:relative; }
+  .pub-card:hover { border-color:rgba(0,180,216,0.35); }
+  .pub-number { position:absolute; top:1.4rem; right:1.6rem; font-family:'Playfair Display',serif; font-size:2rem; color:rgba(0,180,216,0.07); font-weight:700; line-height:1; }
+  .pub-type { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:0.5rem; }
+  .pub-type.journal { color:var(--teal); }
+  .pub-type.conference { color:var(--gold); }
+  .pub-type.patent { color:#a78bfa; }
+  .pub-title { font-weight:600; font-size:0.92rem; line-height:1.5; margin-bottom:0.5rem; color:var(--text-main); }
+  .pub-authors { font-size:0.8rem; color:var(--text-muted); margin-bottom:0.4rem; line-height:1.5; }
+  .pub-venue { font-size:0.8rem; color:var(--text-soft); font-style:italic; }
+  .pub-status { display:inline-block; margin-left:0.5rem; font-size:0.68rem; padding:0.1rem 0.4rem; border-radius:3px; font-style:normal; font-weight:600; }
+  .status-submitted { background:rgba(139,154,181,0.15); color:var(--text-muted); }
+  .status-accepted { background:rgba(72,202,228,0.15); color:var(--teal-light); }
+  .status-best { background:rgba(244,167,50,0.15); color:var(--gold); }
+
+  /* AWARDS */
+  .awards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; }
+  .award-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; backdrop-filter:blur(10px); transition:all 0.3s; position:relative; overflow:hidden; }
+  .award-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(244,167,50,0.04) 0%,transparent 60%); pointer-events:none; }
+  .award-card:hover { border-color:rgba(244,167,50,0.35); transform:translateY(-3px); }
+  .award-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+  .award-year { position:absolute; top:1rem; right:1rem; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--gold); background:rgba(244,167,50,0.1); padding:0.15rem 0.5rem; border-radius:4px; }
+  .award-title { font-weight:600; font-size:0.92rem; margin-bottom:0.4rem; line-height:1.4; color:var(--text-main); }
+  .award-org { font-size:0.8rem; color:var(--gold); margin-bottom:0.5rem; font-weight:500; }
+  .award-desc { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+
+  /* PROFESSIONAL */
+  .pro-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+  .pro-section-title { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--teal); font-weight:600; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+  .pro-item { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.9rem 1.1rem; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; transition:border-color 0.2s; }
+  .pro-item:hover { border-color:rgba(0,180,216,0.3); }
+  .pro-item-name { font-size:0.83rem; color:var(--text-soft); line-height:1.4; flex:1; }
+  .pro-item-year { font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--text-muted); white-space:nowrap; }
+  .talk-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-bottom:0.8rem; display:flex; gap:1rem; transition:border-color 0.3s; }
+  .talk-card:hover { border-color:rgba(0,180,216,0.35); }
+  .talk-icon { color:var(--teal); font-size:1.2rem; flex-shrink:0; margin-top:2px; }
+  .talk-title { font-size:0.85rem; font-weight:600; margin-bottom:0.3rem; line-height:1.4; }
+  .talk-venue { font-size:0.78rem; color:var(--text-muted); line-height:1.4; }
+  .cert-badge { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1.1rem; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.8rem; transition:border-color 0.2s; }
+  .cert-badge:hover { border-color:rgba(0,180,216,0.3); }
+  .cert-icon { width:32px; height:32px; border-radius:50%; background:rgba(0,180,216,0.1); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+  .cert-name { font-size:0.83rem; color:var(--text-soft); }
+
+  /* CV PAGE */
+  .cv-section { margin-bottom:2.5rem; }
+  .cv-section-header { font-family:'DM Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--teal); border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem; }
+  .cv-download { display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,var(--teal),var(--teal-light)); color:var(--navy); padding:0.75rem 1.5rem; border-radius:8px; font-weight:600; font-size:0.85rem; text-decoration:none; cursor:pointer; border:none; font-family:'DM Sans',sans-serif; transition:all 0.2s; margin-bottom:2rem; }
+  .cv-download:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,180,216,0.3); }
+  .cv-row { display:flex; gap:1rem; margin-bottom:0.8rem; align-items:flex-start; font-size:0.85rem; }
+  .cv-label { color:var(--text-muted); min-width:120px; font-size:0.78rem; padding-top:1px; }
+  .cv-value { color:var(--text-soft); flex:1; line-height:1.5; }
+
+  .sub-section-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin:2rem 0 1rem; font-weight:600; }
+
+  /* Education stacked column layout */
+  .edu-stack { display:flex; flex-direction:column; gap:0; margin-bottom:3rem; }
+  .edu-card-stacked { display:flex; gap:2rem; padding:1.5rem 0; border-bottom:1px solid var(--border); align-items:flex-start; position:relative; }
+  .edu-card-stacked:first-child { padding-top:0; }
+  .edu-card-stacked:last-child { border-bottom:none; }
+  .edu-stacked-left { min-width:130px; flex-shrink:0; }
+  .edu-stacked-left .edu-period { font-size:0.75rem; color:var(--teal); font-family:'DM Mono',monospace; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); padding:0.25rem 0.55rem; border-radius:5px; display:inline-block; white-space:nowrap; }
+  .edu-stacked-right { flex:1; }
+  .edu-stacked-right .edu-degree { font-weight:600; font-size:0.97rem; margin-bottom:0.25rem; color:var(--text-main); }
+  .edu-stacked-right .edu-school { color:var(--teal); font-size:0.85rem; margin-bottom:0.5rem; font-weight:500; }
+  .edu-stacked-right .edu-detail { font-size:0.8rem; color:var(--text-soft); line-height:1.6; margin-bottom:0.2rem; }
+
+  /* Full-width list for leadership/volunteering */
+  .pro-full-list { max-width:700px; }
+
+  /* Bio quote */
+  .bio-quote {
+    border-left: 3px solid var(--gold);
+    margin: 1rem 0 1.5rem;
+    padding: 0.75rem 1.2rem;
+    background: rgba(244,167,50,0.06);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* Lab links inside badge */
+  .lab-links { display:flex; flex-direction:column; gap:0.35rem; margin-top:0.7rem; }
+  .lab-link { font-size:0.72rem; color:var(--teal-light); text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem; transition:color 0.2s; }
+  .lab-link:hover { color:var(--gold); }
+
+  /* Talks page */
+  .talks-list { display:flex; flex-direction:column; gap:0.8rem; }
+  .talk-card-full { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.8rem; display:flex; gap:1.5rem; align-items:flex-start; backdrop-filter:blur(10px); transition:border-color 0.3s,transform 0.3s; }
+  .talk-card-full:hover { border-color:rgba(0,180,216,0.35); transform:translateX(4px); }
+  .talk-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:rgba(0,180,216,0.15); line-height:1; min-width:2.2rem; flex-shrink:0; }
+  .talk-main { flex:1; }
+  .talk-title-full { font-size:0.92rem; font-weight:600; line-height:1.5; color:var(--text-main); margin-bottom:0.4rem; }
+  .talk-venue-full { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+
+  /* Publication section headers */
+  .pub-section-header { display:flex; align-items:center; gap:0.75rem; padding:0.7rem 1.2rem; border-radius:8px; margin-bottom:1rem; font-weight:600; font-size:0.85rem; letter-spacing:0.03em; }
+  .pub-section-header.journal    { background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); color:var(--teal); }
+  .pub-section-header.conference { background:rgba(244,167,50,0.08); border:1px solid rgba(244,167,50,0.2); color:var(--gold); }
+  .pub-section-header.patent     { background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); color:#a78bfa; }
+  .pub-section-icon { font-size:1rem; }
+  .pub-section-count { margin-left:auto; font-family:'DM Mono',monospace; font-size:0.78rem; opacity:0.7; }
+
+  /* Reference cards */
+  .ref-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1rem; }
+  .ref-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; backdrop-filter:blur(10px); position:relative; overflow:hidden; transition:border-color 0.3s; }
+  .ref-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,var(--teal),var(--gold)); }
+  .ref-card:hover { border-color:rgba(0,180,216,0.35); }
+  .ref-note { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); font-weight:600; margin-bottom:0.6rem; }
+  .ref-name { font-weight:700; font-size:1rem; color:var(--text-main); margin-bottom:0.25rem; }
+  .ref-role { font-size:0.8rem; color:var(--gold); margin-bottom:0.2rem; line-height:1.4; }
+  .ref-org  { font-size:0.78rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.4; }
+  .ref-email { font-size:0.8rem; color:var(--teal-light); text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem; }
+  .ref-email:hover { color:var(--gold); }
+
+  @media(max-width:768px) {
+    .about-hero { grid-template-columns:1fr; }
+    .photo-col { flex-direction:row; align-items:flex-start; flex-wrap:wrap; }
+    .photo-frame { width:140px; height:140px; }
+    .intro-name { font-size:2rem; }
+    .nav-logo { display:none; }
+    .container { padding:2rem 1rem; }
+    .social-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">SCP</div>
+    <ul class="nav-tabs" id="nav-tabs"></ul>
+  </div>
+</nav>
+
+<!-- Page containers rendered by JS -->
+<div id="page-about"        class="page active"></div>
+<div id="page-experience"   class="page"></div>
+<div id="page-publications" class="page"></div>
+<div id="page-awards"       class="page"></div>
+<div id="page-professional" class="page"></div>
+<div id="page-talks"        class="page"></div>
+<div id="page-cv"           class="page"></div>
+
+<script>
+/* ============================================================
+   ✏️  YOUR DATA BELOW — EDIT FREELY
+   Newest entries go FIRST in every array.
+   ============================================================ */
+
+const SETTINGS = {
+  showPublications: true   // ← set to false to hide Publications tab
+};
+
+const PROFILE = {
+  name: "Sasinda C. Prabhashana",
+  photo: "",   // ← put your image URL here, e.g. "https://example.com/photo.jpg"
+  title: "PhD Researcher in Electrical Engineering",
+  lab: "CERC–Next Generation Communication Technologies (NGCT) Lab",
+  university: "Memorial University of Newfoundland, Canada",
+  greeting_en: "// Hello, World!",
+  greeting_fr: "// Bonjour, le monde !",
+  bio: [
+    `I'm a <strong>PhD student</strong> at Memorial University of Newfoundland, Canada, working at the intersection of <strong>Quantum Computing, Artificial Intelligence, and Next-Generation Communication Systems</strong>. I come from the beautiful island of <strong>Sri Lanka</strong> — a place of warmth, resilience, and remarkable people — and I carry that spirit into everything I do. I graduated as the <strong>Field Top and Gold Medalist</strong> in Electrical &amp; Electronic Engineering, and I've been chasing hard problems ever since.`,
+    `Currently under the prestigious <strong>Canada Excellence Research Chair (CERC) Next Generation Communication Technologies Program</strong>, led and supervised by <strong>Prof. Trung Q. Duong</strong>, my research explores how quantum algorithms and AI/ML models can revolutionize <strong>6G networks, satellite-terrestrial integration, and intelligent resource management</strong>. I'm particularly fascinated by the idea that quantum-enhanced learning could redefine the limits of wireless communication.`,
+    `Beyond research, I've taught at universities in Sri Lanka and worked in industry — experiences that shaped how I think about <strong>real-world impact, cross-disciplinary curiosity, and the power of genuine collaboration</strong>.`
+  ],
+  bio_quote: `"Great things are not done by impulse, but by a series of small things brought together." — Vincent van Gogh`,
+  research_tags: ["Quantum Machine Learning","6G Networks","Deep Reinforcement Learning","Digital Twin","Satellite Communications","UAV Networks","Agentic AI","Non-Terrestrial Networks"],
+  stats: [],
+  contact: {
+    email: "cwelhengodag@mun.ca",
+    location: "St. John's, NL, Canada"
+  }
+};
+
+const SOCIAL_LINKS = [
+  { label:"LinkedIn",       url:"https://linkedin.com/in/sasindaprabhashana",               icon:"in" },
+  { label:"Google Scholar", url:"https://scholar.google.com/citations?user=YOURID",         icon:"gs" },
+  { label:"ORCID",          url:"https://orcid.org/0000-0000-0000-0000",                    icon:"id" },
+  { label:"ResearchGate",   url:"https://www.researchgate.net/profile/Sasinda-Prabhashana", icon:"rg" },
+  { label:"GitHub",         url:"https://github.com/sasindaprabhashana",                   icon:"gh" }
+];
+
+/* ── EDUCATION  (newest first) ─────────────────────────── */
+const EDUCATION = [
+  {
+    degree: "PhD in Electrical Engineering",
+    school: "Memorial University of Newfoundland, Canada",
+    period: "Jan. 2024 – Present",
+    details: ["Transferred from MEng program", "Canada Excellence Research Chair (CERC) Program", "Research: Quantum AI for Next-Gen Communications"],
+    badge: null
+  },
+  {
+    degree: "MEng in Electrical Engineering",
+    school: "Memorial University of Newfoundland, Canada",
+    period: "Jan. 2024 – Jul. 2025",
+    details: ["GPA: 4.00/4.00 · Overall Average: 91%", "Canada Excellence Research Chair (CERC) Program"],
+    badge: null
+  },
+  {
+    degree: "BScEng (Hons) — Electrical & Electronic Engineering",
+    school: "University of Jaffna, Sri Lanka",
+    period: "Oct. 2016 – Jan. 2021",
+    details: ["GPA: 3.75/4.00 — First Class Honours", "Thesis: System and Method for Automobile Emission (Patent: WIPO PCT WO 2022/185119 A1)"],
+    badge: "Gold Medalist · Field Top"
+  }
+];
+
+/* ── NEWS  (newest first) ──────────────────────────────── */
+const NEWS = [
+  { date:"2026",    gold:true,  text:"<strong>1st Place</strong> — Canadian Medical Datathon 2026. Local winner for Newfoundland & Labrador." },
+  { date:"2025",    gold:true,  text:"<strong>Presidential Award for Inventions</strong> — Awarded by the President of Sri Lanka." },
+  { date:"2025",    gold:false, text:"<strong>Best Paper Award</strong> — IEEE ICC Workshop on Digital Twin Networks, Montreal, Canada." },
+  { date:"2025",    gold:false, text:"<strong>IEEE NL Graduate Scholarship</strong> — Best graduate student at MUN per year." },
+  { date:"Dec 2025",gold:false, text:"Conference paper at <strong>IEEE GLOBECOM 2025</strong>, Taipei, Taiwan." },
+  { date:"Oct 2025",gold:false, text:"Talk at 20th <strong>RIA/URSI Research Colloquium</strong>, Dublin, Ireland." }
+];
+
+/* ── EXPERIENCE  (newest first) ────────────────────────── */
+const EXPERIENCE = {
+  academic: [
+    {
+      role:"Graduate Research Assistant (GRA)",
+      period:"Jan 2024 – Present",
+      org:"CERC–Next Generation Communication Technologies Lab · Memorial University of Newfoundland, Canada",
+      items:["Integrated Satellite-Terrestrial Networks (ISTN)","Quantum Communication & Quantum Machine Learning","AI/ML for 6G wireless systems and digital twin networks"]
+    },
+    {
+      role:"Lecturer (Probationary)",
+      period:"Aug – Dec 2023",
+      org:"Dept. of Electrical & Electronic Engineering · University of Jaffna, Sri Lanka",
+      items:["EC5011: Digital Signal Processing (15 lecture hours)","EC6100: Wireless and Mobile Communication (15 lecture hours)","Curriculum development for IESL recognition under Washington Accord"]
+    },
+    {
+      role:"Lecturer (On Contract)",
+      period:"Dec 2022 – Jul 2023",
+      org:"Dept. of Electrical & Electronic Engineering · University of Jaffna, Sri Lanka",
+      items:["EC4050: Electronics Circuits and Devices (20 hrs)","EC7010: Robotics and Automation (30 hrs)","EC6100: Wireless and Mobile Communication (9 hrs)"]
+    },
+    {
+      role:"Assistant Lecturer",
+      period:"Oct – Dec 2022",
+      org:"Dept. of Electrical & Electronic Engineering · University of Jaffna, Sri Lanka",
+      items:["Tutorial classes for EC4040: Signals and Systems"]
+    },
+    {
+      role:"Visiting Lecturer",
+      period:"Feb 2022 – Dec 2023",
+      org:"University of Kelaniya, Sri Lanka (Computing & Technology + Computer Science Depts.)",
+      items:["CTNT 41083: Advanced Computer Communication and Networking","CSEC 32022: Advanced Computer Data Networks"]
+    },
+    {
+      role:"Teaching Assistant",
+      period:"Feb – Aug 2021",
+      org:"Dept. of Electrical & Electronic Engineering · University of Jaffna, Sri Lanka",
+      items:["EC5020: Analogue and Digital Communication","EC6100: Wireless and Mobile Communications","Practical sessions, tutorials, assignment and lab report assessment"]
+    }
+  ],
+  industry: [
+    {
+      role:"Electrical Design Engineer",
+      period:"Aug 2021 – Oct 2022",
+      org:"Fimcen (Pvt) Ltd [Schneider Electric–Australia] · Winston Hills, NSW, Australia",
+      items:["Interfacing with Australian clients; designing electrical systems for Schneider Electric Australia","Melbourne Metro development project","Sydney Metro development project"]
+    },
+    {
+      role:"Research Intern",
+      period:"Jan – Apr 2019",
+      org:"Power System and Smart Grid Lab · IIT Gandhinagar (IITGN), Gujarat, India",
+      items:["Supervisors: Prof. Naran M. Pindoriya & Prof. K. Chelvakumar","DC Microgrid simulation and experimental validation with OPAL-RT Simulator","Selected among top 10 students; 2nd highest GPA in the cohort"]
+    },
+    {
+      role:"Trainee Engineer",
+      period:"Feb – Jul 2020",
+      org:"Resource Management Associates (Pvt) Ltd · Colombo 03, Sri Lanka",
+      items:["Supervisor: Dr. Tilak Siyambalapitiya (Chairman, Ceylon Electricity Board)","Electrical installation, planning, and designing"]
+    }
+  ]
+};
+
+/* ── PUBLICATIONS  (newest first within each type) ─────── */
+const PUBLICATIONS = {
+  journals: [
+    { num:11, title:"Digital Twin-Driven Token-Based Satellite Edge Computing in 6G ISTNs: A Quantum DRL with Agentic AI Approach", authors:"Sasinda C. Prabhashana, Chao-Kai Wen, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
+    { num:10, title:"Collective Quantum-Enabled Learning for Heterogeneous Future Communications and Networking: Learning Models and Pipelines", authors:"Bhaskara Narottama, Sasinda C. Prabhashana, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Open Journal of the Communication Society", status:"submitted" },
+    { num:9,  title:"LLM-aided Covert Communication in ISAC", authors:"Quang Nhat Le, Sasinda C. Prabhashana, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
+    { num:8,  title:"Agentic AI and LLM-aided Quantum MADRL for Pinching-Antenna-assisted V2X Networks", authors:"Yuxiang Zheng, Sasinda C. Prabhashana, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
+    { num:7,  title:"Quantum-Enhanced Agentic AI for Distributed Resource Management in 6G Low-Altitude Wireless Networks", authors:"Sasinda C. Prabhashana, Dac-Binh Ha, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Communications Magazine", status:"submitted" },
+    { num:6,  title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", authors:"Sasinda C. Prabhashana, Berk Canberk, Hans-Jurgen Zepernick, Dac-Binh Ha, Simon L. Cotton, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Transactions on Vehicular Technology", status:"submitted" },
+    { num:5,  title:"Quantum Deep Reinforcement Learning for Direct Handset-to-Satellite Access in 6G Non-Terrestrial Networks with LEO Stations", authors:"Sasinda C. Prabhashana, Berk Canberk, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Vehicular Technology Magazine", status:"submitted" },
+    { num:4,  title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Minh-Hien T. Nguyen, Vishal Sharma, Thang X. Vu, Berk Canberk, Hyundong Shin, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
+    { num:3,  title:"Quantum Deep Reinforcement Learning for URLLC Satellite-Air-Ground Integrated Networks with Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Haejoon Jung, Berk Canberk, Simon L. Cotton, Trung Q. Duong", venue:"IEEE Internet of Things Journal", status:"accepted" },
+    { num:2,  title:"Machine Learning-based Resource Allocation in 6G Integrated Space and Terrestrial Networks-aided Intelligent Autonomous Transportation", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Transactions on Intelligent Transportation Systems", status:"accepted" },
+    { num:1,  title:"A New Generation of Fast and Low-Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, Sasinda C. Prabhashana, S. P. P. Medaranga, P. R. P. Hoole, X. Fernando", venue:"Electronics, vol. 12, no. 7, p. 1733, Apr. 2023", status:"" }
+  ],
+  conferences: [
+    { num:6, title:"Multimodal LLM Inference in DT–Enabled 6G ISTNs: A Quantum Deep Reinforcement Learning Approach", authors:"Sasinda C. Prabhashana, Trung Q. Duong", venue:"Global Information and Telecommunication Workshop, Tokyo, Japan, Dec. 2025", status:"" },
+    { num:5, title:"Quantum Learning Framework for Digital Twin Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", authors:"Sasinda C. Prabhashana, Trung Q. Duong", venue:"20th RIA/URSI Research Colloquium, Dublin, Ireland, Oct. 2025", status:"" },
+    { num:4, title:"Quantum DRL for Green UAV Positioning in 6G-Enabled SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE GLOBECOM 2025, Taipei, Taiwan, Dec. 2025", status:"" },
+    { num:3, title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Trung Q. Duong", venue:"IEEE ICC 2025 Workshops, Montreal, Canada, June 2025", status:"best" },
+    { num:2, title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE ICC 2025, Montreal, Canada, June 2025", status:"" },
+    { num:1, title:"A Comparison of Electromagnetic Radiation from Commonly Used Communication Devices in an Indoor Environment", authors:"Darukeesan Pakiyarajah, Sasinda C. Prabhashana, Thiruvaran Tharmarajah", venue:"Technological Advances in Science, Medicine and Engineering Conference, Toronto, Canada", status:"" }
+  ],
+  patents: [
+    { num:3, title:"System and Method for Automobile Emission Measurement", authors:"W. H. S. C. Prabhashana, S. M. U. Meegaswatta, M. K. Ahilan, R. Valluvan", venue:"WIPO PCT WO 2022/185119 A1 — Sept. 2022 · First International Patent in University of Jaffna history", status:"" },
+    { num:2, title:"IoT-Based Portable Emission Measurement System", authors:"W. H. S. C. Prabhashana, S. M. U. Meegaswatta, M. K. Ahilan, R. Valluvan", venue:"NIPO LK21650", status:"" },
+    { num:1, title:"New Generation of Fast and Low Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, W. H. S. C. Prabhashana, N. Ajithkumar, P. R. P. Hoole", venue:"Patent Pending", status:"" }
+  ]
+};
+
+/* ── AWARDS  (newest first) ────────────────────────────── */
+const AWARDS = [
+  { year:"2026", icon:"🏆", title:"Winner — Canadian Medical Datathon 2026", org:"1st Place · Newfoundland & Labrador Local Winner", desc:"Top performance in national medical datathon representing Newfoundland and Labrador." },
+  { year:"2025", icon:"🥇", title:"Presidential Award for Inventions (Years 2021 & 2022)", org:"Office of the President of Sri Lanka", desc:"Awarded for outstanding inventions and innovations." },
+  { year:"2025", icon:"🎓", title:"IEEE NL Graduate Scholarship", org:"IEEE · Memorial University of Newfoundland", desc:"Recognises the single best graduate student per year for high academic standing and IEEE contribution." },
+  { year:"2025", icon:"📄", title:"Best Paper Award — IEEE ICC 2025", org:"IEEE International Communication Conference · Montreal, Canada", desc:"Workshop on Data-Driven and AI-Enabled Digital Twin Networks and Applications, June 2025." },
+  { year:"2024", icon:"🥇", title:"1st Place — QSciTech-QuantumBC CMC Workshop (Poster, QML)", org:"QSciTech, Quantum BC, Quantum AlgoLab, CMC Microsystems, Canada", desc:"First prize poster presentation in Quantum Machine Learning." },
+  { year:"2024", icon:"🍁", title:"CERC Program Scholarship", org:"Canada Excellence Research Chair · Memorial University", desc:"Prestigious scholarship, Dept. of Electrical and Computer Engineering." },
+  { year:"2022", icon:"🏅", title:"The Migara Ratnatunga Trust Award", org:"Institution of Engineers Sri Lanka (IESL)", desc:"Best Industrial Trainee in Electrical & Electronic Engineering among all engineering faculties in Sri Lanka (2020/2021)." },
+  { year:"2022", icon:"🔬", title:"Manamperi Award — First Runners Up", org:"Sri Lanka Association for the Advancement of Science", desc:"Best Undergraduate Engineering Research Project among all engineering faculties in Sri Lanka (2020/2021)." },
+  { year:"2022", icon:"⚡", title:"Eng. E.W. Karunaratna Award (Merit)", org:"Institution of Engineers Sri Lanka (IESL)", desc:"Best Undergraduate Project in Electrical Engineering among all engineering faculties in Sri Lanka (2020/2021)." },
+  { year:"2021", icon:"🥇", title:"Gold Medal — Field Top (Prof. Eliathamby Ambikairajah Award)", org:"University of Jaffna, Sri Lanka", desc:"Best Overall Performance in Electrical and Electronic Engineering — Field Top Graduate." },
+  { year:"2021", icon:"🎖️", title:"Prof. Eliathamby Ambikairajah Award — Semester 08", org:"University of Jaffna, Sri Lanka", desc:"Best performance in Semester 08, Electrical and Electronic Engineering." },
+  { year:"2019", icon:"🎖️", title:"Prof. Eliathamby Ambikairajah Award — Semester 05", org:"University of Jaffna, Sri Lanka", desc:"Best performance in Semester 05, Electrical and Electronic Engineering." },
+  { year:"2019", icon:"🎯", title:"Summer Research Internship — IIT Gandhinagar", org:"IIT Gandhinagar (IITGN), India", desc:"Selected among top 10 students; achieved 2nd highest GPA in the program cohort (2019)." },
+  { year:"2018", icon:"🎖️", title:"Prof. Eliathamby Ambikairajah Award — Semester 04", org:"University of Jaffna, Sri Lanka", desc:"Best performance in Semester 04, Electrical and Electronic Engineering." },
+  { year:"2012", icon:"📚", title:"Nine Distinctions at GCE O/L — District Top 5", org:"Central College Anuradhapura, Sri Lanka", desc:"Outstanding academic performance: 9A's, finishing in the top 5 in the Anuradhapura District." },
+  { year:"2011", icon:"🧪", title:"Australian National Chemistry Exam — Distinction Pass", org:"Royal Australian Chemical Institute", desc:"Distinction pass in the national chemistry examination." }
+];
+
+/* ── PROFESSIONAL ACTIVITIES ───────────────────────────── */
+const PROFESSIONAL = {
+  journal_reviewer: [
+    { name:"IEEE Transactions on Mobile Computing (TMC)", year:"2026" },
+    { name:"IEEE Journal of Selected Areas in Communications (JSAC)", year:"2025–26" },
+    { name:"IEEE Internet of Things Journal (IoTJ)", year:"2025–26" },
+    { name:"IEEE Communications Surveys and Tutorials (COMSAT)", year:"2025–26" },
+    { name:"EAI Endorsed Transactions on Tourism, Technology and Intelligence", year:"2026" }
+  ],
+  conf_reviewer: [
+    { name:"IEEE WCNC 2026", year:"2026" },
+    { name:"EAI INISCOM 2026", year:"2025" },
+    { name:"IEEE ICC 2026", year:"2025" },
+    { name:"IEEE GLOBECOM 2025", year:"2025" },
+    { name:"IEEE CCNC 2025", year:"2025" },
+    { name:"IEEE MetaCom 2025", year:"2025" }
+  ],
+  leadership: [
+    { name:"Program Co-Chair — IEEE ComSoc School Series 2025 (Sri Lanka)", year:"2025" }
+  ],
+  affiliations: [
+    { name:"Student/Full Member of IEEE (No. 95206136)", year:"2019–" },
+    { name:"Member of Engineering Council Sri Lanka (ECSL) – No. 214305", year:"2021–" },
+    { name:"Associate Member of IESL – No. AM-27687", year:"2021–" },
+    { name:"Member of Jaffna Engineering Faculty Alumni Association (JEFAA)", year:"2021–" }
+  ],
+  certifications: [
+    { icon:"🌐", name:"Cisco Certified Network Associate (CCNA) — 200-301" },
+    { icon:"🔧", name:"Cisco Certified Network Specialist (ENCOR) — 350-401" },
+    { icon:"🔒", name:"ICSI — CNSS Certified Network Security Specialist" }
+  ],
+  talks: [
+    { title:"Quantum Learning Framework for DT Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2025" },
+    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"QC3 Inaugural Conference, Quantum Communications & Computing Centre · Memorial University · 2025" },
+    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IBM Delegation Visit Event · Memorial University, St. John's · 2024" },
+    { title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2024" },
+    { title:"Internet of Things in Embedded Systems", venue:"IEEE School on Computational Intelligence · University of Jaffna, Sri Lanka · 2023" }
+  ],
+  volunteering: [
+    { name:"Judge — INNOVA at Tech Sri Lanka 2025 (IEEE Computer Society, Wayamba University)", year:"2025" },
+    { name:"President — Electrical & Electronic Engineering Society, University of Jaffna", year:"2020–21" },
+    { name:"Founding Vice-Chair — IEEE PES Student Chapter, University of Jaffna", year:"2019–20" },
+    { name:"Vice-Secretary, Jaffna Engineering Faculty Alumni Association (JEFAA)", year:"2022–24" }
+  ],
+  references: [
+    {
+      name: "Prof. Trung Q. Duong",
+      role: "Canada Excellence Research Chair (CERC) · Full Professor",
+      org: "Memorial University of Newfoundland, Canada",
+      email: "tduong@mun.ca",
+      note: "Primary PhD Supervisor"
+    },
+    {
+      name: "Prof. Octavia A. Dobre",
+      role: "Interim Dean · Professor · Tier-1 Canada Research Chair",
+      org: "Memorial University of Newfoundland, Canada",
+      email: "odobre@mun.ca",
+      note: "Co-Supervisor"
+    }
+  ]
+};
+
+/* ============================================================
+   END OF YOUR DATA — DO NOT EDIT BELOW THIS LINE UNLESS YOU
+   KNOW WHAT YOU ARE DOING.
+   ============================================================ */
+
+// Social icon SVGs
+const SOCIAL_ICONS = {
+  in:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>`,
+  gs:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5h3.6v10H20.4V9.5H24z"/></svg>`,
+  id:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm-1.3 17.7H8.2V9.4h2.5v8.3zm-1.3-9.4c-.8 0-1.4-.6-1.4-1.4 0-.8.6-1.4 1.4-1.4s1.4.6 1.4 1.4c0 .7-.6 1.4-1.4 1.4zm10.2 9.4H17V13c0-1.1-.4-1.9-1.4-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8v4.8H11.6V9.4h2.5v1.1c.3-.5 1-1.3 2.5-1.3 1.8 0 3 1.2 3 3.7v4.8z"/></svg>`,
+  rg:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.853.89-.853 1.54 0 .625.29 1.128.853 1.505.565.376 1.255.564 2.073.564.822 0 1.516-.188 2.077-.564.563-.377.844-.88.844-1.506 0-.65-.281-1.163-.844-1.54C21.102.19 20.408 0 19.586 0z"/><path d="M19.586 8.4h-4.178v13.8h4.178V8.4z"/><path d="M10.392 8.148c-2.37 0-4.356.788-5.96 2.364C2.826 12.09 2 14.08 2 16.488s.826 4.397 2.432 5.972c1.604 1.576 3.59 2.363 5.96 2.363 1.53 0 2.916-.37 4.155-1.112l-2.543-3.078c-.456.248-.96.372-1.51.372-1.043 0-1.916-.36-2.615-1.078-.699-.718-1.05-1.63-1.05-2.736 0-1.106.351-2.014 1.05-2.728.7-.714 1.572-1.07 2.616-1.07.556 0 1.056.122 1.503.367l2.538-3.083c-1.23-.734-2.61-1.1-4.144-1.1z"/></svg>`,
+  gh:  `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>`,
+  web: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
+};
+
+/* ─── BUILD NAV ─── */
+function buildNav() {
+  const tabs = [
+    { id:"about",        label:"About Me" },
+    { id:"experience",   label:"Work Experience" },
+    { id:"publications", label:"Publications", hidden: !SETTINGS.showPublications },
+    { id:"awards",       label:"Awards & Honours" },
+    { id:"professional", label:"Professional Activities" },
+    { id:"talks",        label:"Talks & Presentations" },
+    { id:"cv",           label:"CV" }
+  ];
+  const nav = document.getElementById("nav-tabs");
+  tabs.forEach((t,i) => {
+    if (t.hidden) return;
+    const li = document.createElement("li");
+    li.className = "nav-tab" + (i===0?" active":"");
+    li.textContent = t.label;
+    li.onclick = () => showPage(t.id, li);
+    nav.appendChild(li);
+  });
+}
+
+function showPage(id, tab) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".nav-tab").forEach(t => t.classList.remove("active"));
+  const el = document.getElementById("page-"+id);
+  if (el) el.classList.add("active");
+  if (tab) tab.classList.add("active");
+}
+
+/* ─── ABOUT PAGE ─── */
+function buildAbout() {
+  const greetingLine = `<div class="intro-greeting">${PROFILE.greeting_en} &nbsp;·&nbsp; ${PROFILE.greeting_fr}</div>`;
+  const bioHtml = PROFILE.bio.map(p => `<p class="intro-bio">${p}</p>`).join("");
+  const quoteHtml = PROFILE.bio_quote ? `<blockquote class="bio-quote">${PROFILE.bio_quote}</blockquote>` : "";
+  const tags = PROFILE.research_tags.map(t => `<span class="tag">${t}</span>`).join("");
+
+  const socialHtml = SOCIAL_LINKS.map(s =>
+    `<a class="social-btn" href="${s.url}" target="_blank">${SOCIAL_ICONS[s.icon]||""} ${s.label}</a>`
+  ).join("");
+
+  const photoHtml = PROFILE.photo
+    ? `<img src="${PROFILE.photo}" alt="${PROFILE.name}">`
+    : `<span class="photo-placeholder">👤</span>`;
+
+  const eduHtml = EDUCATION.map(e => `
+    <div class="edu-card-stacked">
+      <div class="edu-stacked-left">
+        <div class="edu-period">${e.period}</div>
+      </div>
+      <div class="edu-stacked-right">
+        <div class="edu-degree">${e.degree}</div>
+        <div class="edu-school">${e.school}</div>
+        ${e.details.map(d=>`<div class="edu-detail">${d}</div>`).join("")}
+        ${e.badge ? `<span class="badge-gold">${e.badge}</span>` : ""}
+      </div>
+    </div>`).join("");
+
+  const newsHtml = NEWS.map(n => `
+    <div class="news-item">
+      <div class="news-dot ${n.gold?"gold":""}"></div>
+      <div><div class="news-date">${n.date}</div><div class="news-text">${n.text}</div></div>
+    </div>`).join("");
+
+  document.getElementById("page-about").innerHTML = `
+  <div class="container">
+    <div class="about-hero">
+      <div class="photo-col">
+        <div class="photo-frame"><div class="photo-inner">${photoHtml}</div></div>
+        <div class="lab-badge">
+          <div class="lab-name">${PROFILE.lab}</div>
+          <div class="lab-sub">${PROFILE.university}</div>
+          <div class="lab-links">
+            <a href="https://cerc-ngct.ca/" target="_blank" class="lab-link">CERC–NGCT Lab ↗</a>
+            <a href="https://qc3.ca/" target="_blank" class="lab-link">QC3 Centre ↗</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h4>Contact</h4>
+          <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:${PROFILE.contact.email}">${PROFILE.contact.email}</a></div>
+          <div class="contact-item"><span class="contact-icon">📍</span><span>${PROFILE.contact.location}</span></div>
+        </div>
+        <div class="social-links">
+          <h4>Find Me Online</h4>
+          <div class="social-grid">${socialHtml}</div>
+        </div>
+      </div>
+      <div class="intro-col">
+        ${greetingLine}
+        <div class="intro-name">Hi, I'm Sasinda.</div>
+        <div class="intro-title">${PROFILE.title}</div>
+        ${bioHtml}
+        ${quoteHtml}
+        <div class="research-tags">${tags}</div>
+      </div>
+    </div>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-stack">${eduHtml}</div>
+    <h2 class="section-title">Recent News</h2>
+    <div class="news-grid">${newsHtml}</div>
+  </div>`;
+}
+
+/* ─── EXPERIENCE PAGE ─── */
+function buildExperience() {
+  const makeTimeline = (items, dotClass) => items.map(e => `
+    <div class="timeline-item">
+      <div class="timeline-dot ${dotClass}"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">${e.role}</div>
+          <div class="timeline-period">${e.period}</div>
+        </div>
+        <div class="timeline-org">${e.org}</div>
+        <div class="timeline-body"><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("page-experience").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:2.5rem;">Work Experience</h2>
+    <p class="sub-section-label">Academic & Research</p>
+    <div class="timeline">${makeTimeline(EXPERIENCE.academic,"gold")}</div>
+    <p class="sub-section-label">Industry & Internships</p>
+    <div class="timeline">${makeTimeline(EXPERIENCE.industry,"")}</div>
+  </div>`;
+}
+
+/* ─── PUBLICATIONS PAGE ─── */
+function buildPublications() {
+  const totalJ = PUBLICATIONS.journals.length;
+  const totalC = PUBLICATIONS.conferences.length;
+  const totalP = PUBLICATIONS.patents.length;
+
+  const makeCard = (p, type) => {
+    const statusMap = {
+      submitted: `<span class="pub-status status-submitted">Submitted</span>`,
+      accepted:  `<span class="pub-status status-accepted">Accepted</span>`,
+      best:      `<span class="pub-status status-best">🏆 Best Paper Award</span>`,
+      "": ""
+    };
+    return `<div class="pub-card" data-type="${type}">
+      <div class="pub-number">${p.num}</div>
+      <div class="pub-title">${p.title}</div>
+      <div class="pub-authors">${p.authors}</div>
+      <div class="pub-venue">${p.venue}${statusMap[p.status]||""}</div>
+    </div>`;
+  };
+
+  const journalCards    = PUBLICATIONS.journals.map(p=>makeCard(p,"journal")).join("");
+  const conferenceCards = PUBLICATIONS.conferences.map(p=>makeCard(p,"conference")).join("");
+  const patentCards     = PUBLICATIONS.patents.map(p=>makeCard(p,"patent")).join("");
+
+  document.getElementById("page-publications").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:2rem;">Publications</h2>
+
+    <div class="pub-section-header journal">
+      <span class="pub-section-icon">📰</span>
+      <span>Journal Articles</span>
+      <span class="pub-section-count">${totalJ}</span>
+    </div>
+    <div class="pub-list" style="margin-bottom:2.5rem;">${journalCards}</div>
+
+    <div class="pub-section-header conference">
+      <span class="pub-section-icon">🎤</span>
+      <span>Conference Papers</span>
+      <span class="pub-section-count">${totalC}</span>
+    </div>
+    <div class="pub-list" style="margin-bottom:2.5rem;">${conferenceCards}</div>
+
+    <div class="pub-section-header patent">
+      <span class="pub-section-icon">📋</span>
+      <span>Patents</span>
+      <span class="pub-section-count">${totalP}</span>
+    </div>
+    <div class="pub-list">${patentCards}</div>
+  </div>`;
+}
+
+/* ─── AWARDS PAGE ─── */
+function buildAwards() {
+  const cards = AWARDS.map(a => `
+    <div class="award-card">
+      <div class="award-year">${a.year}</div>
+      <div class="award-icon">${a.icon}</div>
+      <div class="award-title">${a.title}</div>
+      <div class="award-org">${a.org}</div>
+      <div class="award-desc">${a.desc}</div>
+    </div>`).join("");
+
+  document.getElementById("page-awards").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:2rem;">Awards & Honours</h2>
+    <div class="awards-grid">${cards}</div>
+  </div>`;
+}
+
+/* ─── PROFESSIONAL PAGE ─── */
+function buildProfessional() {
+  const makeList = (items) => items.map(i=>`
+    <div class="pro-item"><div class="pro-item-name">${i.name}</div><div class="pro-item-year">${i.year}</div></div>`).join("");
+
+  const certs = PROFESSIONAL.certifications.map(c=>`
+    <div class="cert-badge">
+      <div class="cert-icon">${c.icon}</div>
+      <div class="cert-name">${c.name}</div>
+    </div>`).join("");
+
+  document.getElementById("page-professional").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:2rem;">Professional Activities</h2>
+
+    <div class="pro-grid">
+      <div>
+        <div class="pro-section-title">Reviewer — Peer-Reviewed Journals</div>
+        ${makeList(PROFESSIONAL.journal_reviewer)}
+      </div>
+      <div>
+        <div class="pro-section-title">Reviewer — Conferences & Workshops</div>
+        ${makeList(PROFESSIONAL.conf_reviewer)}
+      </div>
+      <div>
+        <div class="pro-section-title">Professional Affiliations</div>
+        ${makeList(PROFESSIONAL.affiliations)}
+      </div>
+      <div>
+        <div class="pro-section-title">Certifications & Licenses</div>
+        ${certs}
+      </div>
+    </div>
+
+    <p class="sub-section-label">Volunteering</p>
+    <div class="pro-full-list">${makeList(PROFESSIONAL.volunteering)}</div>
+
+    <p class="sub-section-label">Leadership & Service</p>
+    <div class="pro-full-list">${makeList(PROFESSIONAL.leadership)}</div>
+  </div>`;
+}
+
+/* ─── TALKS PAGE ─── */
+function buildTalks() {
+  const talks = PROFESSIONAL.talks.map((t,i) => `
+    <div class="talk-card-full">
+      <div class="talk-num">${String(PROFESSIONAL.talks.length - i).padStart(2,'0')}</div>
+      <div class="talk-main">
+        <div class="talk-title-full">${t.title}</div>
+        <div class="talk-venue-full">${t.venue}</div>
+      </div>
+    </div>`).join("");
+
+  document.getElementById("page-talks").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:0.5rem;">Talks &amp; Presentations</h2>
+    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:2.5rem;">Invited talks, conference presentations, and research-day talks (newest first)</p>
+    <div class="talks-list">${talks}</div>
+  </div>`;
+}
+
+/* ─── CV PAGE ─── */
+function buildCV() {
+  const refCards = PROFESSIONAL.references.map(r => `
+    <div class="ref-card">
+      <div class="ref-note">${r.note}</div>
+      <div class="ref-name">${r.name}</div>
+      <div class="ref-role">${r.role}</div>
+      <div class="ref-org">${r.org}</div>
+      <a href="mailto:${r.email}" class="ref-email">✉ ${r.email}</a>
+    </div>`).join("");
+
+  document.getElementById("page-cv").innerHTML = `
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:1.5rem;">Curriculum Vitae</h2>
+    <a class="cv-download" href="#" onclick="alert('Please link your CV PDF here. Edit PROFILE.cvUrl in the data section.')">↓ Download Full CV</a>
+
+    <div class="cv-section">
+      <div class="cv-section-header">Personal Information</div>
+      <div class="cv-row"><div class="cv-label">Full Name</div><div class="cv-value">${PROFILE.name}</div></div>
+      <div class="cv-row"><div class="cv-label">Email</div><div class="cv-value"><a href="mailto:${PROFILE.contact.email}" style="color:var(--teal-light);">${PROFILE.contact.email}</a></div></div>
+      <div class="cv-row"><div class="cv-label">Location</div><div class="cv-value">${PROFILE.contact.location}</div></div>
+      <div class="cv-row"><div class="cv-label">Lab</div><div class="cv-value">${PROFILE.lab}, ${PROFILE.university}</div></div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-header">Research Interests</div>
+      <div class="cv-value" style="line-height:1.8;">${PROFILE.research_tags.join(" · ")}</div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-header">Education</div>
+      ${EDUCATION.map(e=>`<div class="cv-row"><div class="cv-label">${e.period}</div><div class="cv-value"><strong>${e.degree}</strong> · ${e.school}${e.badge?` · <em>${e.badge}</em>`:""}</div></div>`).join("")}
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-header">References</div>
+      <div class="ref-grid">${refCards}</div>
+    </div>
+  </div>`;
+}
+
+/* ─── INIT ─── */
+buildNav();
+buildAbout();
+buildExperience();
+buildPublications();
+buildAwards();
+buildProfessional();
+buildTalks();
+buildCV();
+</script>
+</body>
+</html>
