@@ -203,6 +203,17 @@
   /* Full-width list for leadership/volunteering */
   .pro-full-list { max-width:700px; }
 
+  /* Certifications horizontal row at bottom */
+  .certs-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.25rem; }
+  .certs-row .cert-badge { flex:1; min-width:220px; margin-bottom:0; }
+  .affil-section { margin-top:2.5rem; margin-bottom:0.5rem; }
+  .affil-chips { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.75rem; }
+  .affil-chip { display:flex; align-items:center; gap:0.55rem; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.6rem 1rem; transition:border-color 0.2s; flex-shrink:0; }
+  .affil-chip:hover { border-color:rgba(0,180,216,0.35); }
+  .affil-chip-dot { width:7px; height:7px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+  .affil-chip-name { font-size:0.82rem; color:var(--text-soft); }
+  .affil-chip-year { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-muted); margin-left:0.3rem; white-space:nowrap; }
+
   /* Bio quote */
   .bio-quote {
     border-left: 3px solid var(--gold);
@@ -293,14 +304,14 @@ const PROFILE = {
   name: "Sasinda C. Prabhashana",
   photo: "",   // ← put your image URL here, e.g. "https://example.com/photo.jpg"
   title: "PhD Researcher in Electrical Engineering",
-  lab: "CERC–Next Generation Communication Technologies (NGCT) Lab",
+  lab: "canada Excellence Research Chair (CERC)–Next Generation Communication Technologies (NGCT) Lab and Quantum Communications and Computing Centre (QC3)",
   university: "Memorial University of Newfoundland, Canada",
   greeting_en: "// Hello, World!",
   greeting_fr: "// Bonjour, le monde !",
   bio: [
-    `I'm a <strong>PhD student</strong> at Memorial University of Newfoundland, Canada, working at the intersection of <strong>Quantum Computing, Artificial Intelligence, and Next-Generation Communication Systems</strong>. I come from the beautiful island of <strong>Sri Lanka</strong> — a place of warmth, resilience, and remarkable people — and I carry that spirit into everything I do. I graduated as the <strong>Field Top and Gold Medalist</strong> in Electrical &amp; Electronic Engineering, and I've been chasing hard problems ever since.`,
-    `Currently under the prestigious <strong>Canada Excellence Research Chair (CERC) Next Generation Communication Technologies Program</strong>, led and supervised by <strong>Prof. Trung Q. Duong</strong>, my research explores how quantum algorithms and AI/ML models can revolutionize <strong>6G networks, satellite-terrestrial integration, and intelligent resource management</strong>. I'm particularly fascinated by the idea that quantum-enhanced learning could redefine the limits of wireless communication.`,
-    `Beyond research, I've taught at universities in Sri Lanka and worked in industry — experiences that shaped how I think about <strong>real-world impact, cross-disciplinary curiosity, and the power of genuine collaboration</strong>.`
+    `I am a PhD student in Electrical Engineering at Memorial University of Newfoundland, Canada. My research sits at the intersection of <strong>quantum computing, artificial intelligence, and next-generation communication systems</strong>. I am originally from <strong>Sri Lanka</strong>, a beautiful island shaped by warmth, resilience, and remarkable people, and I carry that spirit into my academic and professional journey. I graduated as the <strong>Field Top and Gold Medalist</strong> in Electrical and Electronic Engineering, and since then, I have continued to pursue challenging research problems with curiosity and commitment.`,
+    `I am currently working under the <strong>Canada Excellence Research Chair (CERC) Next Generation Communication Technologies Program</strong>, led by <strong>Prof. Trung Q. Duong</strong>. My research explores how quantum algorithms and AI/ML models can support the future of <strong>6G networks, satellite-terrestrial integration, and intelligent resource management</strong>. In particular, I am interested in how quantum-enhanced learning can expand the capabilities of wireless communication systems.`,
+    `Before starting my PhD, I taught at universities in Sri Lanka and worked in the electrical engineering industry. These experiences shaped the way I approach research, with a strong focus on <strong>real-world impact, cross-disciplinary thinking, and genuine collaboration</strong>.`
   ],
   bio_quote: `"Great things are not done by impulse, but by a series of small things brought together." — Vincent van Gogh`,
   research_tags: ["Quantum Machine Learning","6G Networks","Deep Reinforcement Learning","Digital Twin","Satellite Communications","UAV Networks","Agentic AI","Non-Terrestrial Networks"],
@@ -325,7 +336,7 @@ const EDUCATION = [
     degree: "PhD in Electrical Engineering",
     school: "Memorial University of Newfoundland, Canada",
     period: "Jan. 2024 – Present",
-    details: ["Transferred from MEng program", "Canada Excellence Research Chair (CERC) Program", "Research: Quantum AI for Next-Gen Communications"],
+    details: ["Fast-tracked from the MEng program to the PhD program.", "Canada Excellence Research Chair (CERC) Program"],
     badge: null
   },
   {
@@ -419,14 +430,6 @@ const EXPERIENCE = {
 /* -- PUBLICATIONS  (newest first within each type) -- */
 const PUBLICATIONS = {
   journals: [
-    { num:11, title:"Digital Twin-Driven Token-Based Satellite Edge Computing in 6G ISTNs: A Quantum DRL with Agentic AI Approach", authors:"Sasinda C. Prabhashana, Chao-Kai Wen, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
-    { num:10, title:"Collective Quantum-Enabled Learning for Heterogeneous Future Communications and Networking: Learning Models and Pipelines", authors:"Bhaskara Narottama, Sasinda C. Prabhashana, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Open Journal of the Communication Society", status:"submitted" },
-    { num:9,  title:"LLM-aided Covert Communication in ISAC", authors:"Quang Nhat Le, Sasinda C. Prabhashana, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
-    { num:8,  title:"Agentic AI and LLM-aided Quantum MADRL for Pinching-Antenna-assisted V2X Networks", authors:"Yuxiang Zheng, Sasinda C. Prabhashana, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Networks", status:"submitted" },
-    { num:7,  title:"Quantum-Enhanced Agentic AI for Distributed Resource Management in 6G Low-Altitude Wireless Networks", authors:"Sasinda C. Prabhashana, Dac-Binh Ha, Mehmet Ozdem, Berk Canberk, Simon L. Cotton, Hyundong Shin, Trung Q. Duong", venue:"IEEE Communications Magazine", status:"submitted" },
-    { num:6,  title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", authors:"Sasinda C. Prabhashana, Berk Canberk, Hans-Jurgen Zepernick, Dac-Binh Ha, Simon L. Cotton, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Transactions on Vehicular Technology", status:"submitted" },
-    { num:5,  title:"Quantum Deep Reinforcement Learning for Direct Handset-to-Satellite Access in 6G Non-Terrestrial Networks with LEO Stations", authors:"Sasinda C. Prabhashana, Berk Canberk, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Vehicular Technology Magazine", status:"submitted" },
-    { num:4,  title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Minh-Hien T. Nguyen, Vishal Sharma, Thang X. Vu, Berk Canberk, Hyundong Shin, Trung Q. Duong", venue:"IEEE Journal of Selected Areas in Communications", status:"submitted" },
     { num:3,  title:"Quantum Deep Reinforcement Learning for URLLC Satellite-Air-Ground Integrated Networks with Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Haejoon Jung, Berk Canberk, Simon L. Cotton, Trung Q. Duong", venue:"IEEE Internet of Things Journal", status:"accepted" },
     { num:2,  title:"Machine Learning-based Resource Allocation in 6G Integrated Space and Terrestrial Networks-aided Intelligent Autonomous Transportation", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Transactions on Intelligent Transportation Systems", status:"accepted" },
     { num:1,  title:"A New Generation of Fast and Low-Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, Sasinda C. Prabhashana, S. P. P. Medaranga, P. R. P. Hoole, X. Fernando", venue:"Electronics, vol. 12, no. 7, p. 1733, Apr. 2023", status:"" }
@@ -498,6 +501,7 @@ const PROFESSIONAL = {
     { icon:"🔒", name:"ICSI — CNSS Certified Network Security Specialist" }
   ],
   talks: [
+    { title:"Introduction to Reinforcement Learning: How Machines Learn Through Trial and Error", venue:"Vietnam National University Ho Chi Minh City, University of Information Technology · 2026" }
     { title:"Quantum Learning Framework for DT Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2025" },
     { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"QC3 Inaugural Conference, Quantum Communications & Computing Centre · Memorial University · 2025" },
     { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IBM Delegation Visit Event · Memorial University, St. John's · 2024" },
@@ -702,22 +706,22 @@ function buildPublications() {
 
     <div class="pub-section-header journal">
       <span class="pub-section-icon">📰</span>
-      <span>Journal Articles</span>
-      <span class="pub-section-count">${totalJ}</span>
+      <span>Journal Articles <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalJ})</span></span>
+      <span class="pub-section-count">${totalJ} papers</span>
     </div>
     <div class="pub-list" style="margin-bottom:2.5rem;">${journalCards}</div>
 
     <div class="pub-section-header conference">
       <span class="pub-section-icon">🎤</span>
-      <span>Conference Papers</span>
-      <span class="pub-section-count">${totalC}</span>
+      <span>Conference Papers <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalC})</span></span>
+      <span class="pub-section-count">${totalC} papers</span>
     </div>
     <div class="pub-list" style="margin-bottom:2.5rem;">${conferenceCards}</div>
 
     <div class="pub-section-header patent">
       <span class="pub-section-icon">📋</span>
-      <span>Patents</span>
-      <span class="pub-section-count">${totalP}</span>
+      <span>Patents <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalP})</span></span>
+      <span class="pub-section-count">${totalP} patents</span>
     </div>
     <div class="pub-list">${patentCards}</div>
   </div>`;
@@ -758,20 +762,24 @@ function buildProfessional() {
 
     <div class="pro-grid">
       <div>
-        <div class="pro-section-title">Reviewer — Peer-Reviewed Journals</div>
+        <div class="pro-section-title">Reviewer — Journals</div>
         ${makeList(PROFESSIONAL.journal_reviewer)}
       </div>
       <div>
         <div class="pro-section-title">Reviewer — Conferences & Workshops</div>
         ${makeList(PROFESSIONAL.conf_reviewer)}
       </div>
-      <div>
-        <div class="pro-section-title">Professional Affiliations</div>
-        ${makeList(PROFESSIONAL.affiliations)}
-      </div>
-      <div>
-        <div class="pro-section-title">Certifications & Licenses</div>
-        ${certs}
+    </div>
+
+    <div class="affil-section">
+      <div class="pro-section-title">Professional Affiliations</div>
+      <div class="affil-chips">
+        ${PROFESSIONAL.affiliations.map(a => `
+          <div class="affil-chip">
+            <span class="affil-chip-dot"></span>
+            <span class="affil-chip-name">${a.name}</span>
+            <span class="affil-chip-year">${a.year}</span>
+          </div>`).join("")}
       </div>
     </div>
 
@@ -780,6 +788,9 @@ function buildProfessional() {
 
     <p class="sub-section-label">Leadership & Service</p>
     <div class="pro-full-list">${makeList(PROFESSIONAL.leadership)}</div>
+
+    <p class="sub-section-label">Certifications & Licenses</p>
+    <div class="certs-row">${certs}</div>
   </div>`;
 }
 
