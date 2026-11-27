@@ -4,47 +4,118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sasinda C. Prabhashana || PhD Candidate</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Sans+Sinhala:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Apply the visitor's saved light/dark choice before the page draws (prevents a flash) -->
+<script>
+  try { if (localStorage.getItem("scp-theme") === "light") document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
+</script>
 
 <style>
+  /* DARK THEME (default): deep teal */
   :root {
-    --navy: #0a1628;
-    --navy-mid: #112240;
-    --navy-light: #1a3058;
+    --navy: #04191c;
+    --navy-mid: #0a2a2f;
+    --navy-light: #113a40;
     --teal: #00b4d8;
     --teal-light: #48cae4;
     --gold: #f4a732;
     --gold-light: #ffd166;
+    --purple: #a78bfa;
+    --green: #34d399;
     --text-main: #e8eaf0;
     --text-muted: #8b9ab5;
     --text-soft: #c5cedd;
     --border: rgba(0,180,216,0.15);
-    --card: rgba(17,34,64,0.7);
+    --card: rgba(12,44,50,0.66);
+    --nav-bg: rgba(4,25,28,0.93);
+    --name-start: #ffffff;
+    --probe: #ff6b81;
+    --shadow-hover: 0 14px 34px rgba(0,0,0,0.35);
+    --ease: cubic-bezier(.2,.7,.2,1);
+    --nav-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --spot-rgb: 0,180,216;
     --radius: 12px;
+    color-scheme: dark;
+  }
+  /* LIGHT THEME: white background, black text (turned on by the switch in the top menu) */
+  :root[data-theme="light"] {
+    --navy: #ffffff;
+    --navy-mid: #eef2f7;
+    --navy-light: #e2e8f0;
+    --teal: #0077a0;
+    --teal-light: #00658a;
+    --gold: #a35f00;
+    --gold-light: #c77700;
+    --purple: #6941c6;
+    --green: #047857;
+    --text-main: #0b0f19;
+    --text-muted: #4a5566;
+    --text-soft: #1f2733;
+    --border: rgba(0,90,130,0.18);
+    --card: #f6f8fb;
+    --nav-bg: rgba(255,255,255,0.92);
+    --name-start: #0b0f19;
+    --probe: #d6334f;
+    --shadow-hover: 0 14px 34px rgba(15,30,45,0.10);
+    --nav-shadow: 0 8px 24px rgba(15,30,45,0.08);
+    --spot-rgb: 0,119,160;
+    color-scheme: light;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--text-main); min-height:100vh; overflow-x:hidden; }
+  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--text-main); min-height:100vh; overflow-x:hidden; transition:background-color 0.3s ease, color 0.3s ease; }
   body::before {
-    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+    content:''; position:fixed; inset:-35vh 0; pointer-events:none; z-index:0;
+    transform:translate3d(0, calc(var(--py, 0) * -1px), 0); will-change:transform;
     background:
-      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,180,216,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(244,167,50,0.05) 0%, transparent 60%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%2300b4d8' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      radial-gradient(ellipse 80% 35% at 20% 27%, rgba(0,180,216,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 30% at 80% 65%, rgba(244,167,50,0.05) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='220'%3E%3Cg stroke='%2300b4d8' stroke-opacity='0.07' stroke-width='1'%3E%3Cline x1='20' y1='30' x2='95' y2='15'/%3E%3Cline x1='95' y1='15' x2='160' y2='60'/%3E%3Cline x1='20' y1='30' x2='70' y2='95'/%3E%3Cline x1='70' y1='95' x2='160' y2='60'/%3E%3Cline x1='70' y1='95' x2='140' y2='140'/%3E%3Cline x1='160' y1='60' x2='140' y2='140'/%3E%3Cline x1='70' y1='95' x2='30' y2='170'/%3E%3Cline x1='30' y1='170' x2='110' y2='200'/%3E%3Cline x1='140' y1='140' x2='110' y2='200'/%3E%3Cline x1='140' y1='140' x2='185' y2='180'/%3E%3Cline x1='95' y1='15' x2='70' y2='95'/%3E%3C/g%3E%3Cg fill='%2300b4d8' fill-opacity='0.18'%3E%3Ccircle cx='20' cy='30' r='2'/%3E%3Ccircle cx='95' cy='15' r='2'/%3E%3Ccircle cx='160' cy='60' r='2'/%3E%3Ccircle cx='70' cy='95' r='2'/%3E%3Ccircle cx='140' cy='140' r='2'/%3E%3Ccircle cx='30' cy='170' r='2'/%3E%3Ccircle cx='185' cy='180' r='2'/%3E%3Ccircle cx='110' cy='200' r='2'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* NAV */
-  nav { position:sticky; top:0; z-index:100; background:rgba(10,22,40,0.93); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 2rem; }
-  .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; }
-  .nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--teal); padding:1rem 1.5rem 1rem 0; white-space:nowrap; border-right:1px solid var(--border); margin-right:1rem; flex-shrink:0; }
-  .nav-tabs { display:flex; list-style:none; }
-  .nav-tab { padding:1rem 1.1rem; cursor:pointer; font-size:0.82rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid transparent; transition:all 0.25s; white-space:nowrap; flex-shrink:0; }
+  nav { position:sticky; top:0; z-index:100; background:var(--nav-bg); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 2rem; transition:background-color 0.3s ease, box-shadow 0.4s ease; }
+  nav.scrolled { box-shadow:var(--nav-shadow); }
+  .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; }
+  .nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--teal); padding:1rem 1.1rem 1rem 0; white-space:nowrap; border-right:1px solid var(--border); margin-right:0.6rem; flex-shrink:0; }
+  .nav-tabs { display:flex; list-style:none; flex:1; min-width:0; overflow-x:auto; scrollbar-width:none; }
+  .nav-tabs::-webkit-scrollbar { display:none; }
+
+  /* LIGHT / DARK SWITCH */
+  .theme-switch { flex-shrink:0; margin-left:auto; padding:0.5rem 0 0.5rem 1rem; background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; }
+  .theme-switch:focus-visible { outline:none; }
+  .theme-switch:focus-visible .switch-track { outline:2px solid var(--teal); outline-offset:3px; }
+  .switch-track { position:relative; display:block; width:50px; height:26px; border-radius:100px; background:var(--navy-mid); border:1px solid var(--border); transition:background-color 0.3s, border-color 0.3s; }
+  .theme-switch:hover .switch-track { border-color:var(--teal); }
+  .track-icon { position:absolute; top:50%; width:12px; height:12px; margin-top:-6px; color:var(--text-muted); opacity:0.75; }
+  .track-moon { left:6px; }
+  .track-sun  { right:6px; }
+  .switch-knob { position:absolute; top:2px; left:2px; width:20px; height:20px; border-radius:50%; background:var(--teal); color:var(--navy); display:flex; align-items:center; justify-content:center; box-shadow:0 1px 4px rgba(0,0,0,0.3); transition:transform 0.3s ease, background-color 0.3s; z-index:1; }
+  .switch-knob svg { width:12px; height:12px; }
+  .knob-sun { display:none; }
+  :root[data-theme="light"] .switch-knob { transform:translateX(24px); background:var(--gold); }
+  :root[data-theme="light"] .knob-sun  { display:block; }
+  :root[data-theme="light"] .knob-moon { display:none; }
+  .nav-tab { padding:1rem 0.8rem; cursor:pointer; font-size:0.78rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); border-bottom:2px solid transparent; transition:all 0.25s; white-space:nowrap; flex-shrink:0; }
   .nav-tab:hover { color:var(--teal-light); }
   .nav-tab.active { color:var(--teal); border-bottom-color:var(--teal); background:rgba(0,180,216,0.05); }
+  .nav-tabs { position:relative; }
+  .has-indicator .nav-tab.active { border-bottom-color:transparent; }
+  .nav-indicator { position:absolute; left:0; bottom:0; height:2px; width:0; border-radius:2px; background:var(--teal); box-shadow:0 0 10px var(--teal); pointer-events:none; transition:transform 0.5s var(--ease), width 0.5s var(--ease); }
 
   /* PAGES */
   .page { display:none; position:relative; z-index:1; }
-  .page.active { display:block; animation:fadeUp 0.4s ease; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .page.active { display:block; animation:pageIn 0.75s var(--ease); }
+  @keyframes pageIn { from { opacity:0; transform:translateY(18px); filter:blur(6px); } to { opacity:1; transform:none; filter:none; } }
+
+  /* SCROLL REVEAL: content glides in as it comes into view */
+  .has-reveal .reveal { opacity:0; translate:0 26px; transition:opacity 0.8s var(--ease) var(--d,0ms), translate 0.8s var(--ease) var(--d,0ms), transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.2s ease; }
+  .has-reveal .reveal.in { opacity:1; translate:0 0; }
+
+  /* Soft lift on hover */
+
+  /* Circular wipe when switching light/dark (browsers that support it) */
+  ::view-transition-old(root), ::view-transition-new(root) { animation:none; mix-blend-mode:normal; }
   .container { max-width:1200px; margin:0 auto; padding:3rem 2rem; }
 
   /* ABOUT */
@@ -55,27 +126,38 @@
   .photo-inner img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
   .photo-placeholder { font-size:5rem; opacity:0.3; }
 
-  .contact-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; width:100%; backdrop-filter:blur(10px); }
-  .contact-card h4 { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:0.9rem; font-weight:600; }
-  .contact-item { display:flex; align-items:flex-start; gap:0.6rem; margin-bottom:0.7rem; font-size:0.8rem; color:var(--text-soft); }
-  .contact-item:last-child { margin-bottom:0; }
-  .contact-icon { width:16px; text-align:center; color:var(--teal); flex-shrink:0; margin-top:1px; }
-  .contact-item a { color:var(--teal-light); text-decoration:none; }
-  .contact-item a:hover { color:var(--gold); }
+  /* SIDE PANEL: lab card, email button, local time, link buttons */
+  .sp-lab { width:100%; text-align:center; padding:1.1rem; border-radius:18px; border:1px solid rgba(var(--spot-rgb),0.3); background:linear-gradient(135deg,rgba(0,180,216,0.14),rgba(244,167,50,0.08)); }
+  .sp-lab-n { font:700 0.82rem 'DM Sans',sans-serif; color:var(--gold); line-height:1.4; }
+  .sp-lab-s { font-size:0.72rem; color:var(--text-muted); margin-top:0.2rem; }
+  .sp-chips { display:flex; flex-direction:column; align-items:center; gap:0.45rem; margin-top:0.75rem; }
+  .sp-chip { display:inline-flex; align-items:center; gap:0.35rem; font:600 0.74rem 'DM Sans',sans-serif; color:var(--teal-light); text-decoration:none; padding:0.35rem 0.85rem; border-radius:100px; border:1px solid rgba(var(--spot-rgb),0.35); background:rgba(var(--spot-rgb),0.08); transition:background-color 0.25s, border-color 0.25s, transform 0.25s var(--ease); }
+  .sp-chip:hover { background:rgba(var(--spot-rgb),0.18); border-color:var(--teal); transform:translateY(-2px); }
+  .sp-mail { width:100%; display:flex; gap:0.5rem; }
+  .sp-btn { flex:1; display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.8rem 1rem; border-radius:14px; font:600 0.88rem 'DM Sans',sans-serif; color:var(--navy); background:linear-gradient(135deg,var(--teal),var(--teal-light)); text-decoration:none; box-shadow:0 8px 22px rgba(var(--spot-rgb),0.3); transition:transform 0.25s var(--ease), box-shadow 0.25s; }
+  .sp-btn:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(var(--spot-rgb),0.4); }
+  .sp-cp { position:relative; width:48px; flex-shrink:0; border-radius:14px; border:1px solid var(--border); background:var(--card); color:var(--text-soft); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color 0.25s, color 0.25s; }
+  .sp-cp:hover { border-color:var(--teal); color:var(--teal-light); }
+  .sp-cp .ok { display:none; }
+  .sp-cp.done { border-color:var(--green); color:var(--green); }
+  .sp-cp.done .ok { display:block; } .sp-cp.done .cp { display:none; }
+  .sp-cp::after { content:'Copied!'; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translate(-50%,4px); white-space:nowrap; font:600 0.68rem 'DM Sans',sans-serif; color:var(--navy); background:var(--green); padding:0.2rem 0.5rem; border-radius:6px; opacity:0; pointer-events:none; transition:opacity 0.2s, transform 0.2s; }
+  .sp-cp.done::after { opacity:1; transform:translate(-50%,0); }
+  .sp-cp:focus-visible { outline:2px solid var(--teal); outline-offset:2px; }
+  .sp-loc { width:100%; display:flex; align-items:center; gap:0.45rem; font-size:0.78rem; color:var(--text-muted); padding:0 0.3rem; }
+  .sp-loc svg { color:var(--teal); flex-shrink:0; }
+  .sp-time { margin-left:auto; font:500 0.72rem 'DM Mono',monospace; color:var(--text-soft); white-space:nowrap; }
+  .sp-h { width:100%; font:600 0.7rem 'DM Sans',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin:0.4rem 0 -0.4rem 0.6rem; }
+  .sp-links { width:100%; display:flex; flex-direction:column; gap:0.6rem; }
+  .sp-link { display:flex; align-items:center; gap:0.75rem; padding:0.7rem 0.9rem; border-radius:14px; border:1px solid var(--border); background-color:var(--card); color:var(--text-main); text-decoration:none; font:600 0.86rem 'DM Sans',sans-serif; }
+  .sp-link .ic { width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; color:#fff; background:var(--b); flex-shrink:0; }
+  .sp-link .ic svg { width:15px; height:15px; }
+  .sp-link .go { margin-left:auto; color:var(--text-muted); display:flex; transition:transform 0.3s var(--ease), color 0.3s; }
+  .sp-link:hover { border-color:var(--b); transform:translateX(4px); box-shadow:0 6px 18px color-mix(in srgb, var(--b) 25%, transparent); }
+  .sp-link:hover .go { color:var(--text-main); transform:translate(2px,-2px); }
 
-  .social-links { width:100%; }
-  .social-links h4 { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:0.75rem; font-weight:600; }
-  .social-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; }
-  .social-btn { display:flex; align-items:center; gap:0.45rem; padding:0.45rem 0.7rem; border-radius:7px; background:rgba(0,180,216,0.07); border:1px solid var(--border); color:var(--text-soft); text-decoration:none; font-size:0.75rem; font-weight:500; transition:all 0.2s; }
-  .social-btn:hover { background:rgba(0,180,216,0.15); border-color:var(--teal); color:var(--teal-light); }
-  .social-btn svg { flex-shrink:0; }
-
-  .lab-badge { background:linear-gradient(135deg,rgba(0,180,216,0.15),rgba(244,167,50,0.08)); border:1px solid rgba(0,180,216,0.3); border-radius:8px; padding:0.8rem 1rem; text-align:center; width:100%; }
-  .lab-badge .lab-name { font-size:0.78rem; font-weight:600; color:var(--gold); line-height:1.4; }
-  .lab-badge .lab-sub { font-size:0.7rem; color:var(--text-muted); margin-top:0.2rem; }
-
-  .intro-greeting { font-family:'DM Mono',monospace; font-size:0.85rem; color:var(--teal); letter-spacing:0.05em; margin-bottom:0.5rem; opacity:0.8; }
-  .intro-name { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; line-height:1.1; margin-bottom:0.5rem; background:linear-gradient(135deg,#fff 30%,var(--teal-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .intro-greeting { font-family:'DM Mono','Noto Sans Sinhala',monospace; font-size:0.85rem; color:var(--teal); letter-spacing:0.05em; margin-bottom:0.5rem; opacity:0.8; }
+  .intro-name { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; line-height:1.1; margin-bottom:0.5rem; background:linear-gradient(135deg,var(--name-start) 30%,var(--teal-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .intro-title { font-size:1rem; color:var(--gold); font-weight:500; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; }
   .intro-bio { font-size:1rem; line-height:1.8; color:var(--text-soft); margin-bottom:1.2rem; }
   .intro-bio strong { color:var(--text-main); font-weight:600; }
@@ -91,127 +173,182 @@
   .section-title { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:600; color:var(--text-main); margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
   .section-title::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
 
-  /* EDUCATION */
-  .edu-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; margin-bottom:3rem; }
-  .edu-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; backdrop-filter:blur(10px); position:relative; overflow:hidden; transition:border-color 0.3s,transform 0.3s; }
-  .edu-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,var(--teal),var(--gold)); }
-  .edu-card:hover { border-color:rgba(0,180,216,0.35); transform:translateY(-2px); }
-  .edu-degree { font-weight:600; font-size:0.95rem; margin-bottom:0.3rem; }
-  .edu-school { color:var(--teal); font-size:0.85rem; margin-bottom:0.25rem; font-weight:500; }
-  .edu-period { font-size:0.75rem; color:var(--text-muted); font-family:'DM Mono',monospace; margin-bottom:0.75rem; }
-  .edu-detail { font-size:0.8rem; color:var(--text-soft); line-height:1.5; }
-  .badge-gold { display:inline-block; background:rgba(244,167,50,0.15); border:1px solid rgba(244,167,50,0.3); color:var(--gold); padding:0.15rem 0.5rem; border-radius:4px; font-size:0.72rem; font-weight:600; margin-top:0.4rem; }
+  /* EDUCATION: rows with a GPA meter */
+  .eb { margin-bottom:3rem; }
+  .eb-row { display:grid; grid-template-columns:170px 1fr 300px; gap:1.6rem; align-items:center; padding:1.3rem 0.4rem; border-bottom:1px solid var(--border); }
+  .eb > .eb-row:first-child { border-top:1px solid var(--border); }
+  .eb-per { font:500 0.76rem 'DM Mono',monospace; color:var(--teal); }
+  .eb-deg { font-weight:700; font-size:1.02rem; color:var(--text-main); }
+  .eb-uni { font-size:0.84rem; color:var(--teal-light); margin:0.15rem 0 0.4rem; }
+  .eb-ex { font-size:0.82rem; color:var(--text-soft); line-height:1.6; }
+  .eb-ex div::before { content:'› '; color:var(--teal); }
+  .eb-medal { display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; font:600 0.74rem 'DM Sans',sans-serif; color:var(--navy); background:linear-gradient(135deg,var(--gold),var(--gold-light)); padding:0.3rem 0.7rem; border-radius:100px; box-shadow:0 4px 16px rgba(244,167,50,0.3); }
+  .eb-g-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.45rem; }
+  .eb-g-l { font:600 0.7rem 'DM Sans',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .eb-g-v { font:700 1.35rem 'DM Sans',sans-serif; color:var(--text-main); }
+  .eb-g-v small { font:500 0.78rem 'DM Mono',monospace; color:var(--text-muted); }
+  .eb-bar { height:10px; border-radius:10px; background:rgba(var(--spot-rgb),0.12); overflow:hidden; }
+  .eb-bar i { display:block; height:100%; border-radius:10px; background:linear-gradient(90deg,var(--teal),var(--teal-light)); box-shadow:0 0 12px rgba(var(--spot-rgb),0.5); transform-origin:left; transition:transform 1.3s var(--ease) 0.25s; }
+  .has-reveal .eb-row:not(.in) .eb-bar i { transform:scaleX(0); }   /* bar fills up as the row scrolls into view */
+  @media (max-width:768px) {
+    .eb-row { grid-template-columns:1fr; gap:0.7rem; }
+  }
 
-  /* NEWS */
-  .news-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
-  .news-item { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; display:flex; gap:1rem; align-items:flex-start; transition:border-color 0.3s; }
-  .news-item:hover { border-color:rgba(0,180,216,0.35); }
-  .news-dot { width:10px; height:10px; border-radius:50%; background:var(--teal); margin-top:5px; flex-shrink:0; box-shadow:0 0 8px var(--teal); }
-  .news-dot.gold { background:var(--gold); box-shadow:0 0 8px var(--gold); }
-  .news-date { font-size:0.72rem; color:var(--text-muted); font-family:'DM Mono',monospace; margin-bottom:0.25rem; }
-  .news-text { font-size:0.85rem; color:var(--text-soft); line-height:1.5; }
+  /* NEWS: live ticker band + newsroom list grouped by year */
+  .nk-band { display:flex; align-items:center; border:1px solid var(--border); border-radius:100px; overflow:hidden; background:rgba(0,180,216,0.05); margin-bottom:2.2rem; }
+  .nk-label { flex-shrink:0; display:flex; align-items:center; gap:0.5rem; padding:0.7rem 1.2rem; background:var(--teal); color:var(--navy); font:600 0.75rem 'DM Mono',monospace; letter-spacing:0.12em; }
+  .nk-label i { width:7px; height:7px; border-radius:50%; background:var(--navy); animation:nk-blink 1.2s infinite; }
+  @keyframes nk-blink { 50% { opacity:0.2; } }
+  .nk-view { overflow:hidden; flex:1; -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); }
+  .nk-track { display:flex; width:max-content; animation:nk-scroll var(--nk-dur,90s) linear infinite; }
+  .nk-band:hover .nk-track { animation-play-state:paused; }
+  @keyframes nk-scroll { to { transform:translateX(-50%); } }
+  .nk-item { white-space:nowrap; padding:0.7rem 1.6rem; font-size:0.88rem; color:var(--text-soft); }
+  .nk-item b { font-family:'DM Mono',monospace; font-weight:500; color:var(--gold); margin-right:0.6rem; font-size:0.78rem; }
+  .nk-item strong { color:var(--text-main); }
+  .nk-sep { color:var(--teal); opacity:0.6; padding:0.7rem 0; font-size:0.7rem; align-self:center; }
+  .nl { display:flex; flex-direction:column; gap:2.4rem; }
+  .nl-group { display:grid; grid-template-columns:170px 1fr; gap:2rem; }
+  .nl-year { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; line-height:1; color:var(--teal); position:sticky; top:84px; align-self:start; }
+  .nl-row { display:grid; grid-template-columns:60px 1fr; gap:1rem; align-items:baseline; padding:1rem 0.6rem; border-bottom:1px solid var(--border); }
+  .nl-rows > .nl-row:first-child { border-top:1px solid var(--border); }
+  .nl-row:hover { background-color:rgba(0,180,216,0.05); }
+  .nl-month { font-family:'DM Mono',monospace; font-size:0.78rem; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; }
+  .nl-text { font-size:0.95rem; line-height:1.6; color:var(--text-soft); transition:transform 0.35s var(--ease); }
+  .nl-row:hover .nl-text { transform:translateX(6px); }
+  .nl-text strong { color:var(--text-main); }
+  .nl-text a, .nk-item a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(var(--spot-rgb),0.5); transition:color 0.2s, border-color 0.2s; }
+  .nl-text a:hover, .nk-item a:hover { color:var(--teal-light); border-color:var(--teal-light); }
+  .nl-text a strong, .nk-item a strong { color:inherit; }
+  .nl-text a:hover strong, .nk-item a:hover strong { color:var(--teal-light); }
+  @media (max-width:768px) {
+    .nl-group { grid-template-columns:1fr; gap:0.8rem; }
+    .nl-year { position:static; font-size:2rem; }
+    .nk-label { padding:0.7rem 0.9rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nk-track { animation:none; }
+    .nk-view { overflow-x:auto; }
+  }
 
-  /* TIMELINE */
-  .timeline { position:relative; padding-left:2rem; }
-  .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:2px; background:linear-gradient(180deg,var(--teal),var(--gold),rgba(0,180,216,0.1)); }
-  .timeline-item { position:relative; margin-bottom:2.5rem; }
-  .timeline-dot { position:absolute; left:-2.4rem; top:6px; width:12px; height:12px; border-radius:50%; background:var(--teal); border:2px solid var(--navy); box-shadow:0 0 10px rgba(0,180,216,0.5); }
-  .timeline-dot.gold { background:var(--gold); box-shadow:0 0 10px rgba(244,167,50,0.5); }
-  .timeline-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem 1.8rem; backdrop-filter:blur(10px); transition:border-color 0.3s,transform 0.3s; }
-  .timeline-card:hover { border-color:rgba(0,180,216,0.35); transform:translateX(4px); }
-  .timeline-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:0.5rem; flex-wrap:wrap; }
-  .timeline-role { font-weight:600; font-size:1rem; }
-  .timeline-period { font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--teal); white-space:nowrap; background:rgba(0,180,216,0.1); padding:0.2rem 0.6rem; border-radius:4px; }
-  .timeline-org { font-size:0.85rem; color:var(--gold); margin-bottom:0.8rem; font-weight:500; }
-  .timeline-body { font-size:0.85rem; color:var(--text-soft); line-height:1.7; }
-  .timeline-body ul { list-style:none; padding:0; }
-  .timeline-body li { padding-left:1rem; position:relative; margin-bottom:0.35rem; }
-  .timeline-body li::before { content:'›'; position:absolute; left:0; color:var(--teal); }
+  /* EXPERIENCE: expandable timeline */
+  .ad { position:relative; margin-bottom:2.6rem; }
+  .ad::before { content:''; position:absolute; left:178px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--teal),var(--gold),transparent); opacity:0.6; }
+  .ad-row { border-bottom:1px solid var(--border); border-radius:12px; transition:background-color 0.3s ease; }
+  .ad-row:hover { background-color:rgba(var(--spot-rgb),0.04); }
+  .ad-head { all:unset; box-sizing:border-box; width:100%; cursor:pointer; display:grid; grid-template-columns:160px 38px 1fr 34px; align-items:start; padding:1.05rem 0; }
+  .ad-head:focus-visible { outline:2px solid var(--teal); outline-offset:2px; border-radius:10px; }
+  .ad-p { font-family:'DM Mono',monospace; font-size:0.76rem; color:var(--teal); text-align:right; padding-top:0.22rem; }
+  .ad-p-m { display:none; }
+  .ad-dot { justify-self:center; margin-top:0.38rem; width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px var(--navy), 0 0 10px var(--gold); position:relative; z-index:1; }
+  .ad-r { font-weight:600; font-size:0.98rem; color:var(--text-main); display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
+  .ad-now { font:600 0.62rem 'DM Mono',monospace; letter-spacing:0.12em; color:var(--navy); background:var(--teal); padding:0.15rem 0.5rem; border-radius:100px; display:inline-flex; align-items:center; gap:0.35rem; }
+  .ad-now::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--navy); animation:nk-blink 1.4s infinite; }
+  .ad-o { display:block; font-size:0.8rem; color:var(--gold); margin-top:0.22rem; line-height:1.45; }
+  .ad-c { justify-self:center; width:28px; height:28px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:1rem; line-height:1; transition:transform 0.4s var(--ease), color 0.3s, border-color 0.3s, background-color 0.3s; }
+  .ad-head:hover .ad-c { border-color:var(--teal); color:var(--teal); }
+  .ad-row.open .ad-c { transform:rotate(45deg); color:var(--teal); border-color:var(--teal); background-color:rgba(var(--spot-rgb),0.08); }
+  /* Smooth open/close: the details grow from zero height */
+  .ad-body { display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.5s var(--ease); }
+  .ad-row.open .ad-body { grid-template-rows:1fr; }
+  .ad-body > div { overflow:hidden; }
+  .ad-b { list-style:none; margin:0; padding:0 34px 1.15rem 198px; opacity:0; translate:0 -6px; transition:opacity 0.35s ease, translate 0.45s var(--ease); }
+  .ad-row.open .ad-b { opacity:1; translate:0 0; transition-delay:0.08s; }
+  .ad-b li { position:relative; padding-left:1rem; margin-bottom:0.35rem; font-size:0.86rem; line-height:1.65; color:var(--text-soft); }
+  .ad-b li::before { content:'›'; position:absolute; left:0; color:var(--teal); }
+  @media (max-width:700px) {
+    .ad::before { left:12px; }
+    .ad-head { grid-template-columns:26px 1fr 34px; gap:0.6rem; }
+    .ad-p { display:none; }
+    .ad-p-m { display:block; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--teal); margin-bottom:0.2rem; }
+    .ad-b { padding:0 34px 1.1rem 2.25rem; }
+  }
 
-  /* PUBLICATIONS */
-  .pub-filter { display:flex; gap:0.5rem; margin-bottom:2rem; flex-wrap:wrap; }
-  .filter-btn { padding:0.4rem 1rem; border-radius:100px; border:1px solid var(--border); background:transparent; color:var(--text-muted); font-size:0.8rem; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.2s; }
-  .filter-btn.active,.filter-btn:hover { background:rgba(0,180,216,0.15); border-color:var(--teal); color:var(--teal); }
-  .pub-list { display:flex; flex-direction:column; gap:1rem; }
-  .pub-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; backdrop-filter:blur(10px); transition:border-color 0.3s; position:relative; }
-  .pub-card:hover { border-color:rgba(0,180,216,0.35); }
-  .pub-number { position:absolute; top:1.4rem; right:1.6rem; font-family:'Playfair Display',serif; font-size:2rem; color:rgba(0,180,216,0.07); font-weight:700; line-height:1; }
-  .pub-type { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:0.5rem; }
-  .pub-type.journal { color:var(--teal); }
-  .pub-type.conference { color:var(--gold); }
-  .pub-type.patent { color:#a78bfa; }
-  .pub-title { font-weight:600; font-size:0.92rem; line-height:1.5; margin-bottom:0.5rem; color:var(--text-main); }
-  .pub-authors { font-size:0.8rem; color:var(--text-muted); margin-bottom:0.4rem; line-height:1.5; }
-  .pub-venue { font-size:0.8rem; color:var(--text-soft); font-style:italic; }
-  .pub-status { display:inline-block; margin-left:0.5rem; font-size:0.68rem; padding:0.1rem 0.4rem; border-radius:3px; font-style:normal; font-weight:600; }
-  .status-submitted { background:rgba(139,154,181,0.15); color:var(--text-muted); }
-  .status-accepted { background:rgba(72,202,228,0.15); color:var(--teal-light); }
-  .status-best { background:rgba(244,167,50,0.15); color:var(--gold); }
+  /* PUBLICATIONS: highlights + numbered lists */
+  .me { color:var(--text-main); font-weight:700; border-bottom:2px solid rgba(var(--spot-rgb),0.6); }
+  .vb { display:inline-flex; align-items:center; justify-content:center; font:700 0.72rem 'DM Mono',monospace; letter-spacing:0.02em; padding:0.35rem 0.6rem; border-radius:8px; white-space:nowrap; }
+  .vb.journal { background:rgba(0,180,216,0.14); color:var(--teal-light); border:1px solid rgba(0,180,216,0.35); }
+  .vb.conference { background:rgba(244,167,50,0.12); color:var(--gold); border:1px solid rgba(244,167,50,0.35); }
+  .vb.patent { background:rgba(167,139,250,0.12); color:var(--purple); border:1px solid rgba(167,139,250,0.35); }
+  .vb.book { background:rgba(52,211,153,0.12); color:var(--green); border:1px solid rgba(52,211,153,0.35); }
+  .pv-st { display:inline-block; font:600 0.66rem 'DM Sans',sans-serif; letter-spacing:0.06em; text-transform:uppercase; padding:0.15rem 0.5rem; border-radius:100px; margin-left:0.5rem; vertical-align:1px; font-style:normal; white-space:nowrap; }
+  .pv-st.acc { background:rgba(52,211,153,0.15); color:var(--green); }
+  .pv-st.sub { background:rgba(139,154,181,0.15); color:var(--text-muted); }
+  .pv-st.best { background:rgba(244,167,50,0.15); color:var(--gold); }
+  .ph-sec { display:flex; align-items:center; gap:0.7rem; margin:2.2rem 0 0.6rem; font:700 0.8rem 'DM Sans',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); }
+  .ph-sec:first-of-type { margin-top:0; }
+  .ph-sec i { font-style:normal; font-family:'DM Mono',monospace; color:var(--teal); }
+  .ph-feat { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-bottom:1rem; }
+  .ph-f { position:relative; display:flex; flex-direction:column; gap:0.7rem; padding:1.5rem 1.4rem; border-radius:20px; border:1px solid rgba(244,167,50,0.3); background-color:var(--card); }
+  .ph-f::before { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(circle at 100% 0%, rgba(244,167,50,0.16), transparent 55%); pointer-events:none; }
+  .ph-f > * { position:relative; }
+  .ph-f:hover { border-color:rgba(244,167,50,0.55); box-shadow:var(--shadow-hover); }
+  .ph-f .vb { align-self:flex-start; }
+  .ph-rib { position:absolute !important; top:1.1rem; right:1.1rem; font:700 0.62rem 'DM Sans',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy); background:var(--gold); padding:0.2rem 0.55rem; border-radius:100px; }
+  .ph-ft { font-weight:700; font-size:1.02rem; line-height:1.4; color:var(--text-main); }
+  .ph-fa { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  .ph-fv { margin-top:auto; font-size:0.76rem; color:var(--text-soft); font-style:italic; }
+  .ph-row { display:grid; grid-template-columns:34px 120px 1fr; gap:1rem; align-items:start; padding:0.95rem 0.4rem; border-bottom:1px solid var(--border); border-radius:10px; }
+  .ph-list > .ph-row:first-child { border-top:1px solid var(--border); }
+  .ph-row:hover { background-color:rgba(var(--spot-rgb),0.04); }
+  .ph-row .vb { justify-self:start; }
+  .ph-n { font:600 0.8rem 'DM Mono',monospace; color:var(--text-muted); padding-top:0.3rem; }
+  .ph-t { font-weight:600; font-size:0.95rem; color:var(--text-main); line-height:1.45; }
+  .ph-a { font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem; line-height:1.5; }
+  .ph-v { font-size:0.78rem; color:var(--text-soft); font-style:italic; margin-top:0.2rem; }
+  @media (max-width:860px) {
+    .ph-feat { grid-template-columns:1fr; }
+    .ph-row { grid-template-columns:28px 1fr; row-gap:0.5rem; }
+    .ph-row .vb { grid-column:2; }
+    .ph-row > div { grid-column:2; }
+  }
 
   /* AWARDS */
-  .awards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.2rem; }
-  .award-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; backdrop-filter:blur(10px); transition:all 0.3s; position:relative; overflow:hidden; }
-  .award-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(244,167,50,0.04) 0%,transparent 60%); pointer-events:none; }
-  .award-card:hover { border-color:rgba(244,167,50,0.35); transform:translateY(-3px); }
-  .award-icon { font-size:1.8rem; margin-bottom:0.8rem; }
-  .award-year { position:absolute; top:1rem; right:1rem; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--gold); background:rgba(244,167,50,0.1); padding:0.15rem 0.5rem; border-radius:4px; }
-  .award-title { font-weight:600; font-size:0.92rem; margin-bottom:0.4rem; line-height:1.4; color:var(--text-main); }
-  .award-org { font-size:0.8rem; color:var(--gold); margin-bottom:0.5rem; font-weight:500; }
-  .award-desc { font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  .aw-hint { color:var(--text-muted); font-size:0.88rem; margin:-1.2rem 0 2rem; }
+  .aw-hint .touch { display:none; }
+  @media (hover:none) { .aw-hint .mouse { display:none; } .aw-hint .touch { display:inline; } }
+  .aw-wall { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:1.1rem; }
+  .aw-tile { position:relative; text-align:center; padding:1.7rem 1.1rem 1.4rem; border-radius:20px; border:1px solid var(--border); background-color:var(--card); outline:none; cursor:default; }
+  .aw-tile::before { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(circle at 50% 0%, rgba(var(--spot-rgb),0.10), transparent 55%); pointer-events:none; }
+  .aw-tile:hover { border-color:rgba(244,167,50,0.4); box-shadow:var(--shadow-hover); }
+  .aw-tile:focus-visible { border-color:var(--teal); }
+  .aw-year { position:absolute; top:0.8rem; right:0.9rem; font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--gold); background:rgba(244,167,50,0.1); padding:0.1rem 0.45rem; border-radius:4px; }
+  .aw-medal { position:relative; width:64px; height:64px; margin:0 auto 1rem; border-radius:50%; padding:2px; background:conic-gradient(from var(--ring), var(--gold), var(--teal), var(--gold-light), var(--gold)); animation:ring-spin 8s linear infinite; box-shadow:0 0 26px rgba(244,167,50,0.22); transition:box-shadow 0.4s ease, scale 0.4s var(--ease); }
+  .aw-tile:hover .aw-medal { box-shadow:0 0 38px rgba(244,167,50,0.45); scale:1.06; }
+  .aw-medal span { display:flex; align-items:center; justify-content:center; width:100%; height:100%; border-radius:50%; background:var(--navy); font-size:1.75rem; }
+  .aw-title { position:relative; font-weight:600; font-size:0.88rem; line-height:1.4; color:var(--text-main); margin-bottom:0.45rem; }
+  .aw-org { position:relative; font-size:0.75rem; color:var(--gold); line-height:1.35; }
+  /* Details slide in over the tile on hover (mouse), focus (keyboard) or tap (phones) */
+  .aw-more { position:absolute; inset:0; z-index:2; display:flex; flex-direction:column; justify-content:center; gap:0.6rem; padding:1.4rem 1.3rem; border-radius:inherit; text-align:center; background:color-mix(in srgb, var(--navy-mid) 94%, transparent); backdrop-filter:blur(6px); opacity:0; transform:translateY(10px); transition:opacity 0.35s var(--ease), transform 0.35s var(--ease); pointer-events:none; }
+  .aw-more-title { font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); }
+  .aw-more p { font-size:0.84rem; line-height:1.55; color:var(--text-soft); }
+  .aw-tile:hover .aw-more, .aw-tile:focus-visible .aw-more { opacity:1; transform:none; }
+  @media (hover:none) { .aw-tile:focus .aw-more { opacity:1; transform:none; } }
+  @media (max-width:600px) {
+    .aw-wall { grid-template-columns:1fr 1fr; gap:0.75rem; }
+    .aw-tile { padding:1.4rem 0.7rem 1.1rem; }
+    .aw-medal { width:54px; height:54px; }
+    .aw-medal span { font-size:1.45rem; }
+    .aw-title { font-size:0.8rem; }
+    .aw-year { top:0.6rem; right:0.6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .aw-medal { animation:none; } }
 
   /* PROFESSIONAL */
-  .pro-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-  .pro-section-title { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--teal); font-weight:600; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
-  .pro-item { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.9rem 1.1rem; margin-bottom:0.6rem; display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; transition:border-color 0.2s; }
-  .pro-item:hover { border-color:rgba(0,180,216,0.3); }
-  .pro-item-name { font-size:0.83rem; color:var(--text-soft); line-height:1.4; flex:1; }
-  .pro-item-year { font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--text-muted); white-space:nowrap; }
   .talk-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.4rem; margin-bottom:0.8rem; display:flex; gap:1rem; transition:border-color 0.3s; }
   .talk-card:hover { border-color:rgba(0,180,216,0.35); }
   .talk-icon { color:var(--teal); font-size:1.2rem; flex-shrink:0; margin-top:2px; }
   .talk-title { font-size:0.85rem; font-weight:600; margin-bottom:0.3rem; line-height:1.4; }
   .talk-venue { font-size:0.78rem; color:var(--text-muted); line-height:1.4; }
-  .cert-badge { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.8rem 1.1rem; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.8rem; transition:border-color 0.2s; }
-  .cert-badge:hover { border-color:rgba(0,180,216,0.3); }
-  .cert-icon { width:32px; height:32px; border-radius:50%; background:rgba(0,180,216,0.1); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-  .cert-name { font-size:0.83rem; color:var(--text-soft); }
 
   /* CV PAGE */
-  .cv-section { margin-bottom:2.5rem; }
-  .cv-section-header { font-family:'DM Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--teal); border-bottom:1px solid var(--border); padding-bottom:0.5rem; margin-bottom:1rem; }
-  .cv-download { display:inline-flex; align-items:center; gap:0.5rem; background:linear-gradient(135deg,var(--teal),var(--teal-light)); color:var(--navy); padding:0.75rem 1.5rem; border-radius:8px; font-weight:600; font-size:0.85rem; text-decoration:none; cursor:pointer; border:none; font-family:'DM Sans',sans-serif; transition:all 0.2s; margin-bottom:2rem; }
-  .cv-download:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,180,216,0.3); }
-  .cv-row { display:flex; gap:1rem; margin-bottom:0.8rem; align-items:flex-start; font-size:0.85rem; }
-  .cv-label { color:var(--text-muted); min-width:120px; font-size:0.78rem; padding-top:1px; }
-  .cv-value { color:var(--text-soft); flex:1; line-height:1.5; font-size:0.85rem; }
 
   .sub-section-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin:2rem 0 1rem; font-weight:600; }
 
-  /* Education stacked column layout */
-  .edu-stack { display:flex; flex-direction:column; gap:0; margin-bottom:3rem; }
-  .edu-card-stacked { display:flex; gap:2rem; padding:1.5rem 0; border-bottom:1px solid var(--border); align-items:flex-start; position:relative; }
-  .edu-card-stacked:first-child { padding-top:0; }
-  .edu-card-stacked:last-child { border-bottom:none; }
-  .edu-stacked-left { width:170px; min-width:170px; flex-shrink:0; }
-  .edu-stacked-left .edu-period { font-size:0.75rem; color:var(--teal); font-family:'DM Mono',monospace; background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); padding:0.25rem 0.55rem; border-radius:5px; display:inline-block; white-space:nowrap; }
-  .edu-stacked-right { flex:1; }
-  .edu-stacked-right .edu-degree { font-weight:600; font-size:0.97rem; margin-bottom:0.25rem; color:var(--text-main); }
-  .edu-stacked-right .edu-school { color:var(--teal); font-size:0.85rem; margin-bottom:0.5rem; font-weight:500; }
-  .edu-stacked-right .edu-detail { font-size:0.8rem; color:var(--text-soft); line-height:1.6; margin-bottom:0.2rem; }
 
   /* Full-width list for leadership/volunteering */
-  .pro-full-list { max-width:700px; }
 
   /* Certifications horizontal row at bottom */
-  .certs-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.25rem; }
-  .certs-row .cert-badge { flex:1; min-width:220px; margin-bottom:0; }
-  .affil-section { margin-top:2.5rem; margin-bottom:0.5rem; }
-  .affil-chips { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.75rem; }
-  .affil-chip { display:flex; align-items:center; gap:0.55rem; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:0.6rem 1rem; transition:border-color 0.2s; flex-shrink:0; }
-  .affil-chip:hover { border-color:rgba(0,180,216,0.35); }
-  .affil-chip-dot { width:7px; height:7px; border-radius:50%; background:var(--teal); flex-shrink:0; }
-  .affil-chip-name { font-size:0.82rem; color:var(--text-soft); }
-  .affil-chip-year { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-muted); margin-left:0.3rem; white-space:nowrap; }
 
   /* Bio quote */
   .bio-quote {
@@ -227,38 +364,264 @@
   }
 
   /* Lab links inside badge */
-  .lab-links { display:flex; flex-direction:column; gap:0.35rem; margin-top:0.7rem; }
-  .lab-link { font-size:0.72rem; color:var(--teal-light); text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem; transition:color 0.2s; }
-  .lab-link:hover { color:var(--gold); }
 
-  /* Talks page */
-  .talks-list { display:flex; flex-direction:column; gap:0.8rem; }
-  .talk-card-full { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.8rem; display:flex; gap:1.5rem; align-items:flex-start; backdrop-filter:blur(10px); transition:border-color 0.3s,transform 0.3s; }
-  .talk-card-full:hover { border-color:rgba(0,180,216,0.35); transform:translateX(4px); }
-  .talk-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:rgba(0,180,216,0.15); line-height:1; min-width:2.2rem; flex-shrink:0; }
-  .talk-main { flex:1; }
-  .talk-title-full { font-size:0.92rem; font-weight:600; line-height:1.5; color:var(--text-main); margin-bottom:0.4rem; }
-  .talk-venue-full { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+  /* ===== TALKS: world map + list ===== */
+  .mp { position:relative; border-radius:24px; border:1px solid var(--border); background:radial-gradient(ellipse at 50% 35%, rgba(var(--spot-rgb),0.10), transparent 70%), var(--card); padding:1.4rem 1.4rem 1.2rem; margin-bottom:1.6rem; }
+  .mp-head { display:flex; justify-content:space-between; align-items:flex-end; gap:1rem 2rem; flex-wrap:wrap; margin:0 0.4rem 0.8rem; }
+  .mp-k { font:800 1.3rem 'DM Sans',sans-serif; letter-spacing:-0.01em; color:var(--text-main); }
+  .mp-hint { font-size:0.78rem; color:var(--text-muted); margin-top:0.25rem; }
+  .mp-stats { display:flex; gap:1.8rem; }
+  .mp-stats div { min-width:2.6rem; }
+  .mp-stats b { display:block; font:800 1.7rem 'DM Sans',sans-serif; line-height:1; color:var(--text-main); font-variant-numeric:tabular-nums; }
+  .mp-stats .g b { color:var(--gold); }
+  .mp-stats span { display:block; font:600 0.62rem 'DM Sans',sans-serif; letter-spacing:0.13em; text-transform:uppercase; color:var(--text-muted); margin-top:0.4rem; }
+  .mp-stage { position:relative; }
+  .mp-stage svg { display:block; width:100%; height:auto; overflow:visible; }
+  .mp-dots { fill:none; stroke:var(--text-muted); stroke-opacity:0.3; stroke-width:3.4; stroke-linecap:round; }
+  .mp-arc { fill:none; stroke:var(--teal-light); stroke-width:1.4; stroke-opacity:0.5; stroke-dasharray:100; stroke-dashoffset:0; transition:stroke-dashoffset 1.6s var(--ease) calc(var(--i) * 140ms + 350ms), stroke-opacity 0.4s ease, stroke 0.4s ease; }
+  .has-reveal .mp:not(.in) .mp-arc { stroke-dashoffset:100; }
+  .mp-flow { fill:none; stroke:var(--teal-light); stroke-width:2.6; stroke-linecap:round; stroke-dasharray:7 200; stroke-dashoffset:7; opacity:0; filter:drop-shadow(0 0 4px var(--teal-light)); }
+  .mp.picked .mp-arc { stroke-opacity:0.12; }
+  .mp.picked .mp-arc.on { stroke:var(--gold); stroke-opacity:0.95; }
+  .mp.picked .mp-flow:not(.on) { visibility:hidden; }
+  .mp.picked .mp-flow.on { stroke:var(--gold); filter:drop-shadow(0 0 4px var(--gold)); }
+  /* Pins: a glowing dot, a thin ring and a city label; click one to see only its talks */
+  .mp-pin { position:absolute; width:0; height:0; padding:0; border:0; background:none; cursor:pointer; color:var(--gold); z-index:1; }
+  .mp-pin.home { color:var(--teal-light); z-index:2; }
+  .mp-pin .d { position:absolute; left:-5px; top:-5px; width:10px; height:10px; border-radius:50%; background:currentColor; box-shadow:0 0 12px currentColor; transition:scale 0.4s var(--ease), opacity 0.4s ease; }
+  .mp-pin .d::before { content:''; position:absolute; inset:-6px; border-radius:50%; border:1.5px solid currentColor; opacity:0.6; }
+  .mp-pin .d::after { content:''; position:absolute; inset:-1px; border-radius:50%; border:2px solid currentColor; opacity:0; }
+  .mp-pin .l { position:absolute; top:-12px; left:16px; white-space:nowrap; font:600 0.72rem/1 'DM Sans',sans-serif; color:var(--text-main); padding:0.4rem 0.55rem; border-radius:8px; background:color-mix(in srgb, var(--navy) 86%, transparent); border:1px solid var(--border); backdrop-filter:blur(6px); transition:border-color 0.3s ease, opacity 0.4s ease; }
+  .mp-pin.left .l { left:auto; right:16px; }
+  .mp-pin .l em { font-style:normal; font-family:'DM Mono',monospace; color:var(--gold); margin-left:0.25rem; }
+  .mp-pin:hover .d, .mp-pin.hot .d, .mp-pin.on .d { scale:1.4; }
+  .mp-pin:hover .l, .mp-pin.hot .l, .mp-pin.on .l { border-color:var(--gold); }
+  .mp-pin.home:hover .l, .mp-pin.home.hot .l, .mp-pin.home.on .l { border-color:var(--teal-light); }
+  .mp-pin:focus-visible { outline:none; }
+  .mp-pin:focus-visible .d { outline:2px solid currentColor; outline-offset:6px; }
+  .mp.picked .mp-pin:not(.on) { opacity:0.45; }
+  .mp-pin { transition:opacity 0.4s ease; }
+  /* Pins and labels pop in after the lines have drawn */
+  .has-reveal .mp:not(.in) .mp-pin .d { scale:0; }
+  .has-reveal .mp:not(.in) .mp-pin .l { opacity:0; }
+  .has-reveal .mp.in .mp-pin .d { animation:mp-pin-in 0.7s var(--ease) calc(var(--i) * 120ms + 700ms) backwards; }
+  .has-reveal .mp.in .mp-pin .l { animation:mp-lbl-in 0.6s var(--ease) calc(var(--i) * 120ms + 900ms) backwards; }
+  @keyframes mp-pin-in { from { scale:0; } }
+  @keyframes mp-lbl-in { from { opacity:0; translate:0 6px; } }
+  @keyframes mp-ping { 0% { opacity:0.8; scale:1; } 100% { opacity:0; scale:3.2; } }
+  @keyframes mp-flow { from { stroke-dashoffset:7; } to { stroke-dashoffset:-100; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .mp-pin .d::after { animation:mp-ping 2.8s var(--ease) calc(var(--i) * 0.35s + 1.6s) infinite; }
+    .mp-flow { opacity:1; animation:mp-flow 3.4s linear calc(var(--i) * 0.5s + 2s) infinite both; }
+  }
+  /* City filter chips (also the way to pick a city on phones) */
+  .mp-chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin:0.9rem 0.4rem 0; }
+  .mp-chip { display:inline-flex; align-items:center; gap:0.4rem; font:600 0.74rem 'DM Sans',sans-serif; color:var(--text-soft); padding:0.4rem 0.85rem; border-radius:100px; border:1px solid var(--border); background:transparent; cursor:pointer; transition:background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s var(--ease); }
+  .mp-chip em { font-style:normal; font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-muted); }
+  .mp-chip:hover { border-color:var(--teal); transform:translateY(-1px); }
+  .mp-chip.on { background:var(--teal); border-color:var(--teal); color:var(--navy); }
+  .mp-chip.on em { color:inherit; opacity:0.75; }
+  /* List of talks */
+  .ml { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+  .ml-r { display:grid; grid-template-columns:92px 1fr; gap:1rem; padding:1rem 1.15rem; border-radius:16px; border:1px solid var(--border); background-color:var(--card); }
+  .ml-r[hidden] { display:none; }
+  .ml-r:hover { border-color:rgba(var(--spot-rgb),0.4); box-shadow:var(--shadow-hover); }
+  .ml-d { font:600 0.74rem 'DM Mono',monospace; color:var(--teal); }
+  .ml-c { display:flex; gap:0.3rem; align-items:flex-start; font-size:0.72rem; color:var(--text-muted); margin-top:0.35rem; line-height:1.35; }
+  .ml-c svg { flex-shrink:0; width:11px; height:11px; margin-top:1px; color:var(--gold); }
+  .ml-t { font-weight:600; font-size:0.88rem; color:var(--text-main); line-height:1.45; }
+  .ml-v { font-size:0.76rem; color:var(--text-muted); margin-top:0.3rem; line-height:1.5; }
+  .ml-inv { display:inline-block; font:700 0.6rem 'DM Sans',sans-serif; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy); background:var(--gold); padding:0.12rem 0.45rem; border-radius:100px; margin-left:0.35rem; vertical-align:1px; white-space:nowrap; }
+  .ml-r.flash { animation:ml-in 0.5s var(--ease) var(--fi,0ms) both; }
+  @keyframes ml-in { from { opacity:0; transform:translateY(10px); } }
+  @media (max-width:860px) { .ml { grid-template-columns:1fr; } }
+  @media (max-width:700px) {
+    .mp { padding:1rem 0.7rem 0.9rem; border-radius:18px; }
+    .mp-head { margin:0 0.3rem 0.6rem; }
+    .mp-stats { width:100%; justify-content:space-between; gap:0.8rem; }
+    .mp-stats b { font-size:1.45rem; }
+    .mp-pin .l { display:none; }
+    .mp-pin .d { left:-4px; top:-4px; width:8px; height:8px; }
+    .mp-pin .d::before { inset:-4px; }
+    .mp-dots { stroke-width:3.8; }
+    .mp-chips { margin:0.7rem 0.3rem 0; }
+    .ml-r { grid-template-columns:76px 1fr; gap:0.8rem; padding:0.9rem 1rem; }
+  }
 
   /* Publication section headers */
-  .pub-section-header { display:flex; align-items:center; gap:0.75rem; padding:0.7rem 1.2rem; border-radius:8px; margin-bottom:1rem; font-weight:600; font-size:0.85rem; letter-spacing:0.03em; }
-  .pub-section-header.journal    { background:rgba(0,180,216,0.08); border:1px solid rgba(0,180,216,0.2); color:var(--teal); }
-  .pub-section-header.conference { background:rgba(244,167,50,0.08); border:1px solid rgba(244,167,50,0.2); color:var(--gold); }
-  .pub-section-header.patent     { background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.2); color:#a78bfa; }
-  .pub-section-icon { font-size:1rem; }
-  .pub-section-count { margin-left:auto; font-family:'DM Mono',monospace; font-size:0.78rem; opacity:0.7; }
+  .pub-empty { font-size:0.85rem; color:var(--text-muted); font-style:italic; padding:1rem 1.4rem; border:1px dashed var(--border); border-radius:var(--radius); }
 
   /* Reference cards */
-  .ref-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1rem; }
-  .ref-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem 1.6rem; backdrop-filter:blur(10px); position:relative; overflow:hidden; transition:border-color 0.3s; }
-  .ref-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:linear-gradient(180deg,var(--teal),var(--gold)); }
-  .ref-card:hover { border-color:rgba(0,180,216,0.35); }
-  .ref-note { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); font-weight:600; margin-bottom:0.6rem; }
-  .ref-name { font-weight:700; font-size:1rem; color:var(--text-main); margin-bottom:0.25rem; }
-  .ref-role { font-size:0.8rem; color:var(--gold); margin-bottom:0.2rem; line-height:1.4; }
-  .ref-org  { font-size:0.78rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.4; }
-  .ref-email { font-size:0.8rem; color:var(--teal-light); text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem; }
-  .ref-email:hover { color:var(--gold); }
+  /* ===== CV PAGE: wallet-style pass + grouped lists ===== */
+  .wl { display:grid; grid-template-columns:370px 1fr; gap:2.6rem; align-items:start; }
+  .pass-wrap { position:sticky; top:90px; perspective:1000px; }
+  .pass { position:relative; border-radius:26px; overflow:hidden; color:#fff; background:linear-gradient(160deg, #0e7490 0%, #1e3a8a 55%, #5b21b6 100%); box-shadow:0 34px 70px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.25); transform:rotateY(var(--ry,-6deg)) rotateX(var(--rx,3deg)); transition:transform 0.7s var(--ease), box-shadow 0.4s ease; }
+  .pass.live { transition:transform 0.12s linear, box-shadow 0.4s ease; box-shadow:0 44px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.3); }
+  .pass::after { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at var(--gx,25%) var(--gy,15%), rgba(255,255,255,0.22), transparent 45%); }
+  .pass-shine { position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.16) 48%, transparent 58%); background-size:250% 100%; background-position:120% 0; }
+  .pass-top { display:flex; justify-content:space-between; align-items:center; padding:1.3rem 1.5rem; font:700 0.64rem 'DM Sans',sans-serif; letter-spacing:0.2em; text-transform:uppercase; }
+  .pass-top b { font:700 1.1rem 'Playfair Display',serif; letter-spacing:0; }
+  .pass-id { display:flex; gap:1rem; align-items:center; padding:0.3rem 1.5rem 1.4rem; }
+  .pass-ph { position:relative; width:76px; height:76px; border-radius:50%; flex-shrink:0; overflow:hidden; border:3px solid rgba(255,255,255,0.75); background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font:800 1.4rem 'DM Sans',sans-serif; }
+  .pass-ph img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .pass-n { font:800 1.35rem/1.15 'DM Sans',sans-serif; }
+  .pass-t { font-size:0.8rem; opacity:0.85; margin-top:0.3rem; line-height:1.35; }
+  .pass-f { display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.2rem; padding:0 1.5rem 1.4rem; }
+  .pass-f small { display:block; font:700 0.58rem 'DM Sans',sans-serif; letter-spacing:0.16em; text-transform:uppercase; opacity:0.65; }
+  .pass-f span { display:block; font:600 0.82rem/1.35 'DM Sans',sans-serif; margin-top:0.15rem; overflow-wrap:anywhere; }
+  .pass-f .wide { grid-column:1 / -1; }
+  .pass-cut { position:relative; height:22px; }
+  .pass-cut::before { content:''; position:absolute; left:18px; right:18px; top:50%; border-top:2px dashed rgba(255,255,255,0.35); }
+  .pass-cut i { position:absolute; top:0; width:22px; height:22px; border-radius:50%; background:var(--navy); }
+  .pass-cut i:first-child { left:-11px; } .pass-cut i:last-child { right:-11px; }
+  .pass-bot { padding:1.1rem 1.5rem 1.5rem; }
+  .pass-bars { display:block; width:100%; height:46px; margin-bottom:1rem; opacity:0.85; }
+  .pass-btn { display:flex; align-items:center; justify-content:center; gap:0.5rem; padding:0.85rem; border-radius:14px; background:#fff; color:#1e3a8a; font:700 0.88rem 'DM Sans',sans-serif; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.18); transition:transform 0.25s var(--ease), box-shadow 0.25s ease; }
+  .pass-btn:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,0.25); }
+  .gl-h { font:700 0.66rem 'DM Sans',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted); margin:0 0 0.55rem 1rem; }
+  .gl { border-radius:18px; overflow:hidden; border:1px solid var(--border); background:var(--card); margin-bottom:1.6rem; }
+  .gl-r { display:grid; grid-template-columns:38px 1fr auto; gap:0.95rem; align-items:center; padding:0.85rem 1.1rem; border-top:1px solid var(--border); }
+  .gl-r:first-child { border-top:0; }
+  .gl-i { width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; background:var(--c); color:#fff; font:800 1.02rem 'DM Sans',sans-serif; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:transform 0.35s var(--ease); }
+  .gl-r:hover .gl-i { transform:scale(1.08) rotate(-4deg); }
+  .gl-r b { display:block; font-size:0.9rem; color:var(--text-main); line-height:1.35; }
+  .gl-r span { display:block; font-size:0.76rem; color:var(--text-muted); margin-top:0.12rem; line-height:1.4; }
+  .gl-r em { font-style:normal; color:var(--gold); }
+  .gl-e { display:flex; align-items:center; gap:0.4rem; font:600 0.72rem 'DM Mono',monospace; color:var(--text-muted); white-space:nowrap; }
+  .gl-more { width:100%; border:0; border-top:1px solid var(--border); background:none; cursor:pointer; text-align:left; font:600 0.84rem 'DM Sans',sans-serif; color:var(--teal-light); }
+  .gl-more .gl-i { background:rgba(var(--spot-rgb),0.12); color:var(--teal-light); box-shadow:none; }
+  .gl-more .gl-e svg { transition:transform 0.3s var(--ease); }
+  .gl-more:hover .gl-e svg { transform:translateX(4px); }
+  .gl-act { position:relative; width:34px; height:34px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border); background:transparent; color:var(--text-soft); cursor:pointer; text-decoration:none; transition:border-color 0.25s ease, color 0.25s ease; }
+  .gl-act:hover { border-color:var(--teal); color:var(--teal-light); }
+  .gl-act .ok { display:none; } .gl-act.done { border-color:var(--green); color:var(--green); } .gl-act.done .ok { display:block; } .gl-act.done .cp { display:none; }
+  .gl-act.done::after { content:'Copied!'; position:absolute; bottom:calc(100% + 6px); right:0; font:600 0.68rem 'DM Sans',sans-serif; color:#fff; background:var(--green); padding:0.2rem 0.5rem; border-radius:6px; white-space:nowrap; }
+  .gl-chips { display:flex; flex-wrap:wrap; gap:0.45rem; padding:1rem 1.1rem; }
+  .cv-chip { font:500 0.78rem 'DM Sans',sans-serif; color:var(--text-soft); padding:0.4rem 0.85rem; border-radius:100px; border:1px solid var(--border); background:rgba(var(--spot-rgb),0.06); transition:border-color 0.25s ease, color 0.25s ease, transform 0.25s var(--ease); }
+  .cv-chip:hover { border-color:var(--teal); color:var(--teal-light); transform:translateY(-2px); }
+  @media (prefers-reduced-motion: no-preference) {
+    .pass-shine { animation:pass-shine 7s ease-in-out 1.5s infinite; }
+  }
+  @keyframes pass-shine { 0%, 70% { background-position:120% 0; } 100% { background-position:-120% 0; } }
+  @media (max-width:860px) {
+    .wl { grid-template-columns:1fr; gap:1.8rem; }
+    .pass-wrap { position:relative; top:0; width:100%; max-width:380px; margin:0 auto; }
+    .pass { transform:none; }
+  }
+  @media (max-width:600px) {
+    .gl-r { grid-template-columns:38px 1fr; row-gap:0.3rem; }
+    .gl-e { grid-column:2; }
+    .gl-more .gl-e { display:none; }
+  }
+
+  /* ===== RESEARCH PAGE ===== */
+  .r-hero { text-align:center; max-width:900px; margin:0 auto; padding:3.5rem 0.5rem 3.5rem; }
+  .r-eyebrow { font-family:'DM Mono',monospace; font-size:0.8rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--teal); margin-bottom:1.2rem; }
+  .r-headline { font-family:'DM Sans',sans-serif; font-weight:700; font-size:clamp(2.3rem,5.2vw,4.4rem); line-height:1.05; letter-spacing:-0.035em; margin-bottom:1.4rem; background:linear-gradient(135deg,var(--name-start) 35%,var(--teal-light)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .r-intro { font-size:clamp(1.02rem,1.4vw,1.2rem); line-height:1.75; color:var(--text-soft); max-width:720px; margin:0 auto; }
+  .r-intro strong { color:var(--text-main); font-weight:600; }
+  .rc-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+  .rc-card { display:flex; flex-direction:column; gap:1rem; padding:1.2rem 1.2rem 1rem; border-radius:24px; border:1px solid var(--border); background:var(--card); }
+  .rc-card:hover { border-color:rgba(var(--spot-rgb),0.4); box-shadow:var(--shadow-hover); }
+  .rc-card .r-art { flex:1; display:flex; align-items:center; }
+  .rc-cap { display:flex; align-items:center; justify-content:center; text-align:center; padding:0.9rem 1rem; border-radius:14px; font:600 1.22rem 'DM Sans',sans-serif; letter-spacing:-0.01em; color:var(--text-main); border:1px solid rgba(var(--c),0.4); background:linear-gradient(180deg, rgba(var(--c),0.28), rgba(var(--c),0.08)); box-shadow:0 8px 24px rgba(var(--c),0.12); }
+  .r-art { border-radius:20px; padding:1rem; border:1px solid var(--border); background:radial-gradient(circle at 25% 15%,rgba(0,180,216,0.14),transparent 60%),var(--navy-mid); transition:transform 0.6s var(--ease); }
+  .r-art svg { display:block; width:100%; height:auto; }
+  /* Layered diagram (Application / Algorithm / Fundamental) */
+  .ix-box { fill:var(--navy); fill-opacity:0.55; stroke:var(--border); stroke-width:1.2; }
+  .ix-sub { fill:none; stroke:var(--border); stroke-width:1.2; }
+  .ix-tab.gold { fill:var(--gold); } .ix-tab.teal { fill:var(--teal); } .ix-tab.purple { fill:#a78bfa; }
+  .ix-tabt { fill:var(--navy); font:700 11px 'DM Sans',sans-serif; letter-spacing:0.14em; }
+  .ix-head.teal { fill:var(--teal); fill-opacity:0.22; } .ix-head.gold { fill:var(--gold); fill-opacity:0.22; } .ix-head.pink { fill:#e879f9; fill-opacity:0.2; }
+  .ix-ht { fill:var(--text-main); font:600 14px 'DM Sans',sans-serif; }
+  .ix-it { fill:var(--text-soft); font:500 14px 'DM Mono',monospace; }
+  .ix-lbl { fill:var(--text-soft); font:500 12.5px 'DM Sans',sans-serif; }
+  .ix-ico, .ix-ico path, .ix-ico rect, .ix-ico ellipse { fill:none; stroke:var(--teal-light); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .ix-ico .ix-fill, .ix-fill { fill:var(--gold); stroke:none; }
+  .ix-rotor { fill:var(--teal) !important; fill-opacity:0.35; stroke:none !important; }
+  .ix-chip { fill:var(--gold); stroke:none; font:700 12px 'DM Sans',sans-serif; }
+  .ix-wave path { stroke:var(--gold); animation:ix-pulse 1.8s ease-in-out infinite; }
+  .ix-bob { animation:ra-bob 3s ease-in-out infinite; }
+  .ix-sway { animation:ix-sway 5s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+  .ix-sphere { fill:rgba(167,139,250,0.08); stroke:#a78bfa; stroke-width:1.5; }
+  .ix-eq { fill:none; stroke:#a78bfa; stroke-opacity:0.6; stroke-dasharray:3 4; }
+  .ix-axis { stroke:var(--text-muted); stroke-width:1.2; }
+  .ix-ket { fill:var(--text-soft); font:12px 'DM Mono',monospace; }
+  .ix-vec { stroke:#e879f9; stroke-width:2.2; stroke-linecap:round; }
+  .ix-dot { fill:#e879f9; } .ix-dot.gold { fill:var(--gold); }
+  .ix-math { fill:var(--text-main); font:italic 16px 'Times New Roman',serif; } .ix-math.sm { font-size:14px; }
+  .ix-orbit { fill:none; stroke:#a78bfa; stroke-width:1.6; }
+  .ix-spin { animation:ix-spin 9s linear infinite; transform-box:fill-box; transform-origin:center; }
+  @keyframes ix-pulse { 0%,100% { opacity:0.25; } 50% { opacity:1; } }
+  @keyframes ix-sway { 0%,100% { transform:rotate(-4deg); } 50% { transform:rotate(4deg); } }
+  @keyframes ix-spin { to { transform:rotate(360deg); } }
+
+  /* Research illustrations */
+  .ra-label { fill:var(--text-muted); font:600 11px 'DM Sans',sans-serif; letter-spacing:0.14em; }
+  .ra-ket { fill:var(--text-soft); font:13px 'DM Mono',monospace; }
+  .ra-gtext { fill:var(--text-main); font:600 11px 'DM Mono',monospace; text-anchor:middle; }
+  .ra-wire { stroke:var(--text-muted); stroke-opacity:0.45; stroke-width:1.5; fill:none; }
+  .ra-gate rect { fill:var(--navy); stroke:var(--teal); stroke-width:1.5; animation:ra-glow 3.6s ease-in-out infinite; }
+  .ra-gate.gold rect { stroke:var(--gold); }
+  .ra-cnot path { stroke:var(--teal); stroke-width:1.5; fill:none; }
+  .ra-tgt { fill:var(--navy); stroke:var(--teal); stroke-width:1.5; }
+  .ra-ctrl { fill:var(--teal); }
+  .ra-meter rect { fill:var(--navy); stroke:var(--text-muted); stroke-width:1.5; }
+  .ra-meter path { stroke:var(--text-soft); stroke-width:1.5; fill:none; stroke-linecap:round; }
+  .ra-pulse { fill:var(--teal-light); animation:ra-flow 3.6s cubic-bezier(.45,0,.55,1) infinite; }
+  .ra-orbit { fill:none; stroke:var(--teal); stroke-opacity:0.35; stroke-width:1.2; stroke-dasharray:2 6; }
+  .ra-earth { stroke:var(--teal); stroke-opacity:0.5; stroke-width:1.5; }
+  .ra-atmo { fill:none; stroke:var(--teal); stroke-opacity:0.12; stroke-width:8; }
+  .ra-s1 { stop-color:var(--teal); stop-opacity:0.28; }
+  .ra-s2 { stop-color:var(--teal); stop-opacity:0; }
+  .ra-panel { fill:var(--teal); }
+  .ra-body { fill:var(--gold); }
+  .ra-stroke { stroke:var(--text-soft); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+  .ra-uav { animation:ra-bob 3s ease-in-out infinite; }
+  .ra-uav .ra-rotor { fill:var(--teal); fill-opacity:0.5; }
+  .ra-link { fill:none; stroke:var(--gold); stroke-width:1.5; stroke-dasharray:4 6; animation:ra-dash10 1.2s linear infinite; }
+  .ra-edge { stroke:var(--teal); stroke-opacity:0.6; stroke-width:1.5; }
+  .ra-edge.twin { stroke:var(--gold); stroke-opacity:0.6; stroke-dasharray:4 5; }
+  .ra-node { fill:var(--teal); }
+  .ra-node.core { fill:var(--gold); }
+  .ra-node.twin { fill:var(--navy); stroke:var(--gold); stroke-width:1.6; animation:ra-glow 2.8s ease-in-out infinite; }
+  .ra-sync { stroke:var(--text-muted); stroke-opacity:0.4; stroke-dasharray:3 5; }
+  .ra-sdot { fill:var(--teal-light); animation:ra-sync 2.4s ease-in-out infinite; }
+  .ra-sdot.back { fill:var(--gold); animation-name:ra-sync-back; }
+  .ra-level { stroke:var(--text-soft); stroke-width:2; stroke-linecap:round; }
+  .ra-arrow { fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .ra-arrow.probe { stroke:var(--probe); }
+  .ra-arrow.couple { stroke:var(--teal); }
+  .ra-arrow.rf { stroke:var(--gold); }
+  .ra-electron { fill:var(--gold); }
+  .ra-cell { fill:var(--teal); fill-opacity:0.07; stroke:var(--teal); stroke-opacity:0.6; stroke-width:1.5; }
+  .ra-atom { fill:var(--teal-light); animation:ra-twinkle 2.4s ease-in-out infinite; }
+  .ra-beam { stroke-width:2.5; stroke-dasharray:10 8; animation:ra-dash18 0.9s linear infinite; }
+  .ra-beam.probe { stroke:var(--probe); }
+  .ra-beam.couple { stroke:var(--teal); animation-direction:reverse; }
+  .ra-rfwave { fill:none; stroke:var(--gold); stroke-width:2; stroke-dasharray:6 5; animation:ra-dash11 1s linear infinite; }
+  @keyframes ra-glow { 0%,100% { stroke-opacity:0.45; } 50% { stroke-opacity:1; } }
+  @keyframes ra-flow { 0% { transform:translateX(0); opacity:0; } 10%,85% { opacity:1; } 100% { transform:translateX(296px); opacity:0; } }
+  @keyframes ra-bob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+  @keyframes ra-twinkle { 0%,100% { opacity:0.25; } 50% { opacity:1; } }
+  @keyframes ra-sync { 0% { transform:translateX(0); opacity:0; } 15%,85% { opacity:1; } 100% { transform:translateX(76px); opacity:0; } }
+  @keyframes ra-sync-back { 0% { transform:translateX(0); opacity:0; } 15%,85% { opacity:1; } 100% { transform:translateX(-76px); opacity:0; } }
+  @keyframes ra-dash10 { to { stroke-dashoffset:-20; } }
+  @keyframes ra-dash18 { to { stroke-dashoffset:-36; } }
+  @keyframes ra-dash11 { to { stroke-dashoffset:-22; } }
+
+  @media(max-width:860px) {
+    .rc-grid { grid-template-columns:1fr; }
+    .rc-cap { font-size:1.08rem; }
+    .r-hero { padding:2rem 0 2.5rem; }
+  }
+
+  /* Visitors who prefer less motion get a calm, static site */
+  @media (prefers-reduced-motion: reduce) {
+    .page.active { animation:none; }
+    .nav-indicator { transition:none; }
+    .r-art *, .r-art { animation:none !important; transition:none !important; }
+  }
 
   @media(max-width:768px) {
     .about-hero { grid-template-columns:1fr; }
@@ -267,7 +630,81 @@
     .intro-name { font-size:2rem; }
     .nav-logo { display:none; }
     .container { padding:2rem 1rem; }
-    .social-grid { grid-template-columns:1fr; }
+  }
+  /* ===== MOTION & SMOOTHNESS ===== */
+  @property --spot { syntax:'<number>'; inherits:false; initial-value:0; }
+  @property --ring { syntax:'<angle>'; inherits:false; initial-value:0deg; }
+
+  /* One smooth timing for everything that reveals, lifts, glows or tilts */
+  .has-reveal .reveal { transition:opacity 0.9s var(--ease) var(--d,0ms), translate 0.9s var(--ease) var(--d,0ms), scale 0.9s var(--ease) var(--d,0ms), filter 0.9s var(--ease) var(--d,0ms), transform 0.35s var(--ease), border-color 0.3s ease, box-shadow 0.35s ease, background-color 0.3s ease, color 0.2s ease, --spot 0.4s ease; }
+  .has-reveal .reveal.soft { filter:blur(10px); }
+  .has-reveal .reveal.pop  { scale:0.94; }
+  .has-reveal .reveal.in   { filter:none; scale:1; }
+
+  /* Leaving page fades up and out before the next one arrives */
+  .page.leaving { animation:none; opacity:0; transform:translateY(-12px); filter:blur(6px); transition:opacity 0.24s ease, transform 0.24s ease, filter 0.24s ease; }
+
+  /* Cursor spotlight: cards light up softly where the mouse is */
+  .spot { transition:border-color 0.3s ease, transform 0.35s var(--ease), box-shadow 0.35s ease, --spot 0.4s ease; background-image:radial-gradient(460px circle at var(--mx,50%) var(--my,50%), rgba(var(--spot-rgb), calc(0.14 * var(--spot))), transparent 45%); }
+  .spot:hover { --spot:1; }
+
+  /* Photo ring slowly turns, with a soft glow */
+  .photo-frame { background:conic-gradient(from var(--ring), var(--teal), var(--gold), var(--teal-light), var(--teal)); box-shadow:0 0 42px rgba(var(--spot-rgb),0.18); animation:ring-spin 10s linear infinite; }
+  @keyframes ring-spin { to { --ring:360deg; } }
+
+  /* Section title lines draw themselves in */
+  .has-reveal .section-title.reveal::after { transform:scaleX(0); transform-origin:left; transition:transform 1.3s var(--ease) calc(var(--d,0ms) + 150ms); }
+  .has-reveal .section-title.reveal.in::after { transform:scaleX(1); }
+
+  /* Experience timeline draws as you scroll; each dot lights up when the line reaches it */
+  .tl-draw .ad::before { transform-origin:top; transform:scaleY(var(--tl,0)); transition:transform 0.2s linear; }
+  .tl-draw .ad-dot { scale:0.5; opacity:0.35; transition:scale 0.5s var(--ease), opacity 0.5s ease; }
+  .tl-draw .ad-dot.lit { scale:1; opacity:1; animation:dot-pop 0.9s var(--ease); }
+  @keyframes dot-pop { 0% { box-shadow:0 0 0 0 rgba(var(--spot-rgb),0.6); } 100% { box-shadow:0 0 0 12px rgba(var(--spot-rgb),0); } }
+
+  /* Small hover lifts */
+  .tag:hover { transform:translateY(-2px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photo-frame { animation:none; }
+    .page.leaving { transition:none; }
+    body::before { transform:none; }
+  }
+  /* ===== PROFESSIONAL ACTIVITIES: badge collection ===== */
+  .hx-lead { display:grid; grid-template-columns:auto 1fr; gap:2rem; align-items:center; margin-bottom:2.4rem; padding:1.4rem 1.8rem; border-radius:22px; border:1px solid rgba(244,167,50,0.35); background:radial-gradient(circle at 0% 50%, rgba(244,167,50,0.18), transparent 60%), var(--card); }
+  .hx-k { font:600 0.68rem 'DM Sans',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted); }
+  .hx-lead .t { font:800 1.6rem 'DM Sans',sans-serif; letter-spacing:-0.02em; color:var(--text-main); margin-top:0.2rem; }
+  .hx-lead .s { color:var(--gold); font-size:0.92rem; margin-top:0.2rem; }
+  .hx-lead .more { margin-top:0.7rem; font-size:0.84rem; color:var(--text-soft); }
+  .hx-sec { margin-bottom:2.2rem; }
+  .hx-head { display:flex; align-items:center; gap:0.7rem; flex-wrap:wrap; margin-bottom:1rem; }
+  .hx-head .n { font:700 0.78rem 'DM Mono',monospace; color:var(--teal); }
+  .hx-legend { margin-left:auto; display:flex; gap:0.9rem; flex-wrap:wrap; font-size:0.72rem; color:var(--text-muted); }
+  .hx-legend i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:0.35rem; vertical-align:-1px; background:var(--c); }
+  .hx-row { display:flex; flex-wrap:wrap; gap:0.5rem 1.05rem; }
+  .hx { position:relative; width:98px; text-align:center; outline:none; }
+  .hx-w { width:84px; height:94px; margin:0 auto 0.45rem; filter:drop-shadow(0 6px 14px color-mix(in srgb, var(--c) 35%, transparent)); transition:transform 0.35s var(--ease), filter 0.35s ease; }
+  .hx-s { width:100%; height:100%; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background:linear-gradient(160deg, var(--c), color-mix(in srgb, var(--c) 45%, #000)); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; position:relative; }
+  .hx-s::after { content:''; position:absolute; inset:0; clip-path:inherit; background:linear-gradient(160deg, rgba(255,255,255,0.22), transparent 50%); pointer-events:none; }
+  .hx-s b { font:800 0.82rem 'DM Sans',sans-serif; letter-spacing:0.02em; line-height:1.1; padding:0 6px; }
+  .hx-s b.long { font-size:0.66rem; }
+  .hx-s .e { font-size:1.05rem; line-height:1; margin-bottom:0.15rem; }
+  .hx-s small { font:600 0.56rem 'DM Mono',monospace; letter-spacing:0.02em; opacity:0.92; margin-top:0.2rem; max-width:70px; line-height:1.25; text-align:center; }
+  .hx-s small.long { font-size:0.5rem; }
+  .hx p { font-size:0.68rem; color:var(--text-muted); line-height:1.3; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .hx:hover .hx-w, .hx:focus-visible .hx-w { transform:translateY(-5px) scale(1.07); filter:drop-shadow(0 10px 22px color-mix(in srgb, var(--c) 60%, transparent)) brightness(1.1); }
+  .hx::after { content:attr(data-tip); position:absolute; z-index:5; left:50%; bottom:calc(100% + 6px); transform:translate(-50%,4px); width:max-content; max-width:240px; white-space:normal; text-align:center; padding:0.45rem 0.65rem; border-radius:8px; font:600 0.72rem 'DM Sans',sans-serif; line-height:1.35; color:var(--navy); background:var(--teal-light); box-shadow:0 8px 22px rgba(0,0,0,0.25); opacity:0; pointer-events:none; transition:opacity 0.2s ease, transform 0.2s ease; }
+  .hx:hover::after, .hx:focus-visible::after { opacity:1; transform:translate(-50%,0); }
+  .hx:not([data-tip])::after { display:none; }
+  .hx-w.big { width:120px; height:134px; margin:0; }
+  .hx-w.big .e { font-size:1.9rem; }
+  .hx-w.big small { font-size:0.62rem; }
+  .hx-two { display:grid; grid-template-columns:auto auto; gap:2.5rem; justify-content:start; }
+  @media (max-width:700px) {
+    .hx-lead { grid-template-columns:1fr; justify-items:center; text-align:center; padding:1.4rem; }
+    .hx-two { grid-template-columns:1fr; gap:0; }
+    .hx-row { gap:0.4rem 0.6rem; }
+    .hx-legend { margin-left:0; }
   }
 </style>
 </head>
@@ -277,11 +714,22 @@
   <div class="nav-inner">
     <div class="nav-logo">SCP</div>
     <ul class="nav-tabs" id="nav-tabs"></ul>
+    <button class="theme-switch" id="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Light mode" title="Switch to light mode">
+      <span class="switch-track" aria-hidden="true">
+        <svg class="track-icon track-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="track-icon track-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="switch-knob">
+          <svg class="knob-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="knob-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        </span>
+      </span>
+    </button>
   </div>
 </nav>
 
 <!-- Page containers rendered by JS -->
 <div id="page-about"        class="page active"></div>
+<div id="page-research"     class="page"></div>
 <div id="page-experience"   class="page"></div>
 <div id="page-publications" class="page"></div>
 <div id="page-awards"       class="page"></div>
@@ -296,7 +744,8 @@
    ============================================================ */
 
 const SETTINGS = {
-  showPublications: true // Set to false to hide the Publications tab
+  showPublications: true, // Set to false to hide the Publications tab
+  newsTicker: 6           // How many of the newest news items scroll in the LATEST band (0 hides the band)
 };
 
 const PROFILE = {
@@ -305,6 +754,7 @@ const PROFILE = {
   title: "PhD Scholar in Electrical Engineering",
   lab: "CERC–NGCT Lab and Quantum Communications and Computing Centre (QC3)",
   university: "Memorial University of Newfoundland, Canada",
+  greeting_si: "// ආයුබෝවන්!",
   greeting_en: "// Hello, World!",
   greeting_fr: "// Bonjour, le monde !",
 
@@ -322,7 +772,7 @@ const PROFILE = {
   research_tags: [
     "Quantum Computing",
     "Quantum Machine Learning",
-    "Rydburg Atomic Quantum Receivers (RAQRs)",
+    "Rydberg Atomic Quantum Receivers (RAQRs)",
     "6G Networks",
     "Quantum Deep Reinforcement Learning",
     "Digital Twin",
@@ -336,15 +786,23 @@ const PROFILE = {
 
   contact: {
     email: "cwelhengodag@mun.ca",
-    location: "St. John's, NL, Canada"
-  }
+    location: "St. John's, NL, Canada",
+    timezone: "America/St_Johns"   // shows your live local time next to the location (delete this line to hide it)
+  },
+
+  // Buttons under the lab name
+  lab_links: [
+    { label:"CERC–NGCT Lab", url:"https://cerc-ngct.ca/" },
+    { label:"QC3 Centre",    url:"https://qc3.ca/" }
+  ]
 };
+/* color = brand colour of the icon square */
 const SOCIAL_LINKS = [
-  { label:"LinkedIn",       url:"www.linkedin.com/in/sasinda-chandula-prabhashana",         icon:"in" },
-  { label:"Google Scholar", url:"https://scholar.google.com/citations?user=YOURID",         icon:"gs" },
-  { label:"ORCID",          url:"https://orcid.org/0000-0000-0000-0000",                    icon:"id" },
-  { label:"ResearchGate",   url:"https://www.researchgate.net/profile/Sasinda-Prabhashana", icon:"rg" },
-  { label:"GitHub",         url:"https://github.com/sasinda95",                   icon:"gh" }
+  { label:"LinkedIn",       url:"https://www.linkedin.com/in/sasinda-chandula-prabhashana",         icon:"in", color:"#0A66C2" },
+  { label:"Google Scholar", url:"https://scholar.google.com/citations?user=YOURID",         icon:"gs", color:"#4285F4" },
+  { label:"ORCID",          url:"https://orcid.org/0000-0000-0000-0000",                    icon:"id", color:"#A6CE39" },
+  { label:"ResearchGate",   url:"https://www.researchgate.net/profile/Sasinda-Prabhashana", icon:"rg", color:"#00CCBB" },
+  { label:"GitHub",         url:"https://github.com/sasinda95",                   icon:"gh", color:"#24292f" }
 ];
 
 /* -- EDUCATION  (newest first) -- */
@@ -374,6 +832,9 @@ const EDUCATION = [
 
 /* -- NEWS  (newest first) -- */
 const NEWS = [
+  { date:"Nov-2026",    gold:true,  text:"Presented <strong>Distributed Multimodal LLM Inference in 6G ISTNs</strong> at the FEAS Annual Research Day, Memorial University." },
+  { date:"Oct-2026",    gold:true,  text:"I participated in <a href=\"https://qhack.ai/\" target=\"_blank\" rel=\"noopener\"><strong>QHack 2026: Quantum Coding Championship</strong></a>, organized by Xanadu (October 16–23)." },
+  { date:"Aug-2026",    gold:true,  text:"Presented <strong>Quantum Machine Learning for Wireless-Powered UAV Positioning</strong> at the ASPIRE-CRC-TCA International Workshop, Memorial University." },
   { date:"Jul-2026",    gold:true,  text:"Achieved 1st place overall in Canada in the Capstone Challenge of the IBM Quantum Road to Practitioner (R2P) Program." },
   { date:"Jul-2026",    gold:true,  text:"Successfully completed the IBM Quantum Road to Practitioner (R2P) Program" },
   { date:"Jul-2026",    gold:true,  text:"Won Bronze Award - ISIT 2026 Global Quantum Hackathon." },
@@ -396,6 +857,12 @@ const EXPERIENCE = {
       items:["Integrated Satellite-Terrestrial Networks (ISTN)","Quantum Communication & Quantum Machine Learning","AI/ML for 6G wireless systems and digital twin networks"]
     },
     {
+      role:"Graduate Teaching Assistant (GTA)",
+      period:"May – Aug 2026",
+      org:"Dept. of Electrical & Computer Engineering · Memorial University of Newfoundland, Canada",
+      items:["Module: Quantum Machine Learning and Optimization"]
+    },
+    {
       role:"Lecturer (Probationary)",
       period:"Aug – Dec 2023",
       org:"Dept. of Electrical & Electronic Engineering · University of Jaffna, Sri Lanka",
@@ -416,8 +883,8 @@ const EXPERIENCE = {
     {
       role:"Visiting Lecturer",
       period:"Feb 2022 – Dec 2023",
-      org:"University of Kelaniya, Sri Lanka (Computing & Technology + Computer Science Depts.)",
-      items:["CTNT 41083: Advanced Computer Communication and Networking","CSEC 32022: Advanced Computer Data Networks"]
+      org:"University of Kelaniya, Sri Lanka",
+      items:["Department of Computing & Technology: CTNT 41083 – Advanced Computer Communication and Networking","Department of Computer Science: CSEC 32022 – Advanced Computer Data Networks"]
     },
     {
       role:"Teaching Assistant",
@@ -448,14 +915,19 @@ const EXPERIENCE = {
   ]
 };
 
-/* -- PUBLICATIONS  (newest first within each type) -- */
+/* -- PUBLICATIONS  (newest first within each type) --
+   featured: 1, 2, 3 puts a paper in the "Highlights" cards at the top, in that order (remove it to un-feature). */
 const PUBLICATIONS = {
+  /* BOOKS & BOOK CHAPTERS — shown first on the Publications page.
+     To add one: copy the example line below, remove the two slashes (//) at the start, and fill it in.
+     venue = publisher, year, ISBN (anything you like).  status = "" | "accepted" | "inpress" | "submitted" */
   Books: [
-  ],  
+    // { num:1, title:"Book or Chapter Title", authors:"Sasinda C. Prabhashana, Co-Author", venue:"Publisher, 2026 · ISBN 000-0-000-00000-0", status:"" },
+  ],
   journals: [
-    { num:6, title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", authors:"Sasinda C. Prabhashana, Berk Canberk, Hans-Jurgen Zepernick, Dac-Binh Ha, Simon L. Cotton, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Transactions on Vehicular Technology", status:"accepted" },
+    { num:6, featured:3, title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", authors:"Sasinda C. Prabhashana, Berk Canberk, Hans-Jurgen Zepernick, Dac-Binh Ha, Simon L. Cotton, Octavia A. Dobre, Trung Q. Duong", venue:"IEEE Transactions on Vehicular Technology", status:"accepted" },
     { num:5, title:"Quantum Deep Reinforcement Learning for Direct Handset-to-Satellite Access in 6G Non-Terrestrial Networks with LEO Stations", authors:"Sasinda C. Prabhashana, Berk Canberk, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Vehicular Technology Magazine", status:"accepted" },
-    { num:4, title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Minh-Hien T. Nguyen, Vishal Sharma, Thang X. Vu, Berk Canberk, Hyundong Shin, Trung Q. Duong", venue:"IEEE Journal on Selected Areas in Communications", status:"accepted" },
+    { num:4, featured:2, title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Minh-Hien T. Nguyen, Vishal Sharma, Thang X. Vu, Berk Canberk, Hyundong Shin, Trung Q. Duong", venue:"IEEE Journal on Selected Areas in Communications", status:"accepted" },
     { num:3,  title:"Quantum Deep Reinforcement Learning for URLLC Satellite-Air-Ground Integrated Networks with Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Haejoon Jung, Berk Canberk, Simon L. Cotton, Trung Q. Duong", venue:"IEEE Internet of Things Journal", status:"accepted" },
     { num:2,  title:"Machine Learning-based Resource Allocation in 6G Integrated Space and Terrestrial Networks-aided Intelligent Autonomous Transportation", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE Transactions on Intelligent Transportation Systems", status:"accepted" },
     { num:1,  title:"A New Generation of Fast and Low-Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, Sasinda C. Prabhashana, S. P. P. Medaranga, P. R. P. Hoole, X. Fernando", venue:"Electronics, vol. 12, no. 7, p. 1733, Apr. 2023", status:"" }
@@ -465,7 +937,7 @@ const PUBLICATIONS = {
     { num:6, title:"Quantum Learning Framework for Digital Twin Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", authors:"Sasinda C. Prabhashana, Trung Q. Duong", venue:"20th RIA/URSI Research Colloquium, Dublin, Ireland, Oct. 2025", status:"" },
     { num:5, title:"Quantum Deep Q-Networks for Adaptive Resource Control in SAGIN-enabled Augmented Reality Systems", authors:"Dang Van Huynh, Sasinda C. Prabhashana, Hyundong Shin, Trung Q. Duong", venue:"IEEE GLOBECOM-Workshops 2025, Taipei, Taiwan, Dec. 2025", status:"" },
     { num:4, title:"Quantum DRL for Green UAV Positioning in 6G-Enabled SAGIN with Cooperative Nano-Satellite Constellations", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE GLOBECOM 2025, Taipei, Taiwan, Dec. 2025", status:"" },
-    { num:3, title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Trung Q. Duong", venue:"IEEE ICC 2025 Workshops, Montreal, Canada, June 2025", status:"best" },
+    { num:3, featured:1, title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Trung Q. Duong", venue:"IEEE ICC 2025 Workshops, Montreal, Canada, June 2025", status:"best" },
     { num:2, title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", authors:"Sasinda C. Prabhashana, Dang Van Huynh, Keshav Singh, Hans-Jurgen Zepernick, Octavia A. Dobre, Hyundong Shin, Trung Q. Duong", venue:"IEEE ICC 2025, Montreal, Canada, June 2025", status:"" },
     { num:1, title:"A Comparison of Electromagnetic Radiation from Commonly Used Communication Devices in an Indoor Environment", authors:"Darukeesan Pakiyarajah, Sasinda C. Prabhashana, Thiruvaran Tharmarajah", venue:"Technological Advances in Science, Medicine and Engineering Conference, Toronto, Canada", status:"" }
   ],
@@ -475,6 +947,28 @@ const PUBLICATIONS = {
     { num:1, title:"New Generation of Fast and Low Memory Smart Digital/Geometrical Beamforming MIMO Antenna", authors:"K. Pirapaharan, W. H. S. C. Prabhashana, N. Ajithkumar, P. R. P. Hoole", venue:"Patent Pending", status:"" }
   ]
 };
+
+/* Short venue names shown as badges. Left: words found in the venue. Right: the badge text. First match wins. */
+const VENUE_SHORT = [
+  ["Transactions on Vehicular Technology", "IEEE TVT"],
+  ["Vehicular Technology Magazine", "IEEE VTM"],
+  ["Selected Areas in Communications", "IEEE JSAC"],
+  ["Internet of Things Journal", "IEEE IoT-J"],
+  ["Intelligent Transportation Systems", "IEEE T-ITS"],
+  ["Electronics", "Electronics"],
+  ["Global Information and Telecommunication", "GIT Workshop"],
+  ["URSI", "RIA/URSI"],
+  ["GLOBECOM-Workshops", "GLOBECOM-W"],
+  ["GLOBECOM", "GLOBECOM"],
+  ["ICC 2025 Workshops", "ICC-W"],
+  ["ICC 2025", "ICC"],
+  ["Technological Advances in Science", "TASME"],
+  ["WIPO", "WIPO PCT"],
+  ["NIPO", "NIPO"],
+  ["Patent Pending", "Pending"]
+];
+/* Your name as it appears in author lists; it is shown in bold and underlined. */
+const MY_NAMES = ["Sasinda C. Prabhashana", "W. H. S. C. Prabhashana"];
 
 /* -- AWARDS  (newest first) -- */
 const AWARDS = [
@@ -501,62 +995,84 @@ const AWARDS = [
 
 /* -- PROFESSIONAL ACTIVITIES -- */
 const PROFESSIONAL = {
+  /* YEARS: write them exactly as you want them shown, e.g. year:"2025/2026".
+     Each new year, add it at the end: "2025/2026/2027" (long lists wrap onto two lines inside the badge).
+     "badge" = the short text shown inside each hexagon badge. */
   journal_reviewer: [
-    { name: "ACM Computing Surveys (CSUR)", year: "2026" },
-    { name: "IEEE Transactions on Mobile Computing (TMC)", year: "2026" },
-    { name: "IEEE Transactions on Vehicular Technology (TVT)", year: "2026" },
-    { name: "IEEE Journal on Selected Areas in Communications (JSAC)", year: "2025/2026" },
-    { name: "IEEE Internet of Things Journal (IoTJ)", year: "2025/2026" },
-    { name: "IEEE Communications Surveys & Tutorials (COMST)", year: "2025/2026" },
-    { name: "IEEE Transactions on Network Science and Engineering (TNSE)", year: "2026" },
-    { name: "Springer Nature – Telecommunications Systems", year: "2026" },
-    { name: "Springer Nature – Wireless Personal Communications", year: "2026" },
-    { name: "Springer Nature – Theoretical and Applied Climatology", year: "2026" },
-    { name: "Springer Nature – Discover Applied Sciences", year: "2026" },
-    { name: "Springer Nature – Scientific Reports", year: "2026" },
-    { name: "Springer Nature – Cluster Computing", year: "2026" },
-    { name: "Springer Nature – Journal of Cloud Computing", year: "2026" },
-    { name: "Springer Nature – Int. J. of Machine Learning and Cybernetics", year: "2026" },
-    { name: "Springer Nature – Quantum Machine Intelligence", year: "2026" },
-    { name: "Springer Nature – Int. J. of Networked and Distributed Computing", year: "2026" },
-    { name: "EAI Endorsed Transactions on Tourism, Technology and Intelligence", year: "2026" }
+    { name:"IEEE Transactions on Mobile Computing", badge:"TMC", year:"2026" },
+    { name:"IEEE Transactions on Vehicular Technology", badge:"TVT", year:"2026" },
+    { name:"IEEE Journal on Selected Areas in Communications", badge:"JSAC", year:"2025/2026" },
+    { name:"IEEE Internet of Things Journal", badge:"IoTJ", year:"2025/2026" },
+    { name:"IEEE Communications Surveys & Tutorials", badge:"COMST", year:"2025/2026" },
+    { name:"IEEE Transactions on Network Science and Engineering", badge:"TNSE", year:"2026" },
+    { name:"ACM Computing Surveys", badge:"CSUR", year:"2026" },
+    { name:"Springer Nature – Telecommunications Systems", badge:"TS", year:"2026" },
+    { name:"Springer Nature – Wireless Personal Communications", badge:"WPC", year:"2026" },
+    { name:"Springer Nature – Theoretical and Applied Climatology", badge:"TAC", year:"2026" },
+    { name:"Springer Nature – Discover Applied Sciences", badge:"DAS", year:"2026" },
+    { name:"Springer Nature – Scientific Reports", badge:"SR", year:"2026" },
+    { name:"Springer Nature – Cluster Computing", badge:"CC", year:"2026" },
+    { name:"Springer Nature – Journal of Cloud Computing", badge:"JCC", year:"2026" },
+    { name:"Springer Nature – Int. J. of Machine Learning and Cybernetics", badge:"IJMLC", year:"2026" },
+    { name:"Springer Nature – Quantum Machine Intelligence", badge:"QMI", year:"2026" },
+    { name:"Springer Nature – Int. J. of Networked and Distributed Computing", badge:"IJNDC", year:"2026" },
+    { name:"EAI Endorsed Transactions on Tourism, Technology and Intelligence", badge:"TTI", year:"2026" }
   ],
+  /* Conferences are listed once per series, so ICC 2025, 2026, 2027… stay a single badge. */
   conf_reviewer: [
-    { name:"IEEE WCNC 2026", year:"2026" },
-    { name:"EAI INISCOM 2026", year:"2025" },
-    { name:"IEEE ICC 2026", year:"2025" },
-    { name:"IEEE GLOBECOM 2025", year:"2025" },
-    { name:"IEEE CCNC 2025", year:"2025" },
-    { name:"IEEE MetaCom 2025", year:"2025" }
+    { name:"IEEE Wireless Communications and Networking Conference", badge:"WCNC", year:"2026" },
+    { name:"EAI International Conference on Industrial Networks and Intelligent Systems", badge:"INISCOM", year:"2025" },
+    { name:"IEEE International Conference on Communications", badge:"ICC", year:"2025" },
+    { name:"IEEE Global Communications Conference", badge:"GLOBECOM", year:"2025" },
+    { name:"IEEE Consumer Communications & Networking Conference", badge:"CCNC", year:"2025" },
+    { name:"IEEE International Conference on Metaverse Computing, Networking, and Applications", badge:"MetaCom", year:"2025" }
   ],
   leadership: [
     { name:"Program Co-Chair — IEEE ComSoc School Series 2025 (Sri Lanka)", year:"2025" }
   ],
   affiliations: [
-    { name:"Student Member of IEEE (No. 95206136)", year:"2019–" },
-    { name:"Member of Engineering Council Sri Lanka (ECSL) – No. 214305", year:"2021–" },
-    { name:"Associate Member of IESL – No. AM-27687", year:"2021–" },
-    { name:"Member of Jaffna Engineering Faculty Alumni Association (JEFAA)", year:"2021–" }
+    { name:"Student Member of IEEE (No. 95206136)", badge:"IEEE", year:"2019–Present" },
+    { name:"Member of Engineering Council Sri Lanka (ECSL) – No. 214305", badge:"ECSL", year:"2021–Present" },
+    { name:"Associate Member of IESL – No. AM-27687", badge:"IESL", year:"2021–Present" },
+    { name:"Member of Jaffna Engineering Faculty Alumni Association (JEFAA)", badge:"JEFAA", year:"2021–Present" }
   ],
   certifications: [
-    { icon:"🌐", name:"Cisco Certified Network Associate (CCNA) — 200-301" },
-    { icon:"🔧", name:"Cisco Certified Network Specialist (ENCOR) — 350-401" },
-    { icon:"🔒", name:"ICSI — CNSS Certified Network Security Specialist" }
+    { icon:"🌐", badge:"CCNA",  name:"Cisco Certified Network Associate (CCNA) — 200-301" },
+    { icon:"🔧", badge:"ENCOR", name:"Cisco Certified Network Specialist (ENCOR) — 350-401" },
+    { icon:"🔒", badge:"CNSS",  name:"ICSI — CNSS Certified Network Security Specialist" }
   ],
+  /* TALK MAP: every city you give a talk in needs one line here (find latitude/longitude on Google Maps).
+     "home" is where the lines on the map start. label:"left" puts the city name on the left of its pin. */
+  talk_places: {
+    "St. John's":       { lat:47.56, lon:-52.71,  country:"Canada", home:true },
+    "Montreal":         { lat:45.50, lon:-73.57,  country:"Canada", label:"left" },
+    "Tokyo":            { lat:35.69, lon:139.69,  country:"Japan" },
+    "Taipei":           { lat:25.03, lon:121.56,  country:"Taiwan" },
+    "Ho Chi Minh City": { lat:10.76, lon:106.66,  country:"Vietnam" },
+    "Jaffna":           { lat:9.66,  lon:80.01,   country:"Sri Lanka", label:"left" }
+  },
+  /* TALKS: newest first. venue = "Event · Place · Date" (add "(Invited Speaker)" after the event for invited talks).
+     city = a name from talk_places above, or "Online" for virtual talks. */
   talks: [
-    { title:"Generative AI for Future Innovators", venue:" ASEAN AI Hackathon 2026 Special Bonus Workshop (Invited Speaker) · 2026" },
-    { title:"Introduction to Reinforcement Learning: How Machines Learn Through Trial and Error", venue:"UIT-VNUHCM, Vietnam (Invited Speaker) · 2026" },
-    { title:"Quantum Learning Framework for DT Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2025" },
-    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"QC3 Inaugural Conference, Quantum Communications & Computing Centre · Memorial University · 2025" },
-    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IBM Delegation Visit Event · Memorial University, St. John's · 2024" },
-    { title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2024" },
-    { title:"Internet of Things in Embedded Systems", venue:"IEEE School on Computational Intelligence · University of Jaffna, Sri Lanka (Invited Speaker) · 2023" }
+    { title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", venue:"FEAS Annual Research Day · Memorial University, St. John's · Nov. 2026", city:"St. John's" },
+    { title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", venue:"ASPIRE-CRC-TCA International Workshop · Memorial University, St. John's · Aug. 2026", city:"St. John's" },
+    { title:"Generative AI for Future Innovators", venue:"ASEAN AI Hackathon 2026 Special Bonus Workshop (Invited Speaker) · May 2026", city:"Online" },
+    { title:"Introduction to Reinforcement Learning: How Machines Learn Through Trial and Error", venue:"UIT-VNUHCM, Vietnam (Invited Speaker) · Apr. 2026", city:"Ho Chi Minh City" },
+    { title:"Quantum DRL for Green UAV Positioning in 6G-Enabled SAGIN with Cooperative Nano-Satellite Constellations", venue:"IEEE GLOBECOM 2025 · Taipei, Taiwan · Dec. 2025", city:"Taipei" },
+    { title:"Multimodal LLM Inference in DT–Enabled 6G ISTNs: A Quantum Deep Reinforcement Learning Approach", venue:"Global Information and Telecommunication Workshop · Tokyo, Japan · Dec. 2025", city:"Tokyo" },
+    { title:"Quantum Learning Framework for DT Driven Multimodel LLM Resource Optimization in 6G-enabled ISTN", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2025", city:"St. John's" },
+    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"QC3 Inaugural Conference, Quantum Communications & Computing Centre · Memorial University · 2025", city:"St. John's" },
+    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IEEE ICC 2025 Workshops · Montreal, Canada · June 2025", city:"Montreal" },
+    { title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", venue:"IEEE ICC 2025 · Montreal, Canada · June 2025", city:"Montreal" },
+    { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IBM Delegation Visit Event · Memorial University, St. John's · 2024", city:"St. John's" },
+    { title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2024", city:"St. John's" },
+    { title:"Internet of Things in Embedded Systems", venue:"IEEE School on Computational Intelligence · University of Jaffna, Sri Lanka (Invited Speaker) · 2023", city:"Jaffna" }
   ],
   volunteering: [
-    { name:"Judge — INNOVA at Tech Sri Lanka 2025 (IEEE Computer Society, Wayamba University)", year:"2025" },
-    { name:"President — Electrical & Electronic Engineering Society, University of Jaffna", year:"2020–21" },
-    { name:"Founding Vice-Chair — IEEE PES Student Chapter, University of Jaffna", year:"2019–20" },
-    { name:"Vice-Secretary, Jaffna Engineering Faculty Alumni Association (JEFAA)", year:"2022–24" }
+    { name:"Judge — INNOVA at Tech Sri Lanka 2025 (IEEE Computer Society, Wayamba University)", badge:"Judge", year:"2025" },
+    { name:"Vice-Secretary, Jaffna Engineering Faculty Alumni Association (JEFAA)", badge:"Vice-Sec.", year:"2022–2024" },
+    { name:"President — Electrical & Electronic Engineering Society, University of Jaffna", badge:"President", year:"2020–2021" },
+    { name:"Founding Vice-Chair — IEEE PES Student Chapter, University of Jaffna", badge:"Vice-Chair", year:"2019–2020" }
   ],
   references: [
     {
@@ -576,6 +1092,36 @@ const PROFESSIONAL = {
   ]
 };
 
+/* -- CV PAGE --
+   cvUrl: the file name of your CV PDF, kept in the same folder as index.html, e.g. "Sasinda_Prabhashana_CV.pdf".
+          While it is empty, the button on the card says "Request my CV" and opens an email to you instead.
+   pass:  the small fields printed on the card.
+   recent: how many of your newest roles are listed under "Recent experience". */
+const CV = {
+  cvUrl: "",
+  pass: [
+    { label:"Lab",        value:"CERC–NGCT · QC3" },
+    { label:"Based in",   value:"St. John's, NL, Canada" },
+    { label:"University", value:"Memorial University" },
+    { label:"Email",      value:"cwelhengodag@mun.ca" }
+  ],
+  recent: { academic:4, industry:1 }
+};
+
+/* -- RESEARCH PAGE --
+   Edit the words freely. "art" picks the picture above each title: "stack", "circuit", "orbit", "twin" or "atom". */
+const RESEARCH = {
+  eyebrow:  "Research",
+  headline: "Quantum intelligence for next-generation networks.",
+  intro:    "I investigate <strong>efficient resource allocation</strong> in next-generation wireless networks using <strong>Quantum AI</strong>, across four connected areas.",
+  themes: [
+    { art: "stack", title: "Quantum AI" },
+    { art: "orbit", title: "Space–Air–Ground Integrated Networks" },
+    { art: "twin",  title: "Digital Twins and Distributed AI Inference" },
+    { art: "atom",  title: "Rydberg Atomic Quantum Receivers" }
+  ]
+};
+
 /* ============================================================
    END OF YOUR DATA.
    Do not edit below this line unless you know what you are doing.
@@ -591,10 +1137,198 @@ const SOCIAL_ICONS = {
   web: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
 };
 
+/* -- RESEARCH ILLUSTRATIONS (animated SVG) -- */
+const RESEARCH_ART = {
+  stack: `<svg viewBox="0 0 560 470" role="img" aria-label="Quantum deep reinforcement learning stack: applications, algorithms and quantum fundamentals">
+  <!-- APPLICATION LAYER -->
+  <rect class="ix-tab gold" x="8" y="10" width="34" height="122" rx="8"/>
+  <text class="ix-tabt" transform="translate(30 71) rotate(-90)" text-anchor="middle">APPLICATION</text>
+  <rect class="ix-box" x="50" y="10" width="500" height="122" rx="12"/>
+  <g transform="translate(112 58)" class="ix-ico">
+    <path d="M-9 22L0 -12L9 22M-5.5 9H5.5M-3 0H3"/><circle cx="0" cy="-15" r="3" class="ix-fill"/>
+    <g class="ix-wave"><path d="M-12 -24a17 17 0 0 0 0 18M12 -24a17 17 0 0 1 0 18"/><path d="M-19 -30a26 26 0 0 0 0 30M19 -30a26 26 0 0 1 0 30" style="animation-delay:.4s"/></g>
+  </g>
+  <text class="ix-lbl" x="112" y="114" text-anchor="middle">6G Networks</text>
+  <g class="ix-bob"><g transform="translate(237 54)" class="ix-ico">
+    <path d="M-18 -8L-7 0M18 -8L7 0M-18 8L-7 2M18 8L7 2"/><rect x="-8" y="-5" width="16" height="10" rx="3" class="ix-fill"/>
+    <ellipse cx="-20" cy="-9" rx="9" ry="2.4" class="ix-rotor"/><ellipse cx="20" cy="-9" rx="9" ry="2.4" class="ix-rotor"/>
+    <ellipse cx="-20" cy="9" rx="9" ry="2.4" class="ix-rotor"/><ellipse cx="20" cy="9" rx="9" ry="2.4" class="ix-rotor"/>
+  </g></g>
+  <text class="ix-lbl" x="237" y="114" text-anchor="middle">UAV Positioning</text>
+  <g class="ix-sway"><g transform="translate(362 56) rotate(-20)" class="ix-ico">
+    <rect x="-7" y="-7" width="14" height="14" rx="2" class="ix-fill"/>
+    <rect x="-30" y="-5" width="19" height="10" rx="1.5"/><rect x="11" y="-5" width="19" height="10" rx="1.5"/>
+    <path d="M-11 0H-7M7 0H11M-23 -5V5M-17 -5V5M17 -5V5M23 -5V5M0 7V13M-6 16a8 8 0 0 0 12 0"/>
+  </g></g>
+  <text class="ix-lbl" x="362" y="114" text-anchor="middle">Satellite Access</text>
+  <g transform="translate(487 56)" class="ix-ico">
+    <rect x="-15" y="-15" width="30" height="30" rx="5"/>
+    <path d="M-9 -15V-21M0 -15V-21M9 -15V-21M-9 15V21M0 15V21M9 15V21M-15 -9H-21M-15 0H-21M-15 9H-21M15 -9H21M15 0H21M15 9H21"/>
+    <text class="ix-chip" x="0" y="5" text-anchor="middle">AI</text>
+  </g>
+  <text class="ix-lbl" x="487" y="114" text-anchor="middle">Edge AI &amp; LLMs</text>
+
+  <!-- ALGORITHM LAYER -->
+  <rect class="ix-tab teal" x="8" y="144" width="34" height="136" rx="8"/>
+  <text class="ix-tabt" transform="translate(30 212) rotate(-90)" text-anchor="middle">ALGORITHM</text>
+  <rect class="ix-box" x="50" y="144" width="500" height="136" rx="12"/>
+  <rect class="ix-sub" x="60" y="154" width="235" height="116" rx="10"/>
+  <rect class="ix-head teal" x="60" y="154" width="235" height="30" rx="10"/><rect class="ix-head teal" x="60" y="170" width="235" height="14"/>
+  <text class="ix-ht" x="177" y="174" text-anchor="middle">Quantum DRL</text>
+  <text class="ix-it" x="120" y="212" text-anchor="middle">Q-DQN</text><text class="ix-it" x="235" y="212" text-anchor="middle">Q-DDPG</text>
+  <text class="ix-it" x="120" y="246" text-anchor="middle">Q-PPO</text><text class="ix-it" x="235" y="246" text-anchor="middle">Multi-agent</text>
+  <rect class="ix-sub" x="305" y="154" width="235" height="116" rx="10"/>
+  <rect class="ix-head gold" x="305" y="154" width="235" height="30" rx="10"/><rect class="ix-head gold" x="305" y="170" width="235" height="14"/>
+  <text class="ix-ht" x="422" y="174" text-anchor="middle">Quantum Learning Models</text>
+  <text class="ix-it" x="365" y="212" text-anchor="middle">VQC</text><text class="ix-it" x="480" y="212" text-anchor="middle">QRC</text>
+  <text class="ix-it" x="365" y="246" text-anchor="middle">QNN</text><text class="ix-it" x="480" y="246" text-anchor="middle">Encoding</text>
+
+  <!-- FUNDAMENTAL LAYER -->
+  <rect class="ix-tab purple" x="8" y="292" width="34" height="168" rx="8"/>
+  <text class="ix-tabt" transform="translate(30 376) rotate(-90)" text-anchor="middle">FUNDAMENTAL</text>
+  <rect class="ix-box" x="50" y="292" width="500" height="168" rx="12"/>
+  <!-- Qubit / Bloch sphere -->
+  <g transform="translate(130 372)">
+    <circle r="40" class="ix-sphere"/>
+    <ellipse rx="40" ry="11" class="ix-eq"/>
+    <path d="M0 -46V46" class="ix-axis"/>
+    <text class="ix-ket" x="6" y="-48">|0⟩</text><text class="ix-ket" x="6" y="58">|1⟩</text>
+    <g><path d="M0 0L26 -26" class="ix-vec"/><circle cx="26" cy="-26" r="4" class="ix-dot"/>
+      <animateTransform attributeName="transform" type="scale" values="1 1;-1 1;1 1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></g>
+  </g>
+  <text class="ix-lbl" x="130" y="450" text-anchor="middle">Qubit</text>
+  <!-- Superposition -->
+  <rect class="ix-head pink" x="215" y="304" width="160" height="30" rx="8"/>
+  <text class="ix-ht" x="295" y="324" text-anchor="middle">Superposition</text>
+  <text class="ix-math" x="295" y="378" text-anchor="middle">|ψ⟩ = α|0⟩ + β|1⟩</text>
+  <text class="ix-math" x="295" y="410" text-anchor="middle">|α|² + |β|² = 1</text>
+  <!-- Entanglement -->
+  <rect class="ix-head pink" x="385" y="304" width="155" height="30" rx="8"/>
+  <text class="ix-ht" x="462" y="324" text-anchor="middle">Entanglement</text>
+  <g transform="translate(462 382)">
+    <g class="ix-spin"><ellipse rx="34" ry="11" transform="rotate(35)" class="ix-orbit"/><ellipse rx="34" ry="11" transform="rotate(-35)" class="ix-orbit"/>
+      <circle cx="27" cy="19" r="3.5" class="ix-dot"/><circle cx="-27" cy="-19" r="3.5" class="ix-dot gold"/></g>
+    <circle r="5" class="ix-fill"/>
+  </g>
+  <text class="ix-math sm" x="462" y="446" text-anchor="middle">(|00⟩ + |11⟩)/√2</text>
+</svg>`,
+
+  circuit: (() => {
+    const W = [80, 140, 200, 260];
+    const kets  = W.map(y => `<text class="ra-ket" x="24" y="${y+5}">|0⟩</text>`).join("");
+    const ry    = W.map((y,i) => `<rect x="86" y="${y-15}" width="34" height="30" rx="7" style="animation-delay:${i*0.15}s"/>`).join("");
+    const rz    = W.map((y,i) => `<rect x="273" y="${y-15}" width="34" height="30" rx="7" style="animation-delay:${1.6+i*0.15}s"/>`).join("");
+    const gtxt  = W.map(y => `<text class="ra-gtext" x="103" y="${y+4}">RY</text><text class="ra-gtext" x="290" y="${y+4}">RZ</text>`).join("");
+    const cnot  = [[80,140,160],[140,200,200],[200,260,240]].map(([c,t,x]) =>
+      `<path d="M${x} ${c}V${t+10}M${x-10} ${t}H${x+10}"/><circle class="ra-ctrl" cx="${x}" cy="${c}" r="5"/><circle class="ra-tgt" cx="${x}" cy="${t}" r="10"/><path d="M${x-10} ${t}H${x+10}M${x} ${t-10}V${t+10}"/>`).join("");
+    const meter = W.map(y => `<rect x="362" y="${y-16}" width="40" height="32" rx="7"/><path d="M370 ${y+8}A12 12 0 0 1 394 ${y+8}M382 ${y+8}L390 ${y-6}"/>`).join("");
+    const pulse = W.map((y,i) => `<circle class="ra-pulse" cx="64" cy="${y}" r="4" style="animation-delay:${-i*0.9}s"/>`).join("");
+    return `<svg viewBox="0 0 480 320" role="img" aria-label="Animated parameterized quantum circuit">
+      <text class="ra-label" x="24" y="34">PARAMETERIZED QUANTUM CIRCUIT</text>
+      <path class="ra-wire" d="M60 80H452M60 140H452M60 200H452M60 260H452"/>
+      ${kets}${pulse}
+      <g class="ra-gate">${ry}</g><g class="ra-gate gold">${rz}</g>${gtxt}
+      <g class="ra-cnot">${cnot}</g><g class="ra-meter">${meter}</g>
+    </svg>`;
+  })(),
+
+  orbit: `<svg viewBox="0 0 480 320" role="img" aria-label="Animated satellites orbiting above a drone and ground stations">
+    <defs>
+      <linearGradient id="ra-earth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ra-s1"/><stop offset="1" class="ra-s2"/></linearGradient>
+      <path id="ra-orbA" d="M-20 271A360 360 0 0 1 500 271"/>
+      <path id="ra-orbB" d="M-20 190A420 420 0 0 1 500 190"/>
+      <g id="ra-sat"><rect class="ra-panel" x="-18" y="-3" width="11" height="6" rx="1"/><rect class="ra-panel" x="7" y="-3" width="11" height="6" rx="1"/><rect class="ra-body" x="-5" y="-5" width="10" height="10" rx="2"/></g>
+    </defs>
+    <text class="ra-label" x="24" y="34">SPACE · AIR · GROUND</text>
+    <use href="#ra-orbA" class="ra-orbit"/><use href="#ra-orbB" class="ra-orbit"/>
+    <circle class="ra-atmo" cx="240" cy="520" r="306"/>
+    <circle class="ra-earth" cx="240" cy="520" r="300" fill="url(#ra-earth)"/>
+    <use href="#ra-sat"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#ra-orbA"/></animateMotion></use>
+    <use href="#ra-sat"><animateMotion dur="11s" begin="-5.5s" repeatCount="indefinite" rotate="auto"><mpath href="#ra-orbA"/></animateMotion></use>
+    <use href="#ra-sat"><animateMotion dur="16s" begin="-3s" repeatCount="indefinite" rotate="auto"><mpath href="#ra-orbB"/></animateMotion></use>
+    <use href="#ra-sat"><animateMotion dur="16s" begin="-11s" repeatCount="indefinite" rotate="auto"><mpath href="#ra-orbB"/></animateMotion></use>
+    <path class="ra-link" d="M150 206Q190 186 232 194M248 194Q292 196 330 214"/>
+    <path class="ra-stroke" d="M150 206L141 236M150 206L159 236M145 226H155M142 199a12 12 0 0 1 16 0M137 193a19 19 0 0 1 26 0"/>
+    <circle class="ra-ctrl" cx="150" cy="206" r="3"/>
+    <rect class="ra-stroke" x="324" y="213" width="13" height="22" rx="3"/>
+    <g class="ra-uav"><g transform="translate(240 192)">
+      <ellipse class="ra-rotor" cx="-15" cy="-6" rx="8" ry="2.2"/><ellipse class="ra-rotor" cx="15" cy="-6" rx="8" ry="2.2"/>
+      <path class="ra-stroke" d="M-15 -6L-7 0M15 -6L7 0"/><rect class="ra-body" x="-8" y="-3" width="16" height="7" rx="3"/>
+    </g></g>
+  </svg>`,
+
+  twin: (() => {
+    const N = [[0,-75],[-62,-28],[58,-32],[-48,42],[50,48],[4,0]];
+    const E = [[0,1],[0,2],[1,5],[2,5],[1,3],[5,3],[5,4],[2,4],[3,4]];
+    const graph = (cx, cy, twin) =>
+      E.map(([a,b]) => `<line class="ra-edge${twin?" twin":""}" x1="${cx+N[a][0]}" y1="${cy+N[a][1]}" x2="${cx+N[b][0]}" y2="${cy+N[b][1]}"/>`).join("") +
+      N.map(([x,y],i) => twin
+        ? `<circle class="ra-node twin" cx="${cx+x}" cy="${cy+y}" r="7" style="animation-delay:${i*0.35}s"/>`
+        : `<circle class="ra-node${i===5?" core":""}" cx="${cx+x}" cy="${cy+y}" r="${i===5?9:7}"/>`).join("");
+    const sync = [150,185,220].map((y,i) =>
+      `<line class="ra-sync" x1="202" y1="${y}" x2="278" y2="${y}"/><circle class="ra-sdot${i===1?" back":""}" cx="${i===1?278:202}" cy="${y}" r="3.5" style="animation-delay:${i*0.5}s"/>`).join("");
+    return `<svg viewBox="0 0 480 320" role="img" aria-label="Animated network synchronising with its digital twin">
+      <text class="ra-label" x="24" y="34">NETWORK  ⇄  DIGITAL TWIN</text>
+      ${graph(122,175,false)}${graph(358,175,true)}${sync}
+      <text class="ra-label" x="122" y="286" text-anchor="middle">PHYSICAL</text>
+      <text class="ra-label" x="358" y="286" text-anchor="middle">VIRTUAL COPY</text>
+    </svg>`;
+  })(),
+
+  atom: (() => {
+    const L = [[285,"|1⟩"],[215,"|2⟩"],[115,"|3⟩"],[75,"|4⟩"]];
+    const levels = L.map(([y,k]) => `<line class="ra-level" x1="48" y1="${y}" x2="196" y2="${y}"/><text class="ra-ket" x="206" y="${y+5}">${k}</text>`).join("");
+    const atoms = [[290,160],[318,205],[345,152],[372,214],[398,168],[420,206],[305,184],[384,190],[352,222],[430,150]]
+      .map(([x,y],i) => `<circle class="ra-atom" cx="${x}" cy="${y}" r="2.6" style="animation-delay:${(i*0.37).toFixed(2)}s"/>`).join("");
+    return `<svg viewBox="0 0 480 320" role="img" aria-label="Animated Rydberg atom energy levels and vapour cell">
+      <defs><path id="ra-climb" d="M88 285L88 215L124 215L124 115L160 115L160 75"/></defs>
+      <text class="ra-label" x="24" y="34">ENERGY LEVELS</text>
+      ${levels}
+      <path class="ra-arrow probe" d="M88 283V218M82 226L88 217L94 226"/>
+      <path class="ra-arrow couple" d="M124 213V118M118 126L124 117L130 126"/>
+      <path class="ra-arrow rf" d="M160 113q6 -5 0 -9q-6 -5 0 -9q6 -5 0 -9q-6 -4 0 -8"/>
+      <circle class="ra-electron" r="5"><animateMotion dur="4.5s" repeatCount="indefinite"><mpath href="#ra-climb"/></animateMotion></circle>
+      <text class="ra-label" x="270" y="72">RF SIGNAL</text>
+      <path class="ra-rfwave" d="M272 100q13 -14 26 0t26 0t26 0t26 0t26 0t26 0"/>
+      <rect class="ra-cell" x="262" y="132" width="180" height="104" rx="16"/>
+      ${atoms}
+      <line class="ra-beam probe" x1="236" y1="170" x2="470" y2="170"/>
+      <line class="ra-beam couple" x1="236" y1="198" x2="470" y2="198"/>
+      <text class="ra-label" x="352" y="266" text-anchor="middle">VAPOUR CELL</text>
+    </svg>`;
+  })()
+};
+
+/* -- RESEARCH PAGE -- */
+function buildResearch() {
+  const CAP = ["0,180,216", "244,167,50", "52,211,153", "167,139,250"];   // title-bar colours: teal, gold, green, purple
+  const cards = RESEARCH.themes.map((t, i) => `
+    <div class="rc-card">
+      <div class="r-art">${RESEARCH_ART[t.art] || ""}</div>
+      <div class="rc-cap" style="--c:${CAP[i % CAP.length]}">${t.title}</div>
+    </div>`).join("");
+
+  document.getElementById("page-research").innerHTML = `
+  <div class="container">
+    <div class="r-hero">
+      <div class="r-eyebrow">${RESEARCH.eyebrow}</div>
+      <h2 class="r-headline">${RESEARCH.headline}</h2>
+      ${RESEARCH.intro ? `<p class="r-intro">${RESEARCH.intro}</p>` : ""}
+    </div>
+    <div class="rc-grid">${cards}</div>
+  </div>`;
+
+  // Respect visitors who turn off motion: freeze the orbit/climb animations too
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("#page-research svg").forEach(s => s.pauseAnimations && s.pauseAnimations());
+  }
+}
+
 /* -- BUILD NAV -- */
 function buildNav() {
   const tabs = [
     { id:"about",        label:"About Me" },
+    { id:"research",     label:"Research" },
     { id:"experience",   label:"Work Experience" },
     { id:"publications", label:"Publications", hidden: !SETTINGS.showPublications },
     { id:"awards",       label:"Awards & Honours" },
@@ -607,76 +1341,258 @@ function buildNav() {
     if (t.hidden) return;
     const li = document.createElement("li");
     li.className = "nav-tab" + (i===0?" active":"");
+    li.dataset.page = t.id;
     li.textContent = t.label;
     li.onclick = () => showPage(t.id, li);
     nav.appendChild(li);
   });
+
+  // Sliding underline that glides to the selected tab
+  const ind = document.createElement("li");
+  ind.className = "nav-indicator";
+  ind.setAttribute("aria-hidden", "true");
+  nav.appendChild(ind);
+  document.documentElement.classList.add("has-indicator");
+  const snap = () => moveIndicator(nav.querySelector(".nav-tab.active"), true);
+  snap();
+  window.addEventListener("resize", snap);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(snap);
 }
 
+function moveIndicator(tab, instant) {
+  const ind = document.querySelector(".nav-indicator");
+  if (!ind || !tab) return;
+  if (instant) ind.style.transition = "none";
+  ind.style.width = tab.offsetWidth + "px";
+  ind.style.transform = `translateX(${tab.offsetLeft}px)`;
+  if (instant) { void ind.offsetWidth; ind.style.transition = ""; }
+}
+
+let pageTimer = null;
 function showPage(id, tab) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.querySelectorAll(".nav-tab").forEach(t => t.classList.remove("active"));
+  tab = tab || document.querySelector(`.nav-tab[data-page="${id}"]`);
   const el = document.getElementById("page-"+id);
-  if (el) el.classList.add("active");
-  if (tab) tab.classList.add("active");
+  if (!el) return;
+  const current = document.querySelector(".page.active");
+  clearTimeout(pageTimer);
+  document.querySelectorAll(".nav-tab").forEach(t => t.classList.toggle("active", t === tab));
+  if (tab) {
+    moveIndicator(tab);
+    tab.scrollIntoView({ block:"nearest", inline:"nearest", behavior:"smooth" });
+  }
+  if (el === current) { current.classList.remove("leaving"); return; }
+  const swap = () => {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active", "leaving"));
+    if (window.scrollY > 0) window.scrollTo({ top:0, behavior:"instant" });
+    el.classList.add("active");
+    updateScrollEffects();
+  };
+  // The current page fades up and out, then the new one glides in
+  if (!current || matchMedia("(prefers-reduced-motion: reduce)").matches) { swap(); return; }
+  current.classList.add("leaving");
+  pageTimer = setTimeout(swap, 240);
+}
+
+/* -- SCROLL REVEAL -- */
+const REVEAL_SELECTOR = [
+  ".section-title", ".photo-frame", ".sp-lab", ".sp-mail", ".sp-loc", ".sp-h", ".sp-link",
+  ".intro-greeting", ".intro-name", ".intro-title", ".intro-bio", ".bio-quote", ".tag",
+  ".eb-row", ".nk-band", ".nl-year", ".nl-row", ".sub-section-label", ".ad-row",
+  ".ph-sec", ".ph-f", ".ph-row", ".pub-empty", ".aw-tile",
+  ".hx-lead", ".hx-head", ".hx", ".mp", ".ml-r", ".pass-wrap", ".gl-h", ".gl-r", ".gl-chips",
+  ".r-eyebrow", ".r-headline", ".r-intro", ".rc-card"
+].join(",");
+
+function setupReveal() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const els = document.querySelectorAll(REVEAL_SELECTOR);
+  const io = new IntersectionObserver(entries => {
+    let n = 0;   // items arriving together are staggered, one after another
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.style.setProperty("--d", Math.min(n++, 6) * 80 + "ms");
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin:"0px 0px -6% 0px", threshold:0.06 });
+  els.forEach(el => { el.classList.add("reveal"); io.observe(el); });
+  // Headlines and pictures also come in from a soft blur; pictures grow slightly into place
+  document.querySelectorAll(".intro-greeting, .intro-name, .intro-title, .section-title, .r-eyebrow, .r-headline, .r-intro, .r-art, .photo-frame").forEach(el => el.classList.add("soft"));
+  document.querySelectorAll(".r-art, .photo-frame, .pass-wrap").forEach(el => el.classList.add("pop"));
+  document.documentElement.classList.add("has-reveal");
+}
+
+/* -- NEWS TICKER: constant, readable speed (about 60 px per second) whatever the text length -- */
+function sizeTicker() {
+  const t = document.querySelector(".nk-track");
+  if (!t) return;
+  const half = t.scrollWidth / 2;
+  if (half > 0) t.style.setProperty("--nk-dur", (half / 60).toFixed(1) + "s");
+}
+
+/* -- MOTION: cursor spotlight, 3D tilt, timeline drawing, background depth -- */
+function setupMotion() {
+  const root = document.documentElement;
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Spotlight that follows the mouse on cards
+  const SPOT = ".ph-f, .ph-row, .aw-tile, .ad-row, .ml-r, .gl-r, .rc-card, .sp-link";
+  document.querySelectorAll(SPOT).forEach(el => el.classList.add("spot"));
+  if (finePointer) {
+    document.addEventListener("pointermove", e => {
+      const c = e.target.closest && e.target.closest(".spot");
+      if (!c) return;
+      const r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      c.style.setProperty("--my", (e.clientY - r.top) + "px");
+    }, { passive:true });
+  }
+
+  // Gentle 3D tilt toward the cursor
+  if (finePointer && !calm) {
+    const TILT = [[".aw-tile", 7, "translateY(-4px)"], [".ph-f", 5, "translateY(-3px)"], [".r-art", 5, "scale(1.02)"], [".photo-frame", 10, "scale(1.03)"]];
+    TILT.forEach(([sel, max, extra]) => document.querySelectorAll(sel).forEach(el => {
+      el.addEventListener("pointermove", e => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = `perspective(900px) rotateX(${(-y * max).toFixed(2)}deg) rotateY(${(x * max).toFixed(2)}deg) ${extra}`;
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    }));
+  }
+
+  if (!calm) root.classList.add("tl-draw");
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { updateScrollEffects(); ticking = false; });
+  }, { passive:true });
+  window.addEventListener("resize", updateScrollEffects);
+  updateScrollEffects();
+}
+
+function updateScrollEffects() {
+  const root = document.documentElement;
+  const y = window.scrollY;
+  const nav = document.querySelector("nav");
+  if (nav) nav.classList.toggle("scrolled", y > 8);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  // Background pattern drifts slower than the page, for a sense of depth
+  root.style.setProperty("--py", Math.min(y * 0.12, innerHeight * 0.3).toFixed(1));
+  // Timeline line grows to the 70% mark of the screen; dots light up as it passes
+  const atBottom = y + innerHeight >= document.documentElement.scrollHeight - 4;
+  const mark = atBottom ? innerHeight : innerHeight * 0.7;   // at the end of the page, light everything
+  document.querySelectorAll(".page.active .ad").forEach(tl => {
+    const r = tl.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (mark - r.top) / r.height));
+    tl.style.setProperty("--tl", p.toFixed(4));
+    tl.querySelectorAll(".ad-dot").forEach(d => d.classList.toggle("lit", d.getBoundingClientRect().top < mark));
+  });
+}
+
+/* -- SIDE PANEL: copy email + live local time -- */
+function setupSidePanel() {
+  const btn = document.querySelector(".sp-cp");
+  if (btn) btn.addEventListener("click", async () => {
+    const text = btn.dataset.copy;
+    try { await navigator.clipboard.writeText(text); }
+    catch (e) {   // older browsers
+      const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (_) {} t.remove();
+    }
+    btn.classList.add("done");
+    clearTimeout(btn._t); btn._t = setTimeout(() => btn.classList.remove("done"), 1800);
+  });
+  const el = document.querySelector(".sp-time"), tz = PROFILE.contact.timezone;
+  if (!el || !tz) return;
+  let fmt;
+  try { fmt = new Intl.DateTimeFormat("en-CA", { timeZone:tz, hour:"numeric", minute:"2-digit" }); } catch (e) { return; }
+  const tick = () => { el.textContent = fmt.format(new Date()) + " local"; };
+  tick(); setInterval(tick, 30000);
 }
 
 /* -- ABOUT PAGE -- */
 function buildAbout() {
-  const greetingLine = `<div class="intro-greeting">${PROFILE.greeting_en} &nbsp;·&nbsp; ${PROFILE.greeting_fr}</div>`;
+  const greetingLine = `<div class="intro-greeting">${[PROFILE.greeting_si, PROFILE.greeting_en, PROFILE.greeting_fr].filter(Boolean).join(" &nbsp;·&nbsp; ")}</div>`;
   const bioHtml = PROFILE.bio.map(p => `<p class="intro-bio">${p}</p>`).join("");
   const quoteHtml = PROFILE.bio_quote ? `<blockquote class="bio-quote">${PROFILE.bio_quote}</blockquote>` : "";
   const tags = PROFILE.research_tags.map(t => `<span class="tag">${t}</span>`).join("");
 
+  const ARROW = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>`;
+  const MAIL  = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>`;
+  const COPY  = `<svg class="cp" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><svg class="ok" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>`;
+  const PIN   = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>`;
   const socialHtml = SOCIAL_LINKS.map(s =>
-    `<a class="social-btn" href="${s.url}" target="_blank">${SOCIAL_ICONS[s.icon]||""} ${s.label}</a>`
+    `<a class="sp-link" href="${s.url}" target="_blank" rel="noopener" style="--b:${s.color || "var(--teal)"}"><span class="ic">${SOCIAL_ICONS[s.icon] || ""}</span>${s.label}<span class="go">${ARROW}</span></a>`
   ).join("");
+  const labLinks = (PROFILE.lab_links || []).map(l => `<a class="sp-chip" href="${l.url}" target="_blank" rel="noopener">${l.label} ${ARROW}</a>`).join("");
 
   const photoHtml = PROFILE.photo
     ? `<img src="${PROFILE.photo}" alt="${PROFILE.name}">`
     : `<span class="photo-placeholder">👤</span>`;
 
-  const eduHtml = EDUCATION.map(e => `
-    <div class="edu-card-stacked">
-      <div class="edu-stacked-left">
-        <div class="edu-period">${e.period}</div>
+  // Education: pull "GPA: x/y" out of the details and show it as a meter
+  const eduHtml = `<div class="eb">${EDUCATION.map(e => {
+    let gpa = null, max = null; const extra = [];
+    e.details.forEach(d => {
+      const m = d.match(/GPA:\s*([\d.]+)\s*\/\s*([\d.]+)/);
+      if (!m) return extra.push(d);
+      gpa = +m[1]; max = +m[2];
+      const rest = d.replace(m[0], "").replace(/^[\s·\-–]+/, "").trim();
+      if (rest) extra.push(rest);
+    });
+    return `
+    <div class="eb-row">
+      <div class="eb-per">${e.period}</div>
+      <div>
+        <div class="eb-deg">${e.degree}</div>
+        <div class="eb-uni">${e.school}</div>
+        <div class="eb-ex">${extra.map(x => `<div>${x}</div>`).join("")}</div>
+        ${e.badge ? `<span class="eb-medal">🥇 ${e.badge}</span>` : ""}
       </div>
-      <div class="edu-stacked-right">
-        <div class="edu-degree">${e.degree}</div>
-        <div class="edu-school">${e.school}</div>
-        ${e.details.map(d=>`<div class="edu-detail">${d}</div>`).join("")}
-        ${e.badge ? `<span class="badge-gold">${e.badge}</span>` : ""}
+      <div>${gpa ? `
+        <div class="eb-g-top"><span class="eb-g-l">GPA</span><span class="eb-g-v">${gpa.toFixed(2)} <small>/ ${max.toFixed(2)}</small></span></div>
+        <div class="eb-bar"><i style="width:${(gpa / max * 100).toFixed(1)}%"></i></div>` : ""}
       </div>
-    </div>`).join("");
+    </div>`; }).join("")}</div>`;
 
-  const newsHtml = NEWS.map(n => `
-    <div class="news-item">
-      <div class="news-dot ${n.gold?"gold":""}"></div>
-      <div><div class="news-date">${n.date}</div><div class="news-text">${n.text}</div></div>
-    </div>`).join("");
+  // News: "Nov-2026" -> month "Nov", year "2026"
+  const news = NEWS.map(n => { const [m, y] = String(n.date).split("-"); return { m:(m||"").trim(), y:(y||"").trim(), text:n.text }; });
+  const tickerItems = news.slice(0, SETTINGS.newsTicker || 0);
+  const tickerOnce = tickerItems.map(n => `<span class="nk-item"><b>${n.m} ${n.y}</b>${n.text}</span><span class="nk-sep">◆</span>`).join("");
+  const tickerHtml = tickerItems.length ? `
+    <div class="nk-band" aria-label="Latest news">
+      <div class="nk-label"><i></i>LATEST</div>
+      <div class="nk-view"><div class="nk-track">${tickerOnce}<span aria-hidden="true" style="display:contents">${tickerOnce}</span></div></div>
+    </div>` : "";
+  const years = [];
+  news.forEach(n => { let g = years.find(x => x.y === n.y); if (!g) years.push(g = { y:n.y, items:[] }); g.items.push(n); });
+  const listHtml = `<div class="nl">${years.map(g => `
+    <div class="nl-group">
+      <div class="nl-year">${g.y}</div>
+      <div class="nl-rows">${g.items.map(n => `<div class="nl-row"><span class="nl-month">${n.m}</span><span class="nl-text">${n.text}</span></div>`).join("")}</div>
+    </div>`).join("")}</div>`;
+  const newsHtml = tickerHtml + listHtml;
 
   document.getElementById("page-about").innerHTML = `
   <div class="container">
     <div class="about-hero">
       <div class="photo-col">
         <div class="photo-frame"><div class="photo-inner">${photoHtml}</div></div>
-        <div class="lab-badge">
-          <div class="lab-name">${PROFILE.lab}</div>
-          <div class="lab-sub">${PROFILE.university}</div>
-          <div class="lab-links">
-            <a href="https://cerc-ngct.ca/" target="_blank" class="lab-link">CERC–NGCT Lab ↗</a>
-            <a href="https://qc3.ca/" target="_blank" class="lab-link">QC3 Centre ↗</a>
-          </div>
+        <div class="sp-lab">
+          <div class="sp-lab-n">${PROFILE.lab}</div>
+          <div class="sp-lab-s">${PROFILE.university}</div>
+          ${labLinks ? `<div class="sp-chips">${labLinks}</div>` : ""}
         </div>
-        <div class="contact-card">
-          <h4>Contact</h4>
-          <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:${PROFILE.contact.email}">${PROFILE.contact.email}</a></div>
-          <div class="contact-item"><span class="contact-icon">📍</span><span>${PROFILE.contact.location}</span></div>
+        <div class="sp-mail">
+          <a class="sp-btn" href="mailto:${PROFILE.contact.email}" title="${PROFILE.contact.email}">${MAIL} Email me</a>
+          <button class="sp-cp" type="button" data-copy="${PROFILE.contact.email}" aria-label="Copy email address" title="Copy ${PROFILE.contact.email}">${COPY}</button>
         </div>
-        <div class="social-links">
-          <h4>Find Me Online</h4>
-          <div class="social-grid">${socialHtml}</div>
-        </div>
+        <div class="sp-loc">${PIN}<span>${PROFILE.contact.location}</span><span class="sp-time"></span></div>
+        <div class="sp-h">Find me online</div>
+        <div class="sp-links">${socialHtml}</div>
       </div>
       <div class="intro-col">
         ${greetingLine}
@@ -688,227 +1604,456 @@ function buildAbout() {
       </div>
     </div>
     <h2 class="section-title">Education</h2>
-    <div class="edu-stack">${eduHtml}</div>
+    ${eduHtml}
     <h2 class="section-title">Recent News</h2>
-    <div class="news-grid">${newsHtml}</div>
+    <div class="news-wrap">${newsHtml}</div>
   </div>`;
 }
 
 /* -- EXPERIENCE PAGE -- */
 function buildExperience() {
-  const makeTimeline = (items, dotClass) => items.map(e => `
-    <div class="timeline-item">
-      <div class="timeline-dot ${dotClass}"></div>
-      <div class="timeline-card">
-        <div class="timeline-header">
-          <div class="timeline-role">${e.role}</div>
-          <div class="timeline-period">${e.period}</div>
-        </div>
-        <div class="timeline-org">${e.org}</div>
-        <div class="timeline-body"><ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>
-      </div>
-    </div>`).join("");
+  // Each role is one row: click it to open or close its details. The first role in each list starts open.
+  const section = list => `<div class="ad">${list.map((e, i) => {
+    const now = /present/i.test(e.period), open = i === 0;
+    return `
+    <div class="ad-row${open ? " open" : ""}">
+      <button class="ad-head" type="button" aria-expanded="${open}">
+        <span class="ad-p">${e.period}</span>
+        <span class="ad-dot"></span>
+        <span>
+          <span class="ad-p-m">${e.period}</span>
+          <span class="ad-r">${e.role}${now ? `<span class="ad-now">NOW</span>` : ""}</span>
+          <span class="ad-o">${e.org}</span>
+        </span>
+        <span class="ad-c" aria-hidden="true">+</span>
+      </button>
+      <div class="ad-body"><div><ul class="ad-b">${e.items.map(x => `<li>${x}</li>`).join("")}</ul></div></div>
+    </div>`; }).join("")}</div>`;
 
-  document.getElementById("page-experience").innerHTML = `
+  const page = document.getElementById("page-experience");
+  page.innerHTML = `
   <div class="container">
     <h2 class="section-title" style="margin-bottom:2.5rem;">Work Experience</h2>
     <p class="sub-section-label">Academic & Research</p>
-    <div class="timeline">${makeTimeline(EXPERIENCE.academic,"gold")}</div>
+    ${section(EXPERIENCE.academic)}
     <p class="sub-section-label">Industry & Internships</p>
-    <div class="timeline">${makeTimeline(EXPERIENCE.industry,"")}</div>
+    ${section(EXPERIENCE.industry)}
   </div>`;
+
+  page.addEventListener("click", ev => {
+    const head = ev.target.closest(".ad-head");
+    if (!head) return;
+    const row = head.parentElement;
+    const open = row.classList.toggle("open");
+    head.setAttribute("aria-expanded", open);
+    setTimeout(updateScrollEffects, 520);   // let the timeline line catch up with the new height
+  });
 }
 
 /* -- PUBLICATIONS PAGE -- */
 function buildPublications() {
-  const totalJ = PUBLICATIONS.journals.length;
-  const totalC = PUBLICATIONS.conferences.length;
-  const totalP = PUBLICATIONS.patents.length;
-
-  const makeCard = (p, type) => {
-    const statusMap = {
-      submitted: `<span class="pub-status status-submitted">Submitted</span>`,
-      accepted:  `<span class="pub-status status-accepted">Accepted</span>`,
-      best:      `<span class="pub-status status-best">🏆 Best Paper Award</span>`,
-      "": ""
-    };
-    return `<div class="pub-card" data-type="${type}">
-      <div class="pub-number">${p.num}</div>
-      <div class="pub-title">${p.title}</div>
-      <div class="pub-authors">${p.authors}</div>
-      <div class="pub-venue">${p.venue}${statusMap[p.status]||""}</div>
-    </div>`;
+  const shortVenue = v => (VENUE_SHORT.find(([k]) => v.includes(k)) || [0, v.split(",")[0]])[1];
+  const meRe = new RegExp("(" + MY_NAMES.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "g");
+  const me = a => a.replace(meRe, `<span class="me">$1</span>`);
+  const STAT = {
+    accepted:  `<span class="pv-st acc">Accepted</span>`,
+    inpress:   `<span class="pv-st acc">In Press</span>`,
+    submitted: `<span class="pv-st sub">Submitted</span>`,
+    best:      `<span class="pv-st best">🏆 Best Paper Award</span>`
   };
+  const GROUPS = [
+    ["book",       "Books",       PUBLICATIONS.Books || PUBLICATIONS.books || []],
+    ["journal",    "Journals",    PUBLICATIONS.journals],
+    ["conference", "Conferences", PUBLICATIONS.conferences],
+    ["patent",     "Patents",     PUBLICATIONS.patents]
+  ];
 
-  const journalCards    = PUBLICATIONS.journals.map(p=>makeCard(p,"journal")).join("");
-  const conferenceCards = PUBLICATIONS.conferences.map(p=>makeCard(p,"conference")).join("");
-  const patentCards     = PUBLICATIONS.patents.map(p=>makeCard(p,"patent")).join("");
+  // Highlights: papers marked featured: 1, 2, 3 …
+  const feat = GROUPS.flatMap(([k, , list]) => list.filter(p => p.featured).map(p => ({ ...p, k })))
+                     .sort((a, b) => a.featured - b.featured);
+  const featHtml = feat.length ? `
+    <div class="ph-sec">Highlights</div>
+    <div class="ph-feat">${feat.map(p => `
+      <div class="ph-f">
+        ${p.status === "best" ? `<span class="ph-rib">Best Paper</span>` : ""}
+        <span class="vb ${p.k}">${shortVenue(p.venue)}</span>
+        <div class="ph-ft">${p.title}</div>
+        <div class="ph-fa">${me(p.authors)}</div>
+        <div class="ph-fv">${p.venue}</div>
+      </div>`).join("")}
+    </div>` : "";
+
+  const listsHtml = GROUPS.map(([k, label, list]) => `
+    <div class="ph-sec">${label} <i>${list.length || ""}</i></div>
+    ${list.length ? `<div class="ph-list">${list.map(p => `
+      <div class="ph-row">
+        <span class="ph-n">${String(p.num).padStart(2, "0")}</span>
+        <span class="vb ${k}">${shortVenue(p.venue)}</span>
+        <div>
+          <div class="ph-t">${p.title}${STAT[p.status] || ""}</div>
+          <div class="ph-a">${me(p.authors)}</div>
+          <div class="ph-v">${p.venue}</div>
+        </div>
+      </div>`).join("")}</div>` : `<div class="pub-empty">Coming soon.</div>`}`).join("");
 
   document.getElementById("page-publications").innerHTML = `
   <div class="container">
-    <h2 class="section-title" style="margin-bottom:2rem;">Publications</h2>
-
-    <div class="pub-section-header journal">
-      <span class="pub-section-icon">📰</span>
-      <span>Journal Articles <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalJ})</span></span>
-      <span class="pub-section-count">${totalJ} papers</span>
-    </div>
-    <div class="pub-list" style="margin-bottom:2.5rem;">${journalCards}</div>
-
-    <div class="pub-section-header conference">
-      <span class="pub-section-icon">🎤</span>
-      <span>Conference Papers <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalC})</span></span>
-      <span class="pub-section-count">${totalC} papers</span>
-    </div>
-    <div class="pub-list" style="margin-bottom:2.5rem;">${conferenceCards}</div>
-
-    <div class="pub-section-header patent">
-      <span class="pub-section-icon">📋</span>
-      <span>Patents <span style="font-family:'DM Mono',monospace;font-size:0.95em;opacity:0.85;">(${totalP})</span></span>
-      <span class="pub-section-count">${totalP} patents</span>
-    </div>
-    <div class="pub-list">${patentCards}</div>
+    <h2 class="section-title" style="margin-bottom:1.8rem;">Publications</h2>
+    ${featHtml}
+    ${listsHtml}
   </div>`;
 }
 
 /* -- AWARDS PAGE -- */
 function buildAwards() {
-  const cards = AWARDS.map(a => `
-    <div class="award-card">
-      <div class="award-year">${a.year}</div>
-      <div class="award-icon">${a.icon}</div>
-      <div class="award-title">${a.title}</div>
-      <div class="award-org">${a.org}</div>
-      <div class="award-desc">${a.desc}</div>
+  const tiles = AWARDS.map((a, i) => `
+    <div class="aw-tile" tabindex="0">
+      <div class="aw-year">${a.year}</div>
+      <div class="aw-medal" style="animation-delay:-${(i * 1.3) % 8}s"><span>${a.icon}</span></div>
+      <div class="aw-title">${a.title}</div>
+      <div class="aw-org">${a.org}</div>
+      ${a.desc ? `<div class="aw-more"><div class="aw-more-title">${a.year} · ${a.org}</div><p>${a.desc}</p></div>` : ""}
     </div>`).join("");
 
   document.getElementById("page-awards").innerHTML = `
   <div class="container">
     <h2 class="section-title" style="margin-bottom:2rem;">Awards & Honours</h2>
-    <div class="awards-grid">${cards}</div>
+    <p class="aw-hint"><span class="mouse">Hover over an award to see the details.</span><span class="touch">Tap an award to see the details.</span></p>
+    <div class="aw-wall">${tiles}</div>
   </div>`;
 }
 
 /* -- PROFESSIONAL PAGE -- */
 function buildProfessional() {
-  const makeList = (items) => items.map(i=>`
-    <div class="pro-item"><div class="pro-item-name">${i.name}</div><div class="pro-item-year">${i.year}</div></div>`).join("");
+  const P = PROFESSIONAL;
+  const yr = x => x.year || "";
+  const PUB = [["IEEE", "#3b82f6"], ["ACM", "#ef4444"], ["Springer Nature", "#f97316"], ["EAI", "#a855f7"]];
+  const pubOf = n => (PUB.find(([k]) => n.startsWith(k)) || ["Other", "#0e7490"]);
+  const esc = t => String(t).replace(/"/g, "&quot;");
+  const badge = (color, label, sub, caption, tip, icon) => `
+    <div class="hx" tabindex="0" style="--c:${color}" data-tip="${esc(tip)}">
+      <div class="hx-w"><div class="hx-s">${icon ? `<span class="e">${icon}</span>` : ""}<b class="${String(label).length > 6 ? "long" : ""}">${label}</b>${sub ? `<small class="${sub.length > 10 ? "long" : ""}">${sub.replace(/\//g, "/<wbr>")}</small>` : ""}</div></div>
+      <p>${caption}</p>
+    </div>`;
 
-  const certs = PROFESSIONAL.certifications.map(c=>`
-    <div class="cert-badge">
-      <div class="cert-icon">${c.icon}</div>
-      <div class="cert-name">${c.name}</div>
-    </div>`).join("");
+  // Leadership: the first role is the big gold badge; any others are listed underneath
+  const L = P.leadership || [];
+  const lead = L.length ? `
+    <div class="hx-lead">
+      <div class="hx" style="--c:#f4a732;width:auto"><div class="hx-w big"><div class="hx-s"><span class="e">🏅</span><small>${yr(L[0])}</small></div></div></div>
+      <div>
+        <div class="hx-k">Leadership</div>
+        <div class="t">${L[0].name.split(" — ")[0]}</div>
+        <div class="s">${L[0].name.split(" — ").slice(1).join(" — ")}</div>
+        ${L.slice(1).map(l => `<div class="more">${l.name} · ${yr(l)}</div>`).join("")}
+      </div>
+    </div>` : "";
+
+  const order = n => PUB.findIndex(([k]) => n.startsWith(k));
+  const journals = [...P.journal_reviewer].sort((a, b) => (order(a.name) + 9) % 9 - (order(b.name) + 9) % 9);
+  const jHtml = journals.map(j => { const [pub, c] = pubOf(j.name); const nm = j.name.replace(/^Springer Nature – /, "");
+    return badge(c, j.badge, yr(j), nm, `${nm} · ${pub} · ${yr(j)}`); }).join("");
+  const cHtml = P.conf_reviewer.map(c => badge("#d98f1c", c.badge, yr(c), c.name, `${c.name} · ${yr(c)}`)).join("");
+  const role = v => v.name.includes(" — ") ? v.name.split(" — ").slice(1).join(" — ") : v.name.split(", ").slice(1).join(", ");
+  const vHtml = (P.volunteering || []).map(v => badge("#059669", v.badge, yr(v), role(v), `${v.name} · ${yr(v)}`)).join("");
+  const certHtml = (P.certifications || []).map(c => badge("#0e7490", c.badge, "", c.name.split(" — ").sort((x, y) => y.length - x.length)[0].replace(/\s*\([^)]*\)/, ""), c.name, c.icon)).join("");
+  const memHtml = (P.affiliations || []).map(a => badge("#7c3aed", a.badge, yr(a), a.name, `${a.name} · ${yr(a)}`)).join("");
+  const head = (title, n, extra) => `<div class="hx-head"><span class="hx-k">${title}</span>${n != null ? `<span class="n">${n}</span>` : ""}${extra || ""}</div>`;
+  const legend = `<span class="hx-legend">${PUB.filter(([k]) => P.journal_reviewer.some(j => j.name.startsWith(k))).map(([k, c]) => `<span><i style="--c:${c}"></i>${k}</span>`).join("")}</span>`;
 
   document.getElementById("page-professional").innerHTML = `
   <div class="container">
     <h2 class="section-title" style="margin-bottom:2rem;">Professional Activities</h2>
-
-    <div class="pro-grid">
-      <div>
-        <div class="pro-section-title">Reviewer — Journals</div>
-        ${makeList(PROFESSIONAL.journal_reviewer)}
-      </div>
-      <div>
-        <div class="pro-section-title">Reviewer — Conferences & Workshops</div>
-        ${makeList(PROFESSIONAL.conf_reviewer)}
-      </div>
+    ${lead}
+    <div class="hx-sec">${head("Peer Reviewer · Journals", journals.length, legend)}<div class="hx-row">${jHtml}</div></div>
+    <div class="hx-sec">${head("Peer Reviewer · Conferences", P.conf_reviewer.length)}<div class="hx-row">${cHtml}</div></div>
+    ${vHtml ? `<div class="hx-sec">${head("Volunteering", P.volunteering.length)}<div class="hx-row">${vHtml}</div></div>` : ""}
+    <div class="hx-two">
+      ${certHtml ? `<div class="hx-sec">${head("Certifications", P.certifications.length)}<div class="hx-row">${certHtml}</div></div>` : ""}
+      ${memHtml ? `<div class="hx-sec">${head("Memberships", P.affiliations.length)}<div class="hx-row">${memHtml}</div></div>` : ""}
     </div>
-
-    <div class="affil-section">
-      <div class="pro-section-title">Professional Affiliations</div>
-      <div class="affil-chips">
-        ${PROFESSIONAL.affiliations.map(a => `
-          <div class="affil-chip">
-            <span class="affil-chip-dot"></span>
-            <span class="affil-chip-name">${a.name}</span>
-            <span class="affil-chip-year">${a.year}</span>
-          </div>`).join("")}
-      </div>
-    </div>
-
-    <p class="sub-section-label">Volunteering</p>
-    <div class="pro-full-list">${makeList(PROFESSIONAL.volunteering)}</div>
-
-    <p class="sub-section-label">Leadership & Service</p>
-    <div class="pro-full-list">${makeList(PROFESSIONAL.leadership)}</div>
-
-    <p class="sub-section-label">Certifications & Licenses</p>
-    <div class="certs-row">${certs}</div>
   </div>`;
 }
 
-/* -- TALKS PAGE -- */
+/* -- TALKS PAGE: world map with pins, lines from home, and the list of talks -- */
+// Land as dots on a 2° grid (79°N to 57°S), one hex string per row of latitude
+const WORLD_ROWS = "00000000061df0ffffff0000f8000000003c000000000,000000030027c3ffffff8000200000000006000000000,0000000038afc007ffff00000000030007ffc001d8000,0000000e88b7b003fffe000000000c003ffffec000000,80180009fc33fc00fffa00000380041dffffffeffc801,00fffbfe725d8f00fff800001ff000edfffffffffffdf,e0ffffffffff87c1ff8000007ffebffdfffffffffffff,31fffffffffd1f80fc01e000f9ebfffffffffffffffff,00fffffffff8034078000003e7fffffffffffffffffff,01fdffffffe01e0038000007e7ffffffffffffffff2f0,007807ffffe01e4000000007e3ffffffffffffff82200,001001fffff80fe000000182c7fffffffffffffe00f00,0080007fffff9ff8000003820ffffffffffffffc00e00,0000007fffff9ffc000006cfffffffffffffffffc0800,0000003ffffffffc000000dfffffffffffffffff40000,00000017ffffff460000007fffffffffffffffff40000,0000000fffffffc10000007ffffffffffffffffe40000,0000000fffffff600000007f7f97cffffffffffc00000,0000000ffffffe00000007f19f03cffffffffff8c0000,0000000ffffffc00000003c26f7fe7ffffffffe080000,0000000ffffff000000007c02dffe7fffffff84080000,00000007fffff0000000018740ffe7fffffffe6300000,00000003fffff000000001fe022ffffffffffc4f00000,00000001ffffc000000003ff000ffffffffffc1800000,00000000ffff8000000007ffef7ffffffffffe0000000,000000003fc04000000007ffffffdffffffffe0000000,000000005f80400000001fffffefe7fffffffc0000000,000000002f80000000001fffffe7f41ffffffc0000000,000000000780c00000003ffffff7ff07fffff20000000,000000000786100000007ffffffbfe07fcff000000000,0000000003cc020000003ffffff9fe03f07e800000000,0000000000fc000000003ffffff9f801e07f020000000,00000000000f000000007ffffffde001c01f020000000,000000000003000000003ffffffe8001c01f820000000,0000000000010f0000003fffffff3000c013008000000,000000000000aff000001fffffffe000a012000000000,0000000000001ff800000fffffffe0002000008000000,0000000000001fff00000687ffffc000002c180000000,0000000000001fff80000001ffff80000014380000000,0000000000003fff80000001ffff000000187a0000000,0000000000003fffe0000003fffe0000000c781800000,0000000000003ffffc000001fffc00000006762b80000,0000000000007fffff000000fffc000000020101e0000,0000000000003fffff800000fffc00000001c001f0800,0000000000001fffff000000fffc000000000880d0200,0000000000001ffffe0000007ffc00000000000000000,0000000000000ffffe000000fffc20000000001c40000,0000000000000ffffe000000fffc2000000000fc60040,00000000000003fffc000000fff8e000000001fe60000,00000000000001fffc000000fff0e000000001ffe0000,00000000000001fffc0000007ff0c00000000ffff8080,00000000000001fff00000007ff0c00000001ffff8000,00000000000001ffc00000007fe0800000001ffffc000,00000000000001ffc00000003fc0000000001ffffe000,00000000000003ff800000003fc0000000001ffffe000,00000000000003ff800000001f80000000000ffffe000,00000000000003ff000000001f00000000000f07fc000,00000000000003f8000000000000000000000801f8008,00000000000007fc000000000000000000000000f8004,00000000000007e000000000000000000000000000006,00000000000007a00000000000000000000000003000c,00000000000003c000000000000000000000000010018,000000000000078000000000000000000000000000030,000000000000078000000000000000000000000000000,0000000000000f0000000000000000080000000000000,0000000000000e0000000000000000000000000000000,000000000000070000000000000000000000000000000,000000000000030000000000000000000000000000000,000000000000000000000000000000000000000000000";
+const MAP_W = 1000, MAP_H = 383, MAP_LAT0 = 80, MAP_LAT1 = -58;
+const mapXY = (lon, lat) => [(lon + 180) / 360 * MAP_W, (MAP_LAT0 - lat) / (MAP_LAT0 - MAP_LAT1) * MAP_H];
+
+function worldDotsPath() {
+  const rows = WORLD_ROWS.split(","), cw = MAP_W / 180, rh = MAP_H / rows.length;
+  let d = "";
+  rows.forEach((hex, r) => {
+    const y = ((r + 0.5) * rh).toFixed(1);
+    [...hex].forEach((h, k) => {
+      const v = parseInt(h, 16);
+      for (let b = 0; b < 4; b++) if (v & (8 >> b)) d += `M${((k * 4 + b + 0.5) * cw).toFixed(1)} ${y}h0`;
+    });
+  });
+  return d;
+}
+
 function buildTalks() {
-  const talks = PROFESSIONAL.talks.map((t,i) => `
-    <div class="talk-card-full">
-      <div class="talk-num">${String(PROFESSIONAL.talks.length - i).padStart(2,'0')}</div>
-      <div class="talk-main">
-        <div class="talk-title-full">${t.title}</div>
-        <div class="talk-venue-full">${t.venue}</div>
-      </div>
+  const PL = PROFESSIONAL.talk_places || {};
+  const INV = /\s*\(Invited Speaker\)/i;
+  const T = PROFESSIONAL.talks.map(t => {
+    const parts = t.venue.split(" · ").map(x => x.trim()).filter(Boolean);
+    const date = parts.length > 1 ? parts.pop() : "";
+    const city = t.city || Object.keys(PL).find(c => t.venue.includes(c)) || "";
+    return { ...t, date, city, invited:INV.test(t.venue), event:(parts[0] || "").replace(INV, "") };
+  });
+
+  // How many talks in each city (most first; online last)
+  const count = {};
+  T.forEach(t => { if (t.city) count[t.city] = (count[t.city] || 0) + 1; });
+  const cities = Object.keys(count).sort((a, b) => (!PL[a]) - (!PL[b]) || count[b] - count[a]);
+  const onMap = cities.filter(c => PL[c]);
+  const home = Object.keys(PL).find(c => PL[c].home) || onMap[0];
+  const countries = new Set(onMap.map(c => PL[c].country)).size;
+  const invited = T.filter(t => t.invited).length;
+
+  // Lines from home to every other city
+  const [hx, hy] = home ? mapXY(PL[home].lon, PL[home].lat) : [0, 0];
+  const arcs = home ? onMap.filter(c => c !== home).map((c, i) => {
+    const [x, y] = mapXY(PL[c].lon, PL[c].lat);
+    const mx = (hx + x) / 2, my = Math.min(hy, y) - Math.abs(x - hx) * 0.22;
+    const d = `M${hx.toFixed(1)} ${hy.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}`;
+    return `<path class="mp-arc" data-arc="${c}" pathLength="100" style="--i:${i}" d="${d}"/><path class="mp-flow" data-arc="${c}" pathLength="100" style="--i:${i}" d="${d}"/>`;
+  }).join("") : "";
+
+  const pins = onMap.map((c, i) => {
+    const [x, y] = mapXY(PL[c].lon, PL[c].lat), n = count[c];
+    return `<button type="button" class="mp-pin${c === home ? " home" : ""}${PL[c].label === "left" ? " left" : ""}" data-city="${c}" aria-pressed="false" aria-label="${c}: ${n} talk${n > 1 ? "s" : ""}" style="left:${(x / MAP_W * 100).toFixed(2)}%;top:${(y / MAP_H * 100).toFixed(2)}%;--i:${i}"><span class="d"></span><span class="l">${c}<em>×${n}</em></span></button>`;
+  }).join("");
+
+  const chips = `<button type="button" class="mp-chip on" data-city="" aria-pressed="true">All <em>${T.length}</em></button>` +
+    cities.map(c => `<button type="button" class="mp-chip" data-city="${c}" aria-pressed="false">${c} <em>${count[c]}</em></button>`).join("");
+
+  const PIN = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>`;
+  const WEB = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>`;
+  const list = T.map(t => `
+    <div class="ml-r" data-city="${t.city}">
+      <div><div class="ml-d">${t.date}</div>${t.city ? `<div class="ml-c">${PL[t.city] ? PIN : WEB}<span>${t.city}</span></div>` : ""}</div>
+      <div><div class="ml-t">${t.title}</div><div class="ml-v">${t.event}${t.invited ? `<span class="ml-inv">★ Invited</span>` : ""}</div></div>
     </div>`).join("");
 
+  const stat = (n, label, cls = "") => `<div class="${cls}"><b data-n="${n}">${n}</b><span>${label}</span></div>`;
   document.getElementById("page-talks").innerHTML = `
   <div class="container">
-    <h2 class="section-title" style="margin-bottom:0.5rem;">Talks &amp; Presentations</h2>
-    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:2.5rem;">Invited talks, conference presentations, and research-day talks (newest first)</p>
-    <div class="talks-list">${talks}</div>
+    <h2 class="section-title" style="margin-bottom:1.6rem;">Talks &amp; Presentations</h2>
+    <div class="mp">
+      <div class="mp-head">
+        <div><div class="mp-k">Talks around the world</div><div class="mp-hint">Choose a city to see its talks</div></div>
+        <div class="mp-stats">${stat(T.length, T.length === 1 ? "Talk" : "Talks")}${stat(onMap.length, onMap.length === 1 ? "City" : "Cities")}${stat(countries, countries === 1 ? "Country" : "Countries")}${invited ? stat(invited, "Invited", "g") : ""}</div>
+      </div>
+      <div class="mp-stage">
+        <svg viewBox="0 0 ${MAP_W} ${MAP_H}" aria-hidden="true"><path class="mp-dots" d="${worldDotsPath()}"/>${arcs}</svg>
+        ${pins}
+      </div>
+      <div class="mp-chips">${chips}</div>
+    </div>
+    <div class="ml">${list}</div>
   </div>`;
 }
 
-/* -- CV PAGE -- */
+function setupTalks() {
+  const page = document.getElementById("page-talks"), map = page && page.querySelector(".mp");
+  if (!map) return;
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const pins = page.querySelectorAll(".mp-pin"), chips = page.querySelectorAll(".mp-chip");
+  const rows = page.querySelectorAll(".ml-r"), arcs = page.querySelectorAll("[data-arc]");
+  let current = "";
+
+  // Pick a city: only its talks stay in the list, and its pin and line light up
+  const pick = city => {
+    current = city === current ? "" : city;
+    map.classList.toggle("picked", !!current);
+    pins.forEach(p => { const on = p.dataset.city === current; p.classList.toggle("on", on); p.setAttribute("aria-pressed", on); });
+    chips.forEach(c => { const on = c.dataset.city === current; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+    arcs.forEach(a => a.classList.toggle("on", a.dataset.arc === current));
+    let n = 0;
+    rows.forEach(r => {
+      const show = !current || r.dataset.city === current;
+      r.hidden = !show;
+      if (!show) return;
+      r.classList.add("in");
+      if (calm) return;
+      r.classList.remove("flash"); void r.offsetWidth;
+      r.style.setProperty("--fi", Math.min(n++, 8) * 55 + "ms");
+      r.classList.add("flash");
+    });
+  };
+  pins.forEach(p => p.addEventListener("click", () => pick(p.dataset.city)));
+  chips.forEach(c => c.addEventListener("click", () => pick(c.dataset.city)));
+
+  // Pointing at a talk makes its city's pin grow on the map
+  rows.forEach(r => {
+    const pin = [...pins].find(p => p.dataset.city === r.dataset.city);
+    if (!pin) return;
+    r.addEventListener("pointerenter", () => pin.classList.add("hot"));
+    r.addEventListener("pointerleave", () => pin.classList.remove("hot"));
+  });
+
+  // The numbers count up when the map comes into view
+  const nums = page.querySelectorAll(".mp-stats b");
+  if (calm || !("IntersectionObserver" in window)) return;
+  nums.forEach(b => b.textContent = "0");
+  const io = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    io.disconnect();
+    let t0 = 0;
+    const step = now => {
+      t0 = t0 || now;
+      const k = Math.min(1, (now - t0) / 1200), e = 1 - Math.pow(1 - k, 3);
+      nums.forEach(b => b.textContent = Math.round(e * +b.dataset.n));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    setTimeout(() => requestAnimationFrame(step), 350);
+  }, { threshold:0.3 });
+  io.observe(page.querySelector(".mp-stats"));
+}
+
+/* -- CV PAGE: a wallet-style card with the download button, and iPhone-style lists -- */
 function buildCV() {
-  const refCards = PROFESSIONAL.references.map(r => `
-    <div class="ref-card">
-      <div class="ref-note">${r.note}</div>
-      <div class="ref-name">${r.name}</div>
-      <div class="ref-role">${r.role}</div>
-      <div class="ref-org">${r.org}</div>
-      <a href="mailto:${r.email}" class="ref-email">✉ ${r.email}</a>
-    </div>`).join("");
+  const I = {
+    dl:`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>`,
+    mail:`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`,
+    copy:`<svg class="cp" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><svg class="ok" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
+    chev:`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>`
+  };
+  const initials = n => n.replace(/^(Prof|Dr)\.\s*/, "").split(/\s+/).filter(w => /^[A-Z][a-z]/.test(w)).map(w => w[0]).join("").slice(0, 2);
+  const orgShort = o => o.split(" · ")[0].replace(/^Dept\. of /, "");
+  const tidy = t => t.replace(/\s*\.\s+/g, " · ").replace(/[\s·.]+$/, "");
+  const row = (c, icon, title, sub, end) => `<div class="gl-r"><div class="gl-i" style="--c:${c}">${icon}</div><div><b>${title}</b><span>${sub}</span></div><div class="gl-e">${end}</div></div>`;
+
+  // A barcode made from your name, so it is unique to you
+  let bx = 0, bars = "";
+  [...(PROFILE.name + PROFILE.contact.email)].forEach(ch => {
+    const c = ch.charCodeAt(0), w = 1 + (c % 3);
+    bars += `<rect x="${bx}" width="${w}" height="46"/>`;
+    bx += w + 1 + ((c >> 2) % 3);
+  });
+
+  const hasPdf = !!(CV.cvUrl && CV.cvUrl.trim());
+  const btn = hasPdf
+    ? `<a class="pass-btn" href="${CV.cvUrl}" download>${I.dl} Download CV (PDF)</a>`
+    : `<a class="pass-btn" href="mailto:${PROFILE.contact.email}?subject=${encodeURIComponent("CV request")}">${I.mail} Request my CV</a>`;
+
+  const pass = `<div class="pass-wrap"><div class="pass"><div class="pass-shine"></div>
+      <div class="pass-top"><b>SCP</b><span>Curriculum Vitae</span></div>
+      <div class="pass-id"><div class="pass-ph">${initials(PROFILE.name)}${PROFILE.photo ? `<img src="${PROFILE.photo}" alt="" onerror="this.remove()">` : ""}</div>
+        <div><div class="pass-n">${PROFILE.name}</div><div class="pass-t">${PROFILE.title}</div></div></div>
+      <div class="pass-f">${CV.pass.map(f => `<div${/@/.test(f.value) || f.value.length > 24 ? ' class="wide"' : ""}><small>${f.label}</small><span>${f.value}</span></div>`).join("")}</div>
+      <div class="pass-cut"><i></i><i></i></div>
+      <div class="pass-bot"><svg class="pass-bars" viewBox="0 0 ${bx} 46" preserveAspectRatio="none" fill="#fff" aria-hidden="true">${bars}</svg>${btn}</div>
+    </div></div>`;
+
+  const edu = EDUCATION.map(e => row("#0891b2", "🎓", e.degree, `${e.school}${e.badge ? ` · <em>🥇 ${e.badge}</em>` : ""}`, e.period)).join("");
+  const R = CV.recent || { academic:4, industry:1 };
+  const exp = [
+    ...EXPERIENCE.academic.slice(0, R.academic).map(e => row("#7c3aed", "🔬", e.role, orgShort(e.org), e.period)),
+    ...EXPERIENCE.industry.slice(0, R.industry).map(e => row("#059669", "⚡", e.role, orgShort(e.org), e.period))
+  ].join("") + `<button type="button" class="gl-r gl-more" onclick="showPage('experience')"><div class="gl-i">→</div><div>See all experience</div><div class="gl-e">${I.chev}</div></button>`;
+  const refs = PROFESSIONAL.references.map(r => row("linear-gradient(135deg,var(--teal),#7c3aed)", initials(r.name), r.name, `${r.note} · ${tidy(r.role)}`,
+    `<a class="gl-act" href="mailto:${r.email}" title="Email ${r.email}">${I.mail}</a><button type="button" class="gl-act" data-copy="${r.email}" title="Copy ${r.email}">${I.copy}</button>`)).join("");
 
   document.getElementById("page-cv").innerHTML = `
   <div class="container">
-    <h2 class="section-title" style="margin-bottom:1.5rem;">Curriculum Vitae</h2>
-    <a class="cv-download" href="#" onclick="alert('Please link your CV PDF here. Edit PROFILE.cvUrl in the data section.')">↓ Download Full CV</a>
-
-    <div class="cv-section">
-      <div class="cv-section-header">Personal Information</div>
-      <div class="cv-row"><div class="cv-label">Full Name</div><div class="cv-value">${PROFILE.name}</div></div>
-      <div class="cv-row"><div class="cv-label">Email</div><div class="cv-value"><a href="mailto:${PROFILE.contact.email}" style="color:var(--teal-light);">${PROFILE.contact.email}</a></div></div>
-      <div class="cv-row"><div class="cv-label">Location</div><div class="cv-value">${PROFILE.contact.location}</div></div>
-      <div class="cv-row"><div class="cv-label">Lab</div><div class="cv-value">${PROFILE.lab}, ${PROFILE.university}</div></div>
-    </div>
-
-    <div class="cv-section">
-      <div class="cv-section-header">Research Interests</div>
-      <div class="cv-value" style="line-height:1.8;">${PROFILE.research_tags.join(" · ")}</div>
-    </div>
-
-    <div class="cv-section">
-      <div class="cv-section-header">Education</div>
-      ${EDUCATION.map(e=>`<div class="cv-row"><div class="cv-label">${e.period}</div><div class="cv-value"><strong>${e.degree}</strong> · ${e.school}${e.badge?` · <em>${e.badge}</em>`:""}</div></div>`).join("")}
-    </div>
-
-    <div class="cv-section">
-      <div class="cv-section-header">References</div>
-      <div class="ref-grid">${refCards}</div>
+    <h2 class="section-title" style="margin-bottom:1.6rem;">Curriculum Vitae</h2>
+    <div class="wl">${pass}
+      <div>
+        <div class="gl-h">Education</div><div class="gl">${edu}</div>
+        <div class="gl-h">Recent experience</div><div class="gl">${exp}</div>
+        <div class="gl-h">Research interests</div><div class="gl gl-chips">${PROFILE.research_tags.map(t => `<span class="cv-chip">${t}</span>`).join("")}</div>
+        <div class="gl-h">References</div><div class="gl">${refs}</div>
+      </div>
     </div>
   </div>`;
+}
+
+function setupCV() {
+  const pass = document.querySelector("#page-cv .pass");
+  if (!pass) return;
+  // The card tilts toward the mouse and catches the light
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches, calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (fine && !calm) {
+    pass.addEventListener("pointermove", e => {
+      const r = pass.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      pass.classList.add("live");
+      pass.style.setProperty("--ry", ((x - 0.5) * 16).toFixed(2) + "deg");
+      pass.style.setProperty("--rx", ((0.5 - y) * 12).toFixed(2) + "deg");
+      pass.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+      pass.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+    });
+    pass.addEventListener("pointerleave", () => {
+      pass.classList.remove("live");
+      ["--ry", "--rx", "--gx", "--gy"].forEach(p => pass.style.removeProperty(p));
+    });
+  }
+  // Copy a reference's email
+  document.querySelectorAll("#page-cv [data-copy]").forEach(b => b.addEventListener("click", () => {
+    const done = () => { b.classList.add("done"); setTimeout(() => b.classList.remove("done"), 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(done, done); else done();
+  }));
+}
+
+/* -- LIGHT / DARK SWITCH -- */
+function setupThemeSwitch() {
+  const root = document.documentElement;
+  const btn  = document.getElementById("theme-switch");
+  if (!btn) return;
+  const sync = () => {
+    const light = root.getAttribute("data-theme") === "light";
+    btn.setAttribute("aria-checked", light ? "true" : "false");
+    btn.title = light ? "Switch to dark mode" : "Switch to light mode";
+  };
+  btn.addEventListener("click", () => {
+    const goLight = root.getAttribute("data-theme") !== "light";
+    const apply = () => {
+      if (goLight) root.setAttribute("data-theme", "light");
+      else root.removeAttribute("data-theme");
+      try { localStorage.setItem("scp-theme", goLight ? "light" : "dark"); } catch (e) {}
+      sync();
+    };
+    const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || calm) { apply(); return; }
+    // The new theme spreads out in a circle from the switch
+    const r = btn.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const t = document.startViewTransition(apply);
+    t.ready.then(() => {
+      root.animate(
+        { clipPath:[`circle(0px at ${x}px ${y}px)`, `circle(${end}px at ${x}px ${y}px)`] },
+        { duration:700, easing:"cubic-bezier(.2,.7,.2,1)", pseudoElement:"::view-transition-new(root)" }
+      );
+    }).catch(() => {});
+  });
+  sync();
 }
 
 /* -- INIT -- */
 document.addEventListener('DOMContentLoaded', function() {
   try {
+    setupThemeSwitch();
     buildNav();
     buildAbout();
+    buildResearch();
     buildExperience();
     buildPublications();
     buildAwards();
     buildProfessional();
     buildTalks();
     buildCV();
+    setupSidePanel();
+    setupTalks();
+    setupCV();
+    setupReveal();
+    setupMotion();
+    sizeTicker();
+    window.addEventListener("resize", sizeTicker);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeTicker);
   } catch(e) {
     document.body.innerHTML += '<div style="color:red;padding:2rem;font-family:monospace;">JS Error: ' + e.message + '<br>' + e.stack + '</div>';
   }
