@@ -393,6 +393,9 @@
   .mp-pin .d::after { content:''; position:absolute; inset:-1px; border-radius:50%; border:2px solid currentColor; opacity:0; }
   .mp-pin .l { position:absolute; top:-12px; left:16px; white-space:nowrap; font:600 0.72rem/1 'DM Sans',sans-serif; color:var(--text-main); padding:0.4rem 0.55rem; border-radius:8px; background:color-mix(in srgb, var(--navy) 86%, transparent); border:1px solid var(--border); backdrop-filter:blur(6px); transition:border-color 0.3s ease, opacity 0.4s ease; }
   .mp-pin.left .l { left:auto; right:16px; }
+  .mp-pin.above .l { top:auto; bottom:14px; left:0; transform:translateX(-50%); }
+  .mp-pin.below .l { top:14px; left:0; transform:translateX(-50%); }
+  @media (max-width:980px) { .mp-pin .l { display:none; } }
   .mp-pin .l em { font-style:normal; font-family:'DM Mono',monospace; color:var(--gold); margin-left:0.25rem; }
   .mp-pin:hover .d, .mp-pin.hot .d, .mp-pin.on .d { scale:1.4; }
   .mp-pin:hover .l, .mp-pin.hot .l, .mp-pin.on .l { border-color:var(--gold); }
@@ -434,7 +437,25 @@
   .ml-inv { display:inline-block; font:700 0.6rem 'DM Sans',sans-serif; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy); background:var(--gold); padding:0.12rem 0.45rem; border-radius:100px; margin-left:0.35rem; vertical-align:1px; white-space:nowrap; }
   .ml-r.flash { animation:ml-in 0.5s var(--ease) var(--fi,0ms) both; }
   @keyframes ml-in { from { opacity:0; transform:translateY(10px); } }
-  @media (max-width:860px) { .ml { grid-template-columns:1fr; } }
+  /* Workshops & tutorials */
+  .wk-head { margin:2.6rem 0.2rem 1rem; }
+  .wk { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+  .wk-c { position:relative; overflow:hidden; padding:1.2rem 1.3rem 1.15rem 1.5rem; border-radius:18px; border:1px solid var(--border); background-color:var(--card); }
+  .wk-c.tutorial { --c:#a78bfa; } .wk-c.workshop { --c:#34d399; }
+  :root[data-theme="light"] .wk-c.tutorial { --c:#7c3aed; } :root[data-theme="light"] .wk-c.workshop { --c:#047857; }
+  .wk-c::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--c); }
+  .wk-c:hover { border-color:color-mix(in srgb, var(--c) 55%, transparent); box-shadow:var(--shadow-hover); }
+  .wk-top { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.7rem; }
+  .wk-ty { display:inline-flex; align-items:center; gap:0.4rem; font:700 0.64rem 'DM Sans',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:var(--c); padding:0.3rem 0.65rem 0.3rem 0.5rem; border-radius:100px; background:color-mix(in srgb, var(--c) 14%, transparent); border:1px solid color-mix(in srgb, var(--c) 40%, transparent); }
+  .wk-ty svg { width:14px; height:14px; }
+  .wk-up { font:700 0.6rem 'DM Sans',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--navy); background:var(--gold); padding:0.25rem 0.55rem; border-radius:100px; }
+  .wk-d { margin-left:auto; font:600 0.74rem 'DM Mono',monospace; color:var(--teal); }
+  .wk-t { font-weight:600; font-size:0.95rem; color:var(--text-main); line-height:1.45; }
+  .wk-v { font-size:0.78rem; color:var(--text-muted); margin-top:0.35rem; line-height:1.5; }
+  .wk-l { display:inline-flex; align-items:center; gap:0.3rem; margin-top:0.8rem; font:600 0.78rem 'DM Sans',sans-serif; color:var(--teal-light); text-decoration:none; }
+  .wk-l span { transition:transform 0.25s var(--ease); }
+  .wk-l:hover span { transform:translate(2px,-2px); }
+  @media (max-width:860px) { .ml, .wk { grid-template-columns:1fr; } }
   @media (max-width:700px) {
     .mp { padding:1rem 0.7rem 0.9rem; border-radius:18px; }
     .mp-head { margin:0 0.3rem 0.6rem; }
@@ -825,22 +846,22 @@ const EDUCATION = [
     degree: "BScEng (Hons) - Electrical & Electronic Engineering",
     school: "University of Jaffna, Sri Lanka",
     period: "Oct. 2016 – Jan. 2021",
-    details: ["GPA: 3.75/4.00 - First Class Honours", "Thesis: System and Method for Automobile Emission (Patent: WIPO PCT WO 2022/185119 A1)", "First International Patent in the History of the University of Jaffna, Sri Lanka (Established in 1974)"],
+    details: ["GPA: 3.75/4.00 - First Class Honours", "Thesis: System and Method for Automobile Emission (Patent: WIPO PCT WO 2022/185119 A1)"],
     badge: "Gold Medalist · Field Top"
   }
 ];
 
 /* -- NEWS  (newest first) -- */
 const NEWS = [
-  { date:"Nov-2026",    gold:true,  text:"I Presented <strong>Distributed Multimodal LLM Inference in 6G ISTNs</strong> at the FEAS Annual Research Day, Memorial University." },
+  { date:"Nov-2026",    gold:true,  text:"Presented <strong>Distributed Multimodal LLM Inference in 6G ISTNs</strong> at the FEAS Annual Research Day, Memorial University." },
   { date:"Oct-2026",    gold:true,  text:"I participated in <a href=\"https://qhack.ai/\" target=\"_blank\" rel=\"noopener\"><strong>QHack 2026: Quantum Coding Championship</strong></a>, organized by Xanadu (October 16–23)." },
-  { date:"Aug-2026",    gold:true,  text:"I Presented <strong>Quantum Machine Learning for Wireless-Powered UAV Positioning</strong> at the ASPIRE-CRC-TCA International Workshop, Memorial University." },
+  { date:"Aug-2026",    gold:true,  text:"Presented <strong>Quantum Machine Learning for Wireless-Powered UAV Positioning</strong> at the ASPIRE-CRC-TCA International Workshop, Memorial University." },
   { date:"Jul-2026",    gold:true,  text:"Achieved 1st place overall in Canada in the Capstone Challenge of the IBM Quantum Road to Practitioner (R2P) Program." },
   { date:"Jul-2026",    gold:true,  text:"Successfully completed the IBM Quantum Road to Practitioner (R2P) Program" },
   { date:"Jul-2026",    gold:true,  text:"Won Bronze Award - ISIT 2026 Global Quantum Hackathon." },
   { date:"Jun-2026",    gold:true,  text:"I participated in the Quantum Dice Competition 2026." },
   { date:"May-2026",    gold:true,  text:"<strong>Top 3 Team</strong> — IBM watsonx Hackathon 2026, organized by IBM and MUN." },
-  { date:"May-2026",    gold:true,  text:"I served as an invited speaker for the ASEAN AI Hackathon 2026 Special Bonus Workshop on Generative AI for Future Innovators." },
+  { date:"May-2026",    gold:true,  text:"I served as an invited speaker for the ASEAN AI Hackathon 2026 Special Bonus Workshop on Generative AI for Future Innovators in Da Nang, Vietnam." },
   { date:"May-2026",    gold:true,  text:"I participated in the IBM Bob Hackathon 2026." },
   { date:"Apr-2026",    gold:true,  text:"I served as an invited speaker for a session on Reinforcement Learning at the UIT-VNUHCM, Vietnam." },
   { date:"Jan-2026",    gold:true,  text:"<strong>1st Place</strong> — Canadian Medical Datathon 2026. Local winner for Newfoundland & Labrador." },
@@ -1000,12 +1021,14 @@ const PROFESSIONAL = {
      "badge" = the short text shown inside each hexagon badge. */
   journal_reviewer: [
     { name:"IEEE Transactions on Mobile Computing", badge:"TMC", year:"2026" },
+    { name:"IEEE Network", badge:"NET", year:"2026" },
     { name:"IEEE Transactions on Vehicular Technology", badge:"TVT", year:"2026" },
     { name:"IEEE Journal on Selected Areas in Communications", badge:"JSAC", year:"2025/2026" },
     { name:"IEEE Internet of Things Journal", badge:"IoTJ", year:"2025/2026" },
     { name:"IEEE Communications Surveys & Tutorials", badge:"COMST", year:"2025/2026" },
     { name:"IEEE Transactions on Network Science and Engineering", badge:"TNSE", year:"2026" },
     { name:"ACM Computing Surveys", badge:"CSUR", year:"2026" },
+    { name:"Springer Nature – Discover Computing", badge:"DC", year:"2026" },
     { name:"Springer Nature – Telecommunications Systems", badge:"TS", year:"2026" },
     { name:"Springer Nature – Wireless Personal Communications", badge:"WPC", year:"2026" },
     { name:"Springer Nature – Theoretical and Applied Climatology", badge:"TAC", year:"2026" },
@@ -1042,13 +1065,15 @@ const PROFESSIONAL = {
     { icon:"🔒", badge:"CNSS",  name:"ICSI — CNSS Certified Network Security Specialist" }
   ],
   /* TALK MAP: every city you give a talk in needs one line here (find latitude/longitude on Google Maps).
-     "home" is where the lines on the map start. label:"left" puts the city name on the left of its pin. */
+     "home" is where the lines on the map start. label:"left", "above" or "below" moves the city name
+     to that side of its pin, for cities that sit close together. */
   talk_places: {
     "St. John's":       { lat:47.56, lon:-52.71,  country:"Canada", home:true },
     "Montreal":         { lat:45.50, lon:-73.57,  country:"Canada", label:"left" },
     "Tokyo":            { lat:35.69, lon:139.69,  country:"Japan" },
-    "Taipei":           { lat:25.03, lon:121.56,  country:"Taiwan" },
-    "Ho Chi Minh City": { lat:10.76, lon:106.66,  country:"Vietnam" },
+    "Taipei":           { lat:25.03, lon:121.56,  country:"Taiwan", label:"above" },
+    "Da Nang":          { lat:16.05, lon:108.20,  country:"Vietnam" },
+    "Ho Chi Minh City": { lat:10.76, lon:106.66,  country:"Vietnam", label:"below" },
     "Jaffna":           { lat:9.66,  lon:80.01,   country:"Sri Lanka", label:"left" }
   },
   /* TALKS: newest first. venue = "Event · Place · Date" (add "(Invited Speaker)" after the event for invited talks).
@@ -1056,7 +1081,7 @@ const PROFESSIONAL = {
   talks: [
     { title:"Distributed Multimodal LLM Inference in 6G ISTNs: A Digital Twin and Quantum Reservoir Computing-aided DRL Approach", venue:"FEAS Annual Research Day · Memorial University, St. John's · Nov. 2026", city:"St. John's" },
     { title:"Quantum Machine Learning for Wireless-Powered UAV Positioning in 6G Digital Twin SAGIN with Cooperative Nano-Satellite Constellations", venue:"ASPIRE-CRC-TCA International Workshop · Memorial University, St. John's · Aug. 2026", city:"St. John's" },
-    { title:"Generative AI for Future Innovators", venue:"ASEAN AI Hackathon 2026 Special Bonus Workshop (Invited Speaker) · May 2026", city:"Online" },
+    { title:"Generative AI for Future Innovators", venue:"ASEAN AI Hackathon 2026 Special Bonus Workshop (Invited Speaker) · Da Nang, Vietnam · May 2026", city:"Da Nang" },
     { title:"Introduction to Reinforcement Learning: How Machines Learn Through Trial and Error", venue:"UIT-VNUHCM, Vietnam (Invited Speaker) · Apr. 2026", city:"Ho Chi Minh City" },
     { title:"Quantum DRL for Green UAV Positioning in 6G-Enabled SAGIN with Cooperative Nano-Satellite Constellations", venue:"IEEE GLOBECOM 2025 · Taipei, Taiwan · Dec. 2025", city:"Taipei" },
     { title:"Multimodal LLM Inference in DT–Enabled 6G ISTNs: A Quantum Deep Reinforcement Learning Approach", venue:"Global Information and Telecommunication Workshop · Tokyo, Japan · Dec. 2025", city:"Tokyo" },
@@ -1067,6 +1092,12 @@ const PROFESSIONAL = {
     { title:"Quantum DRL for UAV-RIS-aided Maritime Communications with 6G Digital Twin Applications", venue:"IBM Delegation Visit Event · Memorial University, St. John's · 2024", city:"St. John's" },
     { title:"Aerial Reconfigurable Intelligent Surface-enabled SAGIN with LSTM-enhanced DRL Model", venue:"FEAS Annual Research Day · Memorial University, St. John's · 2024", city:"St. John's" },
     { title:"Internet of Things in Embedded Systems", venue:"IEEE School on Computational Intelligence · University of Jaffna, Sri Lanka (Invited Speaker) · 2023", city:"Jaffna" }
+  ],
+  /* WORKSHOPS & TUTORIALS you gave: newest first. type = "Tutorial" or "Workshop".
+     date = "2027" or "Oct. 2026" etc. A date later than today shows an "Upcoming" tag. link is optional. */
+  workshops: [
+    { type:"Tutorial", title:"Introduction of Quantum Machine Learning and Optimization for Wireless Networks", event:"EAI INISCOM 2027 · Tutorial Session", date:"2027", link:"https://iniscom.eai-conferences.org/2027/tutorial-session/" },
+    { type:"Workshop", title:"Quantum Machine Learning", event:"IBM Qiskit Fall Fest 2026 · Memorial University, St. John's", date:"2026" }
   ],
   volunteering: [
     { name:"Judge — INNOVA at Tech Sri Lanka 2025 (IEEE Computer Society, Wayamba University)", badge:"Judge", year:"2025" },
@@ -1399,7 +1430,7 @@ const REVEAL_SELECTOR = [
   ".intro-greeting", ".intro-name", ".intro-title", ".intro-bio", ".bio-quote", ".tag",
   ".eb-row", ".nk-band", ".nl-year", ".nl-row", ".sub-section-label", ".ad-row",
   ".ph-sec", ".ph-f", ".ph-row", ".pub-empty", ".aw-tile",
-  ".hx-lead", ".hx-head", ".hx", ".mp", ".ml-r", ".pass-wrap", ".gl-h", ".gl-r", ".gl-chips",
+  ".hx-lead", ".hx-head", ".hx", ".mp", ".ml-r", ".wk-head", ".wk-c", ".pass-wrap", ".gl-h", ".gl-r", ".gl-chips",
   ".r-eyebrow", ".r-headline", ".r-intro", ".rc-card"
 ].join(",");
 
@@ -1437,7 +1468,7 @@ function setupMotion() {
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   // Spotlight that follows the mouse on cards
-  const SPOT = ".ph-f, .ph-row, .aw-tile, .ad-row, .ml-r, .gl-r, .rc-card, .sp-link";
+  const SPOT = ".ph-f, .ph-row, .aw-tile, .ad-row, .ml-r, .wk-c, .gl-r, .rc-card, .sp-link";
   document.querySelectorAll(SPOT).forEach(el => el.classList.add("spot"));
   if (finePointer) {
     document.addEventListener("pointermove", e => {
@@ -1824,7 +1855,7 @@ function buildTalks() {
 
   const pins = onMap.map((c, i) => {
     const [x, y] = mapXY(PL[c].lon, PL[c].lat), n = count[c];
-    return `<button type="button" class="mp-pin${c === home ? " home" : ""}${PL[c].label === "left" ? " left" : ""}" data-city="${c}" aria-pressed="false" aria-label="${c}: ${n} talk${n > 1 ? "s" : ""}" style="left:${(x / MAP_W * 100).toFixed(2)}%;top:${(y / MAP_H * 100).toFixed(2)}%;--i:${i}"><span class="d"></span><span class="l">${c}<em>×${n}</em></span></button>`;
+    return `<button type="button" class="mp-pin${c === home ? " home" : ""}${PL[c].label ? " " + PL[c].label : ""}" data-city="${c}" aria-pressed="false" aria-label="${c}: ${n} talk${n > 1 ? "s" : ""}" style="left:${(x / MAP_W * 100).toFixed(2)}%;top:${(y / MAP_H * 100).toFixed(2)}%;--i:${i}"><span class="d"></span><span class="l">${c}<em>×${n}</em></span></button>`;
   }).join("");
 
   const chips = `<button type="button" class="mp-chip on" data-city="" aria-pressed="true">All <em>${T.length}</em></button>` +
@@ -1837,6 +1868,22 @@ function buildTalks() {
       <div><div class="ml-d">${t.date}</div>${t.city ? `<div class="ml-c">${PL[t.city] ? PIN : WEB}<span>${t.city}</span></div>` : ""}</div>
       <div><div class="ml-t">${t.title}</div><div class="ml-v">${t.event}${t.invited ? `<span class="ml-inv">★ Invited</span>` : ""}</div></div>
     </div>`).join("");
+
+  // Workshops & tutorials, under the talks
+  const WK = { Tutorial:{ c:"tutorial", i:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/></svg>` },
+               Workshop:{ c:"workshop", i:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 9l-2 1.5L9 12M15 9l2 1.5L15 12"/></svg>` } };
+  const MON = { jan:0, feb:1, mar:2, apr:3, may:4, jun:5, jul:6, aug:7, sep:8, oct:9, nov:10, dec:11 };
+  const upcoming = d => { const y = +(d.match(/\d{4}/) || [0])[0], m = MON[(d.toLowerCase().match(/[a-z]{3}/) || [""])[0]], now = new Date();
+    return y > now.getFullYear() || (y === now.getFullYear() && m !== undefined && m > now.getMonth()); };
+  const W = PROFESSIONAL.workshops || [];
+  const workshops = !W.length ? "" : `
+    <div class="wk-head"><div class="mp-k">Workshops &amp; Tutorials</div><div class="mp-hint">Tutorials and hands-on workshops</div></div>
+    <div class="wk">${W.map(w => { const T = WK[w.type] || WK.Workshop;
+      return `<div class="wk-c ${T.c}">
+        <div class="wk-top"><span class="wk-ty">${T.i}${w.type}</span>${upcoming(w.date) ? `<span class="wk-up">Upcoming</span>` : ""}<span class="wk-d">${w.date}</span></div>
+        <div class="wk-t">${w.title}</div><div class="wk-v">${w.event}</div>
+        ${w.link ? `<a class="wk-l" href="${w.link}" target="_blank" rel="noopener">Session details <span>↗</span></a>` : ""}
+      </div>`; }).join("")}</div>`;
 
   const stat = (n, label, cls = "") => `<div class="${cls}"><b data-n="${n}">${n}</b><span>${label}</span></div>`;
   document.getElementById("page-talks").innerHTML = `
@@ -1854,6 +1901,7 @@ function buildTalks() {
       <div class="mp-chips">${chips}</div>
     </div>
     <div class="ml">${list}</div>
+    ${workshops}
   </div>`;
 }
 
